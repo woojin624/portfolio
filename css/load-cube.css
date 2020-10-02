@@ -1,0 +1,139 @@
+/* 페이지가 로딩되었을 때 가운데 나타나는 큐브의 애니메이션을 통제하는 css */
+body.scroll {
+    overflow-y: hidden;
+}
+
+section.loading-cube {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 5000;
+    animation: loading-back 0.5s 2.6s ease-in forwards;
+    pointer-events: none;
+}
+
+section.loading-cube > div.cube {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transition: 0.5s;
+    left: -7px;
+    /* top: -7px; */
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    /* transform: rotateX(55deg) rotateY(180deg) rotateZ(45deg); */
+}
+section.loading-cube .cube3d {
+    animation: to3D 1s 1.6s ease-out forwards;
+}
+section.loading-cube > div.cube div {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+section.loading-cube > div.cube div.front {
+    transform: translateZ(50px);
+    /* box-shadow: -28px 28px 52px 28px rgba(128, 128, 128, 0.755); */
+    animation: toRec 1.5s forwards;
+}
+section.loading-cube > div.cube div.back {
+    transform: translateZ(-50px) rotateY(180deg);
+
+    visibility: hidden;
+    animation: toCube 0.1s 1.5s forwards;
+}
+section.loading-cube > div.cube div.left {
+    transform: rotateY(-90deg) translateZ(50px);
+    visibility: hidden;
+    animation: toCube 0.1s 1.5s forwards;
+}
+section.loading-cube > div.cube div.right {
+    transform: rotateY(90deg) translateZ(50px);
+    visibility: hidden;
+    animation: toCube 0.1s 1.5s forwards;
+}
+section.loading-cube > div.cube div.top {
+    transform: rotateX(90deg) translateZ(50px);
+    visibility: hidden;
+    animation: toCube 0.1s 1.5s forwards;
+}
+section.loading-cube > div.cube div.bottom {
+    /* background-color: rgb(242, 242, 242); */
+    transform: rotateX(-90deg) translateZ(50px);
+    visibility: hidden;
+    animation: toCube 0.1s 1.5s forwards;
+}
+
+@keyframes toRec {
+    from {
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        border: 3px solid black;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    20% {
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        border: 3px solid black;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    60% {
+        width: 100px;
+        height: 6px;
+        border-radius: 1px;
+        border: 3px solid black;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) translateZ(50px);
+    }
+}
+
+@keyframes toCube {
+    from {
+        visibility: visible;
+    }
+    to {
+        visibility: visible;
+    }
+}
+
+@keyframes to3D {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to {
+        transform: rotateX(55deg) rotateY(180deg) rotateZ(45deg);
+    }
+}
+
+@keyframes loading-back {
+    from {
+        background-color: rgba(255, 255, 255, 1);
+        pointer-events: auto;
+    }
+    to {
+        background-color: rgba(255, 255, 255, 0);
+        pointer-events: none;
+    }
+}

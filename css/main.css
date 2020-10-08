@@ -5,7 +5,7 @@ header {
     top: 0;
     left: 0;
     z-index: 999;
-    /* pointer-events: none; */
+    pointer-events: none;
 }
 header > span.mail {
     position: fixed;
@@ -104,7 +104,7 @@ header > div.cube-logo > div.cube div.bottom {
 section.main {
     position: relative;
     width: 100vw;
-    height: 8000px;
+    height: 12000px;
     z-index: 99;
     /* display: none; */
 }
@@ -116,7 +116,7 @@ p.hello {
     top: 30%;
     text-align: center;
     line-height: 2.5;
-    font-weight: 300;
+    font-weight: 500;
     transform: translate(-50%, -50%);
     z-index: 101;
     pointer-events: none;
@@ -186,25 +186,7 @@ div.scroll-down > div.arrow > div.right {
         opacity: 0;
     }
 }
-
-div.circle {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transition: 0.1s;
-    width: 0px;
-    height: 0px;
-    border-radius: 50%;
-    /* border: 10px solid black; */
-    background-color: #000;
-    transform: translate(-50%, -50%);
-    transform-origin: top;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* 라인 멘트  */
 div.line-ment {
     position: fixed;
     width: 100vw;
@@ -214,7 +196,7 @@ div.line-ment {
     /* transform: translate(-50%, -50%); */
     font-size: 36px;
     line-height: 1.5;
-    font-weight: 300;
+    font-weight: 400;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -254,6 +236,31 @@ div.line-ment > .right > p {
     transform: translate(0, -50%);
     transition: 0.1s;
 }
+
+/* 프로필 박스  */
+/* div.circle > div.profile-wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.1s;
+} */
+div.circle > img.profile-image {
+    width: 100%;
+    height: 100%;
+    transition: 0.1s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    opacity: 0%;
+    /* opacity: ; */
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* 프로필 박스 멘트 */
 div.box-ment {
     z-index: 70;
 }
@@ -281,4 +288,156 @@ div.box-ment > p {
     transform: translate(-50%, -50%);
     z-index: 2;
     transition: 0.1s;
+}
+div.skill-intro {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20000px;
+    font-size: 0px;
+    font-weight: 700;
+    z-index: 300;
+    transition: 0.01s;
+}
+
+div.skill-intro > p {
+    text-align: center;
+    mix-blend-mode: difference;
+    color: white;
+    line-height: 1.2;
+    transition: 0.01s;
+}
+
+/* 스킬들 설명  */
+
+div.skill-wrap > div.centerCircle {
+    /* background: rgb(255, 255, 255); */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
+    width: 65vw;
+    height: 65vw;
+    min-width: 760px;
+    min-height: 760px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+div.skill-wrap {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    z-index: 400;
+    display: none;
+    transition: 0.1s;
+    background-color: black;
+}
+div.skill-wrap > div.bottom {
+    position: absolute;
+    left: 50%;
+    top: 500px;
+    /* transform: translate(, 0); */
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transition: 0.1s;
+}
+div.skill-wrap > div.bottom > img {
+    width: 100%;
+    height: 100%;
+}
+div.skill-wrap > div.bottom > p.title {
+    position: absolute;
+    width: 150px;
+    font-size: 24px;
+    font-weight: 600;
+    color: orange;
+    top: 50%;
+    left: 75px;
+    transform: translate(0, -50%);
+}
+div.skill-wrap > div.bottom > p.description {
+    top: 65px;
+    position: absolute;
+    font-size: 18px;
+    font-size: 300;
+    color: lightgray;
+    max-width: 500px;
+    width: 400px;
+    line-height: 1.2;
+}
+
+/* 공통 부분 */
+div.skill-wrap > div.bottom div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transition: 0.1s;
+}
+
+div.skill-wrap > div.bottom > div img {
+    width: 100%;
+    height: 100%;
+}
+
+div.skill-wrap > div.bottom > div p.title {
+    width: 150px;
+    position: absolute;
+    font-size: 24px;
+    font-weight: 600;
+    top: 50%;
+    left: 75px;
+    transform: translate(0, -50%);
+}
+
+div.skill-wrap > div.bottom > div p.description {
+    top: 65px;
+    position: absolute;
+    font-size: 18px;
+    font-weight: 300;
+    color: lightgray;
+    max-width: 500px;
+    width: 400px;
+    line-height: ;
+}
+/* 여기까지 공통 부분 */
+
+div.skill-wrap > div.bottom > div.front {
+    bottom: -200px;
+}
+div.skill-wrap > div.bottom > div.front > p.title {
+    color: blue;
+}
+
+div.skill-wrap > div.bottom > div.back {
+    bottom: -400px;
+}
+div.skill-wrap > div.bottom > div.back > p.title {
+    color: yellow;
+}
+
+div.skill-wrap > div.bottom > div.left {
+    bottom: -600px;
+}
+div.skill-wrap > div.bottom > div.left > p.title {
+    color: cornflowerblue;
+}
+div.skill-wrap > div.bottom > div.right {
+    bottom: -800px;
+}
+div.skill-wrap > div.bottom > div.right > p.title {
+    color: cyan;
+}
+div.skill-wrap > div.bottom > div.right > div.top {
+    bottom: -200px;
+}
+div.skill-wrap > div.bottom > div.right > div.top > p.title {
+    color: red;
 }

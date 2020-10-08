@@ -16,9 +16,19 @@ const loadingCubeCube = document.querySelector('section.loading-cube > div.cube'
 const lineMentLeft = document.querySelector('div.line-ment > .left > p ');
 const lineMentRight = document.querySelector('div.line-ment > .right > p ');
 const lineMentBox = document.querySelector('.line-ment');
+const profileImage = document.querySelector('div.circle > img.profile-image');
 const mentBoxWrap = document.querySelector('.box-ment');
 const mentBox = document.querySelector('.box-ment > .box');
 const mentInBox = document.querySelector('.box-ment > p');
+const skillIntro = document.querySelector('div.skill-intro');
+const skillIntroP = document.querySelector('div.skill-intro > p ');
+const skillWrap = document.querySelector('div.skill-wrap');
+const skillBottom = document.querySelector('div.skill-wrap > div.bottom');
+const skillFront = document.querySelector('div.skill-wrap > div.bottom > div.front');
+const skillBack = document.querySelector('div.skill-wrap > div.bottom > div.back');
+const skillLeft = document.querySelector('div.skill-wrap > div.bottom > div.left');
+const skillRight = document.querySelector('div.skill-wrap > div.bottom > div.right');
+const skillTop = document.querySelector('div.skill-wrap > div.bottom > div.right > div.top');
 let value;
 
 // 페이지 로딩되기 직전 스크롤 맨위로
@@ -85,7 +95,7 @@ window.addEventListener('scroll', function () {
         // 써클 초기화
         circle.style.width = 0 + 'px'; //
         circle.style.height = 0 + 'px';
-        circle.style.borderRadius = 10 + 'px';
+        circle.style.borderRadius = 5 + 'px';
         circle.style.border = '0';
     } else {
         // 로딩화면 요소 처리
@@ -126,26 +136,26 @@ window.addEventListener('scroll', function () {
     //여기부터 오브젝트 놀이 시작
 
     if (value >= 400 && value < 500) {
-        circle.style.width = (value - 400) / 5 + 'px'; // width = 10px
-        circle.style.height = (value - 400) / 5 + 'px'; // height = 20px
+        circle.style.width = (value - 400) / 10 + 'px'; // width = 10px
+        circle.style.height = (value - 400) / 10 + 'px'; // height = 20px
         circle.style.backgroundColor = '#000'; // back = black
-        circle.style.border = '10px solid black';
-        circle.style.borderRadius = 10 + 'px';
+        circle.style.border = '5px solid black';
+        circle.style.borderRadius = 5 + 'px';
         circle.style.transition = '0.1s';
         circle.style.transform = 'translate(-50%, -50%)';
     }
 
     if (value >= 500) {
-        circle.style.width = 20 + 'px'; // width = 20px
-        circle.style.height = 20 + 'px'; // height = 20px
+        circle.style.width = 10 + 'px'; // width = 20px
+        circle.style.height = 10 + 'px'; // height = 20px
     }
     if (value >= 500 && 1250 > value) {
-        circle.style.border = '10px solid black';
+        circle.style.border = '5px solid black';
         circle.style.transform = 'translate(-50%, -50%)';
         circle.style.transition = '0.1s';
     }
     if (value >= 500 && value < 1500) {
-        circle.style.width = 20 + (value - 500) * 3 + 'px';
+        circle.style.width = 10 + (value - 500) * 3 + 'px';
     }
     if (value > 1500) {
         circle.style.width = 3020 + 'px';
@@ -173,12 +183,13 @@ window.addEventListener('scroll', function () {
     }
     if (value >= 1250 && 2300 > value) {
         // 사각형 크기 물밑작업
+        circle.style.overflow = 'hidden';
         circle.style.transition = '0s';
         circle.style.backgroundColor = 'transparent';
         circle.style.borderRadius = 0;
         circle.style.width = 3020 + 'px';
         circle.style.height = 3020 + 'px';
-        circle.style.border = '20px solid black';
+        circle.style.border = '10px solid black';
         circle.style.transform = 'translate(-50%, -10px)';
     } else {
         circle.style.transition = '0.1s';
@@ -189,23 +200,32 @@ window.addEventListener('scroll', function () {
         circle.style.width = 3020 - ((value - 2300) / 10) * 26 + 'px';
         circle.style.height = 3020 - ((value - 2300) / 10) * 26 + 'px';
         circle.style.backgroundColor = '#fff';
-        circle.style.border = '20px solid black';
+        circle.style.border = '10px solid black';
         circle.style.borderRadius = 0;
-        circle.style.border = 20 - ((value - 2300) * 17) / 1000 + 'px solid black';
+        circle.style.border = 10 - ((value - 2300) * 8) / 1000 + 'px solid black';
         circle.style.transform = 'translate(-50%,' + (0 - (value - 2300) / 20) + '%)';
+
+        profileImage.style.opacity = -20 + (value - 2300) / 6 + '%';
+    }
+    if (value >= 2800 && value <= 3300) {
+        circle.style.backgroundColor = '#000';
+        profileImage.style.transform = 'translate(-50%, -50%) scale(' + (1 + (value - 2800) / 250) + ')';
     }
     if (value >= 2300 && value <= 5000) {
-        circle.innerHTML = "<p style='font-size: 40px;'>내 사진</p>";
-        // circle.style.background = "center / cover no-repeat url('./1234.jpg')";
+        // circle.innerHTML = "<p style='font-size: 40px;'>내 사진</p>";
     } else {
-        // circle.style.background = '';
-        circle.innerHTML = '';
+        profileImage.style.opacity = 0;
+        profileImage.style.transform = 'translate(-50%, -50%) scale(1)';
+        // circle.innerHTML = '';
     }
     if (value > 3300) {
         circle.style.width = 400 + 'px';
         circle.style.height = 400 + 'px';
-        circle.style.border = 3 + 'px solid black';
+        circle.style.border = 2 + 'px solid black';
         circle.style.transform = 'translate(-50%, -50%)';
+
+        profileImage.style.opacity = 1;
+        profileImage.style.transform = 'translate(-50%, -30%) scale(3)';
     }
 
     // 박스안에서 멘트가 나오는 모션
@@ -231,7 +251,75 @@ window.addEventListener('scroll', function () {
     }
     if (value >= 5000) {
         circle.style.transform = 'translate(-50%, -50%)';
+        circle.style.zIndex = 100;
         mentBox.style.transform = 'translate(-60%, -50%)';
         mentInBox.style.transform = 'translate(-50%, -50%)';
+    }
+
+    // 스킬 소개하기 위해서 커지는 단계
+    if (value >= 5000 && value < 5500) {
+        circle.style.width = 400 + (value - 5000) * 5 + 'px';
+        circle.style.height = 400 + (value - 5000) * 5 + 'px';
+        circle.style.backgroundColor = '#000';
+
+        profileImage.style.transform = 'translate(-50%, -30%) scale(' + (3 + -(value - 5000) / 250) + ')';
+    }
+    if (value >= 5500) {
+        body.style.background = '#000';
+        circle.style.backgroundColor = '#000';
+        circle.style.width = 2900 + 'px';
+        circle.style.height = 2900 + 'px';
+        profileImage.style.transform = 'translate(-50%, -20%) scale(1)';
+    } else {
+        body.style.background = '#fff';
+    }
+    if (value >= 5200 && value < 8200) {
+        skillIntro.style.fontSize = (value - 5200) / 4 + 'px';
+        skillIntroP.style.transform = 'scale(' + (1 + (value - 5200) / 1800) + ')';
+        if (value >= 6800 && value < 8200) {
+            skillIntroP.style.lineHeight = 1.2 + (value - 6800) / 800;
+        } else {
+            skillIntroP.style.lineHeight = 1.2;
+        }
+
+        profileImage.style.opacity = 100 - (value - 5200) / 10 + '%';
+    }
+
+    if (value < 5200) {
+        skillIntro.style.fontSize = 0 + 'px';
+    }
+
+    // 여기부터 스킬 시작
+    if (value >= 7000) {
+        skillWrap.style.display = 'flex';
+        circle.style.display = 'none';
+    } else {
+        skillWrap.style.display = 'none';
+        skillBottom.style.opacity = 0;
+        circle.style.display = 'flex';
+    }
+    if (value >= 7000 && value < 7300) {
+        skillBottom.style.top = 500 - (value - 7000) / 2 + 'px';
+        skillBottom.style.opacity = (value - 7000) / 2 + '%';
+    }
+    if (value >= 7300 && value < 7600) {
+        skillBottom.style.top = 350 - (value - 7300) / 2 + 'px';
+        skillFront.style.opacity = (value - 7300) / 2 + '%';
+    }
+    if (value >= 7600 && value < 7900) {
+        skillBottom.style.top = 200 - (value - 7600) / 2 + 'px';
+        skillBack.style.opacity = (value - 7600) / 2 + '%';
+    }
+    if (value >= 8200 && value < 8500) {
+        skillBottom.style.top = 50 - (value - 8200) / 2 + 'px';
+        skillLeft.style.opacity = (value - 8200) / 2 + '%';
+    }
+    if (value >= 8500 && value < 8800) {
+        skillBottom.style.top = -100 - (value - 8500) / 2 + 'px';
+        skillRight.style.opacity = (value - 8500) / 2 + '%';
+    }
+    if (value >= 8800 && value < 9100) {
+        skillBottom.style.top = -250 - (value - 8800) / 2 + 'px';
+        skillTop.style.opacity = (value - 8800) / 2 + '%';
     }
 });

@@ -4,6 +4,7 @@ const body = document.querySelector('body');
 const circle = document.querySelector('.circle');
 const section = document.querySelector('.main');
 const mail = document.querySelector('.mail');
+const header = document.querySelector('.header');
 const navList = document.querySelectorAll('.nav-list');
 const toTop = document.querySelector('.to-top');
 const hello = document.querySelector('.hello');
@@ -22,13 +23,19 @@ const mentBox = document.querySelector('.box-ment > .box');
 const mentInBox = document.querySelector('.box-ment > p');
 const skillIntro = document.querySelector('div.skill-intro');
 const skillIntroP = document.querySelector('div.skill-intro > p ');
+const skillCircle = document.querySelector('div.skill-wrap > div.centerCircle');
 const skillWrap = document.querySelector('div.skill-wrap');
-const skillBottom = document.querySelector('div.skill-wrap > div.bottom');
-const skillFront = document.querySelector('div.skill-wrap > div.bottom > div.front');
-const skillBack = document.querySelector('div.skill-wrap > div.bottom > div.back');
-const skillLeft = document.querySelector('div.skill-wrap > div.bottom > div.left');
-const skillRight = document.querySelector('div.skill-wrap > div.bottom > div.right');
-const skillTop = document.querySelector('div.skill-wrap > div.bottom > div.right > div.top');
+const skillLastCube = document.querySelector('div.skill-wrap > div.lastCube');
+const skillBottom = document.querySelector('div.skill-wrap > div.lastCube > div.bottom');
+const skillFront = document.querySelector('div.skill-wrap > div.lastCube > div.front');
+const skillBack = document.querySelector('div.skill-wrap > div.lastCube > div.back');
+const skillLeft = document.querySelector('div.skill-wrap > div.lastCube > div.left');
+const skillRight = document.querySelector('div.skill-wrap > div.lastCube > div.right');
+const skillTop = document.querySelector('div.skill-wrap > div.lastCube > div.right > div.top');
+const skillTitleDesEls = document.querySelectorAll('div.skill-wrap p');
+const skillRecEls = document.querySelectorAll('div.skill-wrap > div.lastCube div');
+// const skillRecBackEls = document.querySelectorAll('div.skill-wrap > div.lastCube article');
+const skillIconEls = document.querySelectorAll('div.skill-wrap > div.lastCube img');
 let value;
 
 // 페이지 로딩되기 직전 스크롤 맨위로
@@ -120,7 +127,8 @@ window.addEventListener('scroll', function () {
     if (value >= 400 && value < 700) {
         cubeLogo.style.opacity = (value - 400) / 3 + '%';
         cubeLogo.style.transform = 'scale(' + (0.35 + (value - 400) / 1000) + ')';
-        cubeLogoCube.style.transform = 'rotateX(' + ((value - 400) * 55) / 300 + 'deg) rotateY(' + ((value - 400) * 180) / 300 + 'deg) rotateZ(' + ((value - 400) * 45) / 300 + 'deg)';
+        cubeLogoCube.style.transform = 'rotateX(' + ((value - 400) * 55) / 300 + 'deg) rotateY(' + ((value - 400) * 180) / 300 + 'deg) rotateZ(0deg)';
+        // cubeLogoCube.style.transform = 'rotateX(' + ((value - 400) * 55) / 300 + 'deg) rotateY(' + ((value - 400) * 180) / 300 + 'deg) rotateZ(' + ((value - 400) * 45) / 300 + 'deg)';
     }
     if (value < 400) {
         cubeLogo.style.opacity = 0 + '%';
@@ -130,7 +138,11 @@ window.addEventListener('scroll', function () {
     if (value >= 700) {
         cubeLogo.style.opacity = 100 + '%';
         cubeLogo.style.transform = 'scale(0.65)';
-        cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(45deg)';
+        cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(0deg)';
+        // cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(45deg)';
+        cubeLogoCube.classList.add('logoRotate');
+    } else {
+        cubeLogoCube.classList.remove('logoRotate');
     }
 
     //여기부터 오브젝트 놀이 시작
@@ -212,11 +224,9 @@ window.addEventListener('scroll', function () {
         profileImage.style.transform = 'translate(-50%, -50%) scale(' + (1 + (value - 2800) / 250) + ')';
     }
     if (value >= 2300 && value <= 5000) {
-        // circle.innerHTML = "<p style='font-size: 40px;'>내 사진</p>";
     } else {
         profileImage.style.opacity = 0;
         profileImage.style.transform = 'translate(-50%, -50%) scale(1)';
-        // circle.innerHTML = '';
     }
     if (value > 3300) {
         circle.style.width = 400 + 'px';
@@ -270,23 +280,31 @@ window.addEventListener('scroll', function () {
         circle.style.width = 2900 + 'px';
         circle.style.height = 2900 + 'px';
         profileImage.style.transform = 'translate(-50%, -20%) scale(1)';
+        mentBoxWrap.style.display = 'none';
     } else {
         body.style.background = '#fff';
+        mentBoxWrap.style.display = 'block';
     }
     if (value >= 5200 && value < 8200) {
+        skillIntro.style.display = 'block';
         skillIntro.style.fontSize = (value - 5200) / 4 + 'px';
         skillIntroP.style.transform = 'scale(' + (1 + (value - 5200) / 1800) + ')';
         if (value >= 6800 && value < 8200) {
-            skillIntroP.style.lineHeight = 1.2 + (value - 6800) / 800;
+            skillIntroP.style.lineHeight = 1.2 + (value - 6800) / 1200;
         } else {
             skillIntroP.style.lineHeight = 1.2;
         }
 
         profileImage.style.opacity = 100 - (value - 5200) / 10 + '%';
+    } else {
+        skillIntro.style.display = 'none';
     }
 
     if (value < 5200) {
         skillIntro.style.fontSize = 0 + 'px';
+        header.style.color = '#000';
+    } else {
+        header.style.color = '#fff';
     }
 
     // 여기부터 스킬 시작
@@ -295,31 +313,159 @@ window.addEventListener('scroll', function () {
         circle.style.display = 'none';
     } else {
         skillWrap.style.display = 'none';
-        skillBottom.style.opacity = 0;
         circle.style.display = 'flex';
+        skillCircle.classList.remove('circleVisible');
+        skillLastCube.classList.remove('visible');
+        skillBottom.classList.remove('visible');
+        skillFront.classList.remove('visible');
+        skillBack.classList.remove('visible');
+        skillLeft.classList.remove('visible');
+        skillRight.classList.remove('visible');
+        skillTop.classList.remove('visible');
     }
     if (value >= 7000 && value < 7300) {
-        skillBottom.style.top = 500 - (value - 7000) / 2 + 'px';
-        skillBottom.style.opacity = (value - 7000) / 2 + '%';
+        skillLastCube.style.top = 600 - ((value - 7000) * 2) / 3 + 'px';
+    }
+    if (value >= 7060) {
+        skillBottom.classList.add('visible');
+        skillCircle.classList.add('circleVisible');
+        skillCircle.style.opacity = 0.3;
     }
     if (value >= 7300 && value < 7600) {
-        skillBottom.style.top = 350 - (value - 7300) / 2 + 'px';
-        skillFront.style.opacity = (value - 7300) / 2 + '%';
+        skillLastCube.style.top = '400px';
+        skillLastCube.style.top = 400 - ((value - 7300) * 2) / 3 + 'px';
+    }
+    if (value >= 7300) {
+        skillFront.classList.add('visible');
     }
     if (value >= 7600 && value < 7900) {
-        skillBottom.style.top = 200 - (value - 7600) / 2 + 'px';
-        skillBack.style.opacity = (value - 7600) / 2 + '%';
+        skillLastCube.style.top = '200px';
+        skillLastCube.style.top = 200 - ((value - 7600) * 2) / 3 + 'px';
+    }
+    if (value >= 7600) {
+        skillBack.classList.add('visible');
+    }
+    if (value >= 7900 && value < 8200) {
+        skillLastCube.style.top = '0px';
+        skillLastCube.style.top = 0 - ((value - 7900) * 2) / 3 + 'px';
+    }
+    if (value >= 7900) {
+        skillLeft.classList.add('visible');
     }
     if (value >= 8200 && value < 8500) {
-        skillBottom.style.top = 50 - (value - 8200) / 2 + 'px';
-        skillLeft.style.opacity = (value - 8200) / 2 + '%';
+        skillLastCube.style.top = '-200px';
+        skillLastCube.style.top = -200 - ((value - 8200) * 2) / 3 + 'px';
+    }
+    if (value >= 8200) {
+        skillRight.classList.add('visible');
     }
     if (value >= 8500 && value < 8800) {
-        skillBottom.style.top = -100 - (value - 8500) / 2 + 'px';
-        skillRight.style.opacity = (value - 8500) / 2 + '%';
+        skillLastCube.style.top = '-400px';
+        skillLastCube.style.top = -400 - ((value - 8500) * 2) / 3 + 'px';
     }
-    if (value >= 8800 && value < 9100) {
-        skillBottom.style.top = -250 - (value - 8800) / 2 + 'px';
-        skillTop.style.opacity = (value - 8800) / 2 + '%';
+    if (value >= 8500) {
+        skillTop.classList.add('visible');
+    }
+    if (value >= 8500) {
+        skillLastCube.style.top = '-600px';
+    }
+    if (value >= 8700 && value < 9200) {
+        skillCircle.style.opacity = 0.3 - (value - 8700) / 1000;
+        skillLastCube.style.top = -600 + (value - 8700) * 1.3 + 'px';
+    }
+
+    // 스킬의 면들을 큐브로 조합시키기
+
+    if (value >= 9200) {
+        skillWrap.style.transition = '1s';
+        skillWrap.style.alignItems = 'center';
+        skillCircle.style.opacity = 0;
+        skillCircle.style.display = 'none';
+        // skillWrap.style.transform = 'scale(0.5) translate(0, -50%)';
+        for (let i = 0; i < skillTitleDesEls.length; i++) {
+            skillTitleDesEls[i].style.opacity = 0;
+        }
+        for (let i = 0; i < skillRecEls.length; i++) {
+            skillRecEls[i].style.border = '1px solid white';
+            skillRecEls[i].style.transition = '0.1s';
+            skillRecEls[i].style.backgroundColor = '#000';
+            // skillRecBackEls[i].style.opacity = 1;
+            skillIconEls[i].style.transform = 'scale(0.8) translateZ(1px)';
+        }
+        // skillWrap.style.transformOrigin = 'center center';
+        skillFront.style.transformOrigin = 'top center';
+        skillBack.style.transformOrigin = 'bottom center';
+        skillLeft.style.transformOrigin = 'center right';
+        skillRight.style.transformOrigin = 'center left';
+        skillTop.style.transformOrigin = 'center left';
+    } else {
+        skillLastCube.style.transform = 'scale(1) translate(0%, 0%) rotateX(0deg) rotateY(0deg) rotateZ(0deg)';
+        skillFront.style.bottom = -200 + 'px';
+        skillBack.style.bottom = -416 + 'px';
+        skillLeft.style.bottom = -654 + 'px';
+        skillRight.style.bottom = -864 + 'px';
+        // skillTop.style.bottom = -232 + 'px';
+        skillTop.style.top = '232px';
+
+        skillWrap.style.alignItems = 'stretch';
+        skillWrap.style.transition = '0s';
+        for (let i = 0; i < skillTitleDesEls.length; i++) {
+            skillTitleDesEls[i].style.opacity = 1;
+        }
+        for (let i = 0; i < skillRecEls.length; i++) {
+            skillRecEls[i].style.border = 'none';
+            skillRecEls[i].style.transition = '1s';
+            skillRecEls[i].style.backgroundColor = 'transparent';
+            skillIconEls[i].style.transform = 'scale(1)';
+        }
+        skillCircle.style.display = 'block';
+    }
+    if (value >= 9200 && value < 10200) {
+        skillLastCube.style.top = (value - 9200) / 20 + '%';
+        skillLastCube.style.transform =
+            'scale(' +
+            (1 + (value - 9200) / 500) +
+            ')' +
+            'translate(-' +
+            ((value - 9200) * 2) / 100 +
+            '%, -' +
+            (value - 9200) / 20 +
+            '%) rotateX(' +
+            ((value - 9200) * 55) / 1000 +
+            'deg) rotateY(' +
+            ((value - 9200) * 180) / 1000 +
+            'deg) rotateZ(' +
+            ((value - 9200) * 45) / 1000 +
+            'deg)';
+        skillFront.style.bottom = -200 + (value - 9200) / 5 + 'px'; // 200
+        skillFront.style.transform = 'translate(0%, ' + (value - 9200) / 10 + '%) rotateX(' + ((value - 9200) * 9) / 100 + 'deg)';
+        skillBack.style.bottom = -416 + ((value - 9200) * 52) / 125 + 'px'; // 416
+        skillBack.style.transform = 'translate(0%, ' + -(value - 9200) / 10 + '%) rotateX(' + (-(value - 9200) * 9) / 100 + 'deg)';
+        skillLeft.style.bottom = -654 + ((value - 9200) * 327) / 500 + 'px'; // 654
+        skillLeft.style.transform = 'translate(' + -(value - 9200) / 10 + '%, 0%) rotateY(' + ((value - 9200) * 9) / 100 + 'deg)';
+        skillRight.style.bottom = -864 + ((value - 9200) * 108) / 125 + 'px'; // 864
+        skillRight.style.transform = 'translate(' + (value - 9200) / 10 + '%, 0%) rotateY(' + (-(value - 9200) * 9) / 100 + 'deg)';
+        skillRight.style.transformStyle = 'preserve-3d';
+        skillTop.style.top = 232 - ((value - 9200) * 29) / 125 + 'px'; // 232
+        skillTop.style.transform = 'translate(' + (value - 9200) / 10 + '%, 0%) rotateY(' + (-(value - 9200) * 9) / 100 + 'deg)';
+    }
+    if (value >= 10200) {
+        skillLastCube.style.transform = 'scale(3) translate(-20%, -50%) rotateX(55deg) rotateY(180deg) rotateZ(45deg)';
+        skillLastCube.style.top = 50 + '%';
+        skillLastCube.style.left = 50 + '%';
+        skillFront.style.bottom = '0px';
+        skillFront.style.transform = 'translate(0%, 100%) rotateX(90deg)';
+        skillBack.style.bottom = '0px';
+        skillBack.style.transform = 'translate(0%, -100%) rotateX(-90deg)';
+        skillLeft.style.bottom = '0px';
+        skillLeft.style.transform = 'translate(-100%, 0%) rotateY(90deg)';
+        skillRight.style.bottom = '0px';
+        skillRight.style.transform = 'translate(100%, 0%) rotateY(-90deg)';
+        skillTop.style.bottom = '0px';
+        skillTop.style.left = '-1px';
+        skillTop.style.top = '-1px';
+        skillTop.style.transform = 'translate(100%, 0%) rotateY(-90deg)';
+    } else {
+        skillTop.style.left = '0';
     }
 });

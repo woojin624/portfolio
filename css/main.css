@@ -100,6 +100,20 @@ header > div.cube-logo > div.cube div.top {
 header > div.cube-logo > div.cube div.bottom {
     transform: rotateX(-90deg) translateZ(25px);
 }
+header > div.cube-logo > div.cube.logoRotate {
+    animation: cubeLogoRotation 12s linear infinite;
+    transform-origin: center center center;
+}
+
+@keyframes cubeLogoRotation {
+    0% {
+        transform: rotateX(55deg) rotateY(180deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(55deg) rotateY(180deg) rotateZ(360deg);
+    }
+}
+
 /* 여가까지 헤더 */
 section.main {
     position: relative;
@@ -297,8 +311,9 @@ div.skill-intro {
     width: 20000px;
     font-size: 0px;
     font-weight: 700;
-    z-index: 300;
+    z-index: 500;
     transition: 0.01s;
+    display: none;
 }
 
 div.skill-intro > p {
@@ -306,13 +321,11 @@ div.skill-intro > p {
     mix-blend-mode: difference;
     color: white;
     line-height: 1.2;
-    transition: 0.01s;
 }
 
 /* 스킬들 설명  */
 
 div.skill-wrap > div.centerCircle {
-    /* background: rgb(255, 255, 255); */
     background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
     width: 65vw;
     height: 65vw;
@@ -324,6 +337,10 @@ div.skill-wrap > div.centerCircle {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
+    opacity: 0;
+    transition: 1.8s;
+}
+div.skill-wrap > div.circleVisible {
     opacity: 0.3;
 }
 
@@ -338,56 +355,47 @@ div.skill-wrap {
     transition: 0.1s;
     background-color: black;
 }
-div.skill-wrap > div.bottom {
+div.skill-wrap p {
+    transition: 1s;
+}
+div.skill-wrap > div.lastCube {
     position: absolute;
-    left: 50%;
-    top: 500px;
-    /* transform: translate(, 0); */
     width: 50px;
     height: 50px;
-    opacity: 0;
+    left: 50%;
+    top: 600px;
     transition: 0.1s;
-}
-div.skill-wrap > div.bottom > img {
-    width: 100%;
-    height: 100%;
-}
-div.skill-wrap > div.bottom > p.title {
-    position: absolute;
-    width: 150px;
-    font-size: 24px;
-    font-weight: 600;
-    color: orange;
-    top: 50%;
-    left: 75px;
-    transform: translate(0, -50%);
-}
-div.skill-wrap > div.bottom > p.description {
-    top: 65px;
-    position: absolute;
-    font-size: 18px;
-    font-size: 300;
-    color: lightgray;
-    max-width: 500px;
-    width: 400px;
-    line-height: 1.2;
+    transform-style: preserve-3d;
 }
 
 /* 공통 부분 */
-div.skill-wrap > div.bottom div {
+div.skill-wrap > div.lastCube div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transition: 1s;
+    transform-style: preserve-3d;
+    background-color: none;
+}
+div.skill-wrap > div.lastCube article {
     position: absolute;
     width: 50px;
     height: 50px;
     opacity: 0;
     transition: 0.1s;
+    background-color: black;
 }
 
-div.skill-wrap > div.bottom > div img {
+div.skill-wrap > div.lastCube > div img {
+    position: absolute;
     width: 100%;
     height: 100%;
+    transform: translateZ(1px);
+    /* z-index: 2; */
 }
 
-div.skill-wrap > div.bottom > div p.title {
+div.skill-wrap > div.lastCube > div p.title {
     width: 150px;
     position: absolute;
     font-size: 24px;
@@ -397,47 +405,56 @@ div.skill-wrap > div.bottom > div p.title {
     transform: translate(0, -50%);
 }
 
-div.skill-wrap > div.bottom > div p.description {
+div.skill-wrap > div.lastCube > div p.description {
     top: 65px;
     position: absolute;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     color: lightgray;
     max-width: 500px;
-    width: 400px;
-    line-height: ;
+    width: 500px;
+    line-height: 1.5;
 }
 /* 여기까지 공통 부분 */
+div.skill-wrap > div.lastCube > div.bottom {
+    bottom: 0px;
+}
+div.skill-wrap > div.lastCube > div.bottom > p.title {
+    color: #e44d26;
+}
 
-div.skill-wrap > div.bottom > div.front {
+div.skill-wrap > div.lastCube > div.front {
     bottom: -200px;
 }
-div.skill-wrap > div.bottom > div.front > p.title {
-    color: blue;
+div.skill-wrap > div.lastCube > div.front > p.title {
+    color: #0170ba;
 }
 
-div.skill-wrap > div.bottom > div.back {
-    bottom: -400px;
+div.skill-wrap > div.lastCube > div.back {
+    bottom: -416px;
 }
-div.skill-wrap > div.bottom > div.back > p.title {
-    color: yellow;
+div.skill-wrap > div.lastCube > div.back > p.title {
+    color: #f7df1e;
 }
 
-div.skill-wrap > div.bottom > div.left {
-    bottom: -600px;
+div.skill-wrap > div.lastCube > div.left {
+    bottom: -654px;
 }
-div.skill-wrap > div.bottom > div.left > p.title {
-    color: cornflowerblue;
+div.skill-wrap > div.lastCube > div.left > p.title {
+    color: #0868ac;
 }
-div.skill-wrap > div.bottom > div.right {
-    bottom: -800px;
+div.skill-wrap > div.lastCube > div.right {
+    bottom: -864px;
 }
-div.skill-wrap > div.bottom > div.right > p.title {
-    color: cyan;
+div.skill-wrap > div.lastCube > div.right > p.title {
+    color: #61d9fa;
 }
-div.skill-wrap > div.bottom > div.right > div.top {
-    bottom: -200px;
+div.skill-wrap > div.lastCube > div.right > div.top {
+    top: 232px;
 }
-div.skill-wrap > div.bottom > div.right > div.top > p.title {
-    color: red;
+div.skill-wrap > div.lastCube > div.right > div.top > p.title {
+    color: #dd3a0a;
+}
+div.visible {
+    opacity: 1 !important;
 }

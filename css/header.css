@@ -1,0 +1,117 @@
+header {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    pointer-events: none;
+}
+header > span.mail {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    transform: rotate(0deg);
+    /* top: 80px;
+    right: -10px;
+    transform: rotate(90deg); */
+    font-size: 14px;
+    cursor: pointer;
+}
+header > ul {
+    position: fixed;
+    top: 63%;
+    right: -100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    transform: rotate(90deg) translate(-50%, -50%);
+}
+header > ul > li {
+    padding: 10px;
+    margin: 10px 25px;
+    font-size: 18px;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+    /* transform: rotate(-90deg) scale(1.8) translate(-25%, 0); */
+}
+header > ul > li:hover {
+    transform: rotate(-90deg) scale(1.8) translate(-25%, 0);
+}
+header > div.to-top {
+    position: absolute;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #000;
+    right: 50px;
+    bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    opacity: 0%;
+    transition: 0.3s;
+}
+header > div.cube-logo {
+    position: fixed;
+    opacity: 0%;
+    left: 55px;
+    top: 30px;
+    transform: scale(0.35);
+    transition: 0.1s;
+}
+header > div.cube-logo > div.cube {
+    width: 50px;
+    height: 50px;
+    transition: 0.1s;
+    transform-style: preserve-3d;
+    /* transform: rotateX(55deg) rotateY(180deg) rotateZ(45deg); */
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+header > div.cube-logo > div.cube div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+header > div.cube-logo > div.cube div.front {
+    transform: translateZ(25px);
+}
+header > div.cube-logo > div.cube div.back {
+    transform: translateZ(-25px) rotateY(180deg);
+}
+header > div.cube-logo > div.cube div.left {
+    transform: rotateY(-90deg) translateZ(25px);
+}
+header > div.cube-logo > div.cube div.right {
+    transform: rotateY(90deg) translateZ(25px);
+}
+header > div.cube-logo > div.cube div.top {
+    transform: rotateX(90deg) translateZ(25px);
+}
+header > div.cube-logo > div.cube div.bottom {
+    transform: rotateX(-90deg) translateZ(25px);
+}
+header > div.cube-logo > div.cube.logoRotate {
+    animation: cubeLogoRotation 12s linear infinite;
+    transform-origin: center center center;
+}
+
+@keyframes cubeLogoRotation {
+    0% {
+        transform: rotateX(55deg) rotateY(180deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(55deg) rotateY(180deg) rotateZ(360deg);
+    }
+}
+
+/* 여가까지 헤더 */

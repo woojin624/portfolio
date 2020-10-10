@@ -1,8 +1,9 @@
 'use strict';
 
+// main
 const body = document.querySelector('body');
 const circle = document.querySelector('.circle');
-const section = document.querySelector('.main');
+const mainSection = document.querySelector('section.main');
 const mail = document.querySelector('.mail');
 const header = document.querySelector('.header');
 const navList = document.querySelectorAll('.nav-list');
@@ -14,6 +15,8 @@ const aboutSpace = document.querySelector('.about-space');
 const scrollDown = document.querySelector('.scroll-down');
 const loadingCube = document.querySelector('.loading-cube');
 const loadingCubeCube = document.querySelector('section.loading-cube > div.cube');
+
+// about
 const lineMentLeft = document.querySelector('div.line-ment > .left > p ');
 const lineMentRight = document.querySelector('div.line-ment > .right > p ');
 const lineMentBox = document.querySelector('.line-ment');
@@ -34,8 +37,13 @@ const skillRight = document.querySelector('div.skill-wrap > div.lastCube > div.r
 const skillTop = document.querySelector('div.skill-wrap > div.lastCube > div.right > div.top');
 const skillTitleDesEls = document.querySelectorAll('div.skill-wrap p');
 const skillRecEls = document.querySelectorAll('div.skill-wrap > div.lastCube div');
-// const skillRecBackEls = document.querySelectorAll('div.skill-wrap > div.lastCube article');
 const skillIconEls = document.querySelectorAll('div.skill-wrap > div.lastCube img');
+
+// works
+const worksSection = document.querySelector('section.works');
+const workList = document.querySelector('section.works > ul.work-list');
+const workListEls = document.querySelectorAll('section.works > ul.work-list > li');
+
 let value;
 
 // 페이지 로딩되기 직전 스크롤 맨위로
@@ -71,9 +79,7 @@ toTop.addEventListener('click', function () {
     window.scrollTo({ top: value, behavior: 'smooth' });
 });
 
-// $(document).ready(function () {});
-
-// 스크롤 이벤트
+// 패럴랙스 스크롤 이벤트 시작 부분
 window.addEventListener('scroll', function () {
     value = window.scrollY;
     console.log(value);
@@ -141,8 +147,11 @@ window.addEventListener('scroll', function () {
         cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(0deg)';
         // cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(45deg)';
         cubeLogoCube.classList.add('logoRotate');
+
+        mainSection.style.display = 'none';
     } else {
         cubeLogoCube.classList.remove('logoRotate');
+        mainSection.style.display = 'block';
     }
 
     //여기부터 오브젝트 놀이 시작
@@ -371,20 +380,30 @@ window.addEventListener('scroll', function () {
     }
     if (value >= 8700 && value < 9200) {
         skillCircle.style.opacity = 0.3 - (value - 8700) / 1000;
-        skillLastCube.style.top = -600 + (value - 8700) * 1.3 + 'px';
+        skillLastCube.style.top = -600 + (value - 8700) * 1.1 + 'px';
+        skillWrap.style.transformOrigin = 'center center';
+        skillWrap.style.transform = 'rotate(' + ((value - 8700) * 7) / 50 + 'deg)';
+    }
+    if (value >= 8700) {
+        for (let i = 0; i < skillTitleDesEls.length; i++) {
+            skillTitleDesEls[i].style.opacity = 0;
+        }
+    } else {
+        for (let i = 0; i < skillTitleDesEls.length; i++) {
+            skillTitleDesEls[i].style.opacity = 1;
+        }
+        skillWrap.style.transform = 'rotate(0deg)';
     }
 
     // 스킬의 면들을 큐브로 조합시키기
 
     if (value >= 9200) {
-        skillWrap.style.transition = '1s';
+        skillWrap.style.transition = '0.1s';
         skillWrap.style.alignItems = 'center';
         skillCircle.style.opacity = 0;
         skillCircle.style.display = 'none';
         // skillWrap.style.transform = 'scale(0.5) translate(0, -50%)';
-        for (let i = 0; i < skillTitleDesEls.length; i++) {
-            skillTitleDesEls[i].style.opacity = 0;
-        }
+
         for (let i = 0; i < skillRecEls.length; i++) {
             skillRecEls[i].style.border = '1px solid white';
             skillRecEls[i].style.transition = '0.1s';
@@ -408,19 +427,21 @@ window.addEventListener('scroll', function () {
         skillTop.style.top = '232px';
 
         skillWrap.style.alignItems = 'stretch';
-        skillWrap.style.transition = '0s';
-        for (let i = 0; i < skillTitleDesEls.length; i++) {
-            skillTitleDesEls[i].style.opacity = 1;
-        }
+        skillWrap.style.transition = '0.1s';
+
         for (let i = 0; i < skillRecEls.length; i++) {
             skillRecEls[i].style.border = 'none';
             skillRecEls[i].style.transition = '1s';
             skillRecEls[i].style.backgroundColor = 'transparent';
             skillIconEls[i].style.transform = 'scale(1)';
         }
+
         skillCircle.style.display = 'block';
     }
     if (value >= 9200 && value < 10200) {
+        skillWrap.style.transformOrigin = 'center center';
+        skillWrap.style.transform = 'rotate(70deg)';
+        skillWrap.style.transform = 'rotate(' + (70 - ((value - 9200) * 7) / 100) + 'deg)';
         skillLastCube.style.top = (value - 9200) / 20 + '%';
         skillLastCube.style.transform =
             'scale(' +
@@ -437,6 +458,8 @@ window.addEventListener('scroll', function () {
             'deg) rotateZ(' +
             ((value - 9200) * 45) / 1000 +
             'deg)';
+
+        // 각 면체 위치 이동 및 90도 꺾기
         skillFront.style.bottom = -200 + (value - 9200) / 5 + 'px'; // 200
         skillFront.style.transform = 'translate(0%, ' + (value - 9200) / 10 + '%) rotateX(' + ((value - 9200) * 9) / 100 + 'deg)';
         skillBack.style.bottom = -416 + ((value - 9200) * 52) / 125 + 'px'; // 416
@@ -450,9 +473,12 @@ window.addEventListener('scroll', function () {
         skillTop.style.transform = 'translate(' + (value - 9200) / 10 + '%, 0%) rotateY(' + (-(value - 9200) * 9) / 100 + 'deg)';
     }
     if (value >= 10200) {
+        skillWrap.style.transform = 'rotate(0deg)';
         skillLastCube.style.transform = 'scale(3) translate(-20%, -50%) rotateX(55deg) rotateY(180deg) rotateZ(45deg)';
         skillLastCube.style.top = 50 + '%';
         skillLastCube.style.left = 50 + '%';
+
+        // 각 면체 위치 이동 및 90도 꺾기
         skillFront.style.bottom = '0px';
         skillFront.style.transform = 'translate(0%, 100%) rotateX(90deg)';
         skillBack.style.bottom = '0px';
@@ -467,5 +493,132 @@ window.addEventListener('scroll', function () {
         skillTop.style.transform = 'translate(100%, 0%) rotateY(-90deg)';
     } else {
         skillTop.style.left = '0';
+    }
+
+    // 큐브 뒤집기기 전 높이 살짝 올리기
+    if (value >= 10200 && value < 10500) {
+        skillWrap.style.transform = 'rotate(0deg) translate(0%, ' + -(value - 10200) / 30 + '%)';
+    }
+    if (value >= 10500) {
+        skillWrap.style.transform = 'rotate(0deg) translate(0%, -10%)';
+        skillIconEls[0].src = './images/thumb-photo.jpg';
+        skillIconEls[1].src = './images/thumb-over.jpg';
+        skillIconEls[2].src = './images/thumb-vivid.jpg';
+        skillIconEls[3].src = './images/thumb-rocky.jpg';
+        skillIconEls[4].src = './images/thumb-nemo.jpg';
+        skillIconEls[5].src = './images/thumb-medi.jpg';
+        for (let i = 0; i < skillRecEls.length; i++) {
+            skillIconEls[i].style.transform = 'scale(0.95) translateZ(0.05px)';
+        }
+    } else {
+        skillIconEls[0].src = './images/logo/html_logo.png';
+        skillIconEls[1].src = './images/logo/css_logo.png';
+        skillIconEls[2].src = './images/logo/javascript_logo.png';
+        skillIconEls[3].src = './images/logo/jquery_logo.png';
+        skillIconEls[4].src = './images/logo/react_logo.png';
+        skillIconEls[5].src = './images/logo/postcss_logo.png';
+
+        // 각 면체 높이 넓이 조정
+        skillLastCube.style.width = 50 + 'px';
+        skillLastCube.style.height = 50 + 'px';
+        for (let i = 0; i < skillRecEls.length; i++) {
+            skillRecEls[i].style.width = 50 + 'px';
+            skillRecEls[i].style.height = 50 + 'px';
+        }
+    }
+
+    // 큐브 뒤집기
+    if (value >= 10500 && value < 11500) {
+        skillLastCube.style.transform =
+            'scale(3)' +
+            'translate(-20%, -50%)' +
+            'rotateX(' +
+            (55 + ((value - 10500) * 9) / 50) +
+            'deg) rotateY(' +
+            (180 - ((value - 10500) * 9) / 50) +
+            'deg) rotateZ(' +
+            (45 + ((value - 10500) * 9) / 50) +
+            'deg)';
+        skillWrap.style.transform = 'rotate(0deg) translate(0%, ' + (-10 + ((value - 10500) * 3.5) / 100) + '%)';
+
+        // 각 면체 위치 이동 및 90도 꺾기
+        skillFront.style.transform = 'translate(0%, 100%) rotateX(' + (90 - ((value - 10500) * 9) / 50) + 'deg)';
+        skillBack.style.transform = 'translate(0%, -100%) rotateX(' + (-90 + ((value - 10500) * 9) / 50) + 'deg)';
+        skillLeft.style.transform = 'translate(-100%, 0%) rotateY(' + (90 - ((value - 10500) * 9) / 50) + 'deg)';
+        skillRight.style.transform = 'translate(100%, 0%) rotateY(' + (-90 + ((value - 10500) * 9) / 50) + 'deg)';
+        skillRight.style.transformStyle = 'preserve-3d';
+        skillTop.style.transform = 'translate(100%, 0%) rotateY(' + (-90 + ((value - 10500) * 9) / 50) + 'deg)';
+
+        // 각 면체 높이 넓이 조정
+        skillLastCube.style.width = 50 + (value - 10500) / 10 + 'px';
+        skillLastCube.style.height = 50 + (value - 10500) / 10 + 'px';
+        for (let i = 0; i < skillRecEls.length; i++) {
+            skillRecEls[i].style.width = 50 + (value - 10500) / 10 + 'px';
+            skillRecEls[i].style.height = 50 + (value - 10500) / 10 + 'px';
+        }
+    }
+    if (value >= 11500) {
+        skillLastCube.style.transform = 'scale(3) translate(-20%, -50%) rotateX(235deg) rotateY(0deg) rotateZ(225deg)';
+        skillWrap.style.transform = 'rotate(0deg) translate(0%, 25%)';
+        // 각 면체 위치 이동 및 90도 꺾기
+        skillFront.style.transform = 'translate(0%, 100%) rotateX(-90deg)';
+        skillBack.style.transform = 'translate(0%, -100%) rotateX(90deg)';
+        skillLeft.style.transform = 'translate(-100%, 0%) rotateY(-90deg)';
+        skillRight.style.transform = 'translate(100%, 0%) rotateY(90deg)';
+        skillTop.style.transform = 'translate(100%, 0%) rotateY(90deg)';
+
+        // 각 면체 높이 넓이 조정
+        skillLastCube.style.width = 150 + 'px';
+        skillLastCube.style.height = 150 + 'px';
+        for (let i = 0; i < skillRecEls.length; i++) {
+            skillRecEls[i].style.width = 150 + 'px';
+            skillRecEls[i].style.height = 150 + 'px';
+        }
+
+        worksSection.style.display = 'block';
+    } else {
+        worksSection.style.display = 'none';
+    }
+    if (value >= 11500 && value < 12000) {
+        skillLastCube.style.transform =
+            'scale(3) translate(' +
+            (-20 - ((value - 11500) * 3) / 25) +
+            '%,' +
+            (-50 + (value - 11500) / 5) +
+            '%) rotateX(' +
+            (235 + ((value - 11500) * 3) / 50) +
+            'deg) rotateY(0deg) rotateZ(' +
+            (225 - ((value - 11500) * 4) / 50) +
+            'deg)';
+        skillLastCube.style.top = 50 - (value - 11500) / 50 + '%';
+        skillWrap.style.transform = 'rotate(0deg) translate(0%, ' + (25 - (value - 11500) / 20) + '%)';
+    }
+    if (value >= 12000) {
+        skillLastCube.style.top = 40 + '%';
+        skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(185deg)';
+        skillWrap.style.transform = 'rotate(0deg) translate(0%, 0%)';
+    } else {
+    }
+
+    // work-list 등장
+    if (value >= 12000) {
+        workList.classList.add('visible');
+        skillLastCube.style.transition = '.3s ease-in';
+
+        for (let i = 0; i < workListEls.length; i++) {
+            workListEls[i].addEventListener('mouseover', (e) => {
+                let target = e.currentTarget;
+                target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(185deg)');
+                target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(95deg)');
+                target === workListEls[2] && (skillLastCube.style.transform = 'scale(3) translate(-84.5%, -4.5%) rotateX(175deg) rotateY(-5deg) rotateZ(90deg)');
+                target === workListEls[3] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(5deg)');
+                target === workListEls[4] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(275deg)');
+                target === workListEls[5] && (skillLastCube.style.transform = 'scale(3) translate(-75.5%, 5%) rotateX(355deg) rotateY(5deg) rotateZ(360deg)');
+                // console.log(e.currentTarget);
+            });
+        }
+    } else {
+        workList.classList.remove('visible');
+        skillLastCube.style.transition = '.1s';
     }
 });

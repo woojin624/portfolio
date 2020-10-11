@@ -43,6 +43,7 @@ const skillIconEls = document.querySelectorAll('div.skill-wrap > div.lastCube im
 const worksSection = document.querySelector('section.works');
 const workList = document.querySelector('section.works > ul.work-list');
 const workListEls = document.querySelectorAll('section.works > ul.work-list > li');
+const workListElsUnder = document.querySelectorAll('section.works > ul.work-list > li > .underLine');
 
 let value;
 
@@ -312,8 +313,12 @@ window.addEventListener('scroll', function () {
     if (value < 5200) {
         skillIntro.style.fontSize = 0 + 'px';
         header.style.color = '#000';
+        toTop.style.color = '#000';
+        toTop.style.border = '1px solid #000';
     } else {
         header.style.color = '#fff';
+        toTop.style.color = '#fff';
+        toTop.style.border = '1px solid #fff';
     }
 
     // 여기부터 스킬 시작
@@ -405,7 +410,7 @@ window.addEventListener('scroll', function () {
         // skillWrap.style.transform = 'scale(0.5) translate(0, -50%)';
 
         for (let i = 0; i < skillRecEls.length; i++) {
-            skillRecEls[i].style.border = '1px solid white';
+            skillRecEls[i].style.border = '0.1px solid white';
             skillRecEls[i].style.transition = '0.1s';
             skillRecEls[i].style.backgroundColor = '#000';
             // skillRecBackEls[i].style.opacity = 1;
@@ -608,13 +613,17 @@ window.addEventListener('scroll', function () {
         for (let i = 0; i < workListEls.length; i++) {
             workListEls[i].addEventListener('mouseover', (e) => {
                 let target = e.currentTarget;
+                console.log(target);
                 target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(185deg)');
                 target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(95deg)');
                 target === workListEls[2] && (skillLastCube.style.transform = 'scale(3) translate(-84.5%, -4.5%) rotateX(175deg) rotateY(-5deg) rotateZ(90deg)');
                 target === workListEls[3] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(5deg)');
                 target === workListEls[4] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(275deg)');
                 target === workListEls[5] && (skillLastCube.style.transform = 'scale(3) translate(-75.5%, 5%) rotateX(355deg) rotateY(5deg) rotateZ(360deg)');
-                // console.log(e.currentTarget);
+                target === workListEls[i] && (skillWrap.style.backgroundImage = `url("./images/back/background${i + 1}.png")`);
+            });
+            workListEls[i].addEventListener('mouseout', () => {
+                skillWrap.style.backgroundImage = 'none';
             });
         }
     } else {

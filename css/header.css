@@ -45,14 +45,14 @@ header > div.to-top {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #fff;
+    /* background-color: #fff; */
     border: 1px solid #000;
-    right: 50px;
+    right: 60px;
     bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 12px;
     opacity: 0%;
     transition: 0.3s;
 }

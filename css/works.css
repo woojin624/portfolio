@@ -12,11 +12,11 @@ section.works > ul.work-list {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(40%, -55%);
+    transform: translate(20%, -55%);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     opacity: 0;
     transition: 1s;
 }
@@ -32,4 +32,32 @@ section.works > ul.work-list > li {
     padding: 2px;
     margin: 8px;
     cursor: pointer;
+    position: relative;
+}
+
+section.works > ul.work-list > li > .underLine {
+    position: absolute;
+    width: 0%;
+    margin-top: -8px;
+    height: 10px;
+    background: #fff;
+    transition: 0.3s ease-in;
+}
+section.works > ul.work-list > li:first-child:hover > .underLine {
+    width: 100%;
+}
+section.works > ul.work-list > li:nth-child(2):hover > .underLine {
+    width: 100%;
+}
+section.works > ul.work-list > li:nth-child(3):hover > .underLine {
+    width: 100%;
+}
+section.works > ul.work-list > li:nth-child(4):hover > .underLine {
+    width: 100%;
+}
+section.works > ul.work-list > li:nth-child(5):hover > .underLine {
+    width: 100%;
+}
+section.works > ul.work-list > li:nth-child(6):hover > .underLine {
+    width: 100%;
 }

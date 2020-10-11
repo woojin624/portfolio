@@ -36,6 +36,7 @@ div.line-ment > .left > .box {
     height: 150px;
     background-color: #fff;
     z-index: 9;
+    pointer-events: none;
 }
 div.line-ment > .right > .box {
     position: absolute;
@@ -44,6 +45,7 @@ div.line-ment > .right > .box {
     height: 150px;
     background-color: #fff;
     z-index: 9;
+    pointer-events: none;
 }
 div.line-ment > .left > p {
     position: relative;
@@ -70,6 +72,7 @@ div.line-ment > .right > p {
     transition: 0.1s;
 } */
 div.profile-wrap {
+    display: none;
     position: fixed;
     left: 50%;
     top: 50%;
@@ -112,6 +115,7 @@ div.box-ment > div.box {
     left: 50%;
     transform: translate(-60%, -50%);
     z-index: 4;
+    pointer-events: none;
 }
 div.box-ment > p {
     display: flex;
@@ -179,7 +183,11 @@ div.skill-wrap {
     display: none;
     transition: 0.1s;
     background-color: black;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+
 div.skill-wrap p {
     transition: 1.5s;
 }

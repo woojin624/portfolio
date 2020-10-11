@@ -120,7 +120,6 @@ window.addEventListener('scroll', function () {
         scrollDown.style.opacity = 0;
         scrollDown.style.display = 'none';
         loadingCube.style.opacity = 0;
-        // loadingCubeCube.style.transform = 'rotateX(0deg) rotateY(0deg) rotateZ(0deg)';
 
         // 메일, 탑버튼 요소
         mail.style.top = 80 + 'px';
@@ -135,7 +134,6 @@ window.addEventListener('scroll', function () {
         cubeLogo.style.opacity = (value - 400) / 3 + '%';
         cubeLogo.style.transform = 'scale(' + (0.35 + (value - 400) / 1000) + ')';
         cubeLogoCube.style.transform = 'rotateX(' + ((value - 400) * 55) / 300 + 'deg) rotateY(' + ((value - 400) * 180) / 300 + 'deg) rotateZ(0deg)';
-        // cubeLogoCube.style.transform = 'rotateX(' + ((value - 400) * 55) / 300 + 'deg) rotateY(' + ((value - 400) * 180) / 300 + 'deg) rotateZ(' + ((value - 400) * 45) / 300 + 'deg)';
     }
     if (value < 400) {
         cubeLogo.style.opacity = 0 + '%';
@@ -146,7 +144,6 @@ window.addEventListener('scroll', function () {
         cubeLogo.style.opacity = 100 + '%';
         cubeLogo.style.transform = 'scale(0.65)';
         cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(0deg)';
-        // cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(45deg)';
         cubeLogoCube.classList.add('logoRotate');
 
         mainSection.style.display = 'none';
@@ -158,9 +155,9 @@ window.addEventListener('scroll', function () {
     //여기부터 오브젝트 놀이 시작
 
     if (value >= 400 && value < 500) {
-        circle.style.width = (value - 400) / 10 + 'px'; // width = 10px
-        circle.style.height = (value - 400) / 10 + 'px'; // height = 20px
-        circle.style.backgroundColor = '#000'; // back = black
+        circle.style.width = (value - 400) / 10 + 'px';
+        circle.style.height = (value - 400) / 10 + 'px';
+        circle.style.backgroundColor = '#000';
         circle.style.border = '5px solid black';
         circle.style.borderRadius = 5 + 'px';
         circle.style.transition = '0.1s';
@@ -168,11 +165,11 @@ window.addEventListener('scroll', function () {
     }
 
     if (value >= 500) {
-        circle.style.width = 10 + 'px'; // width = 20px
-        circle.style.height = 10 + 'px'; // height = 20px
+        circle.style.width = 10 + 'px';
+        circle.style.height = 6 + 'px';
     }
     if (value >= 500 && 1250 > value) {
-        circle.style.border = '5px solid black';
+        circle.style.border = '3px solid black';
         circle.style.transform = 'translate(-50%, -50%)';
         circle.style.transition = '0.1s';
     }
@@ -186,17 +183,17 @@ window.addEventListener('scroll', function () {
 
     // 라인 멘트 요소
     if (value >= 1250 && value <= 1650) {
-        lineMentLeft.style.top = (-(value - 1250) * 125) / 400 + 'px';
-        lineMentRight.style.bottom = (-(value - 1250) * 125) / 400 + 'px';
+        lineMentLeft.style.top = (-(value - 1250) * 115) / 400 + 'px';
+        lineMentRight.style.bottom = (-(value - 1250) * 115) / 400 + 'px';
     } else if (value < 1250 || value > 2300) {
         lineMentLeft.style.top = 0 + 'px';
         lineMentRight.style.bottom = 0 + 'px';
     } else if (value > 1650 && value <= 1900) {
-        lineMentLeft.style.top = -125 + 'px';
-        lineMentRight.style.bottom = -125 + 'px';
+        lineMentLeft.style.top = -115 + 'px';
+        lineMentRight.style.bottom = -115 + 'px';
     } else if (value > 1900 && value <= 2300) {
-        lineMentLeft.style.top = -125 + ((value - 1900) * 125) / 400 + 'px';
-        lineMentRight.style.bottom = -125 + ((value - 1900) * 125) / 400 + 'px';
+        lineMentLeft.style.top = -115 + ((value - 1900) * 115) / 400 + 'px';
+        lineMentRight.style.bottom = -115 + ((value - 1900) * 115) / 400 + 'px';
     }
     if (value > 2300) {
         lineMentBox.style.opacity = 0;
@@ -211,8 +208,8 @@ window.addEventListener('scroll', function () {
         circle.style.borderRadius = 0;
         circle.style.width = 3020 + 'px';
         circle.style.height = 3020 + 'px';
-        circle.style.border = '10px solid black';
-        circle.style.transform = 'translate(-50%, -10px)';
+        circle.style.border = '6px solid black';
+        circle.style.transform = 'translate(-50%, -3px)';
     } else {
         circle.style.transition = '0.1s';
     }
@@ -602,14 +599,15 @@ window.addEventListener('scroll', function () {
         skillLastCube.style.top = 40 + '%';
         skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(185deg)';
         skillWrap.style.transform = 'rotate(0deg) translate(0%, 0%)';
+        workList.classList.add('visible');
     } else {
+        workList.classList.remove('visible');
+        skillWrap.style.backgroundImage = 'none';
     }
 
     // work-list 등장
-    if (value >= 12000) {
-        workList.classList.add('visible');
+    if (value >= 12050) {
         skillLastCube.style.transition = '.3s ease-in';
-
         for (let i = 0; i < workListEls.length; i++) {
             workListEls[i].addEventListener('mouseover', (e) => {
                 let target = e.currentTarget;
@@ -627,7 +625,6 @@ window.addEventListener('scroll', function () {
             });
         }
     } else {
-        workList.classList.remove('visible');
         skillLastCube.style.transition = '.1s';
     }
 });

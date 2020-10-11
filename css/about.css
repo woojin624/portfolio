@@ -31,7 +31,7 @@ div.line-ment > .right {
 }
 div.line-ment > .left > .box {
     position: absolute;
-    top: 50px;
+    top: 52px;
     width: 347.19px;
     height: 150px;
     background-color: #fff;
@@ -40,7 +40,7 @@ div.line-ment > .left > .box {
 }
 div.line-ment > .right > .box {
     position: absolute;
-    top: -100px;
+    top: -98px;
     width: 280.95px;
     height: 150px;
     background-color: #fff;

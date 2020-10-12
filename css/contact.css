@@ -1,0 +1,11 @@
+.contact {
+    position: fixed;
+    width: 0vw;
+    height: 100vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: white;
+    z-index: 700;
+    display: none;
+    transition: 0.1s;
+}

@@ -45,6 +45,9 @@ const workList = document.querySelector('section.works > ul.work-list');
 const workListEls = document.querySelectorAll('section.works > ul.work-list > li');
 const workListElsUnder = document.querySelectorAll('section.works > ul.work-list > li > .underLine');
 
+// contact
+const contactSection = document.querySelector('section.contact');
+
 let value;
 
 // 페이지 로딩되기 직전 스크롤 맨위로
@@ -370,14 +373,14 @@ window.addEventListener('scroll', function () {
     if (value >= 8200) {
         skillRight.classList.add('visible');
     }
-    if (value >= 8500 && value < 8800) {
+    if (value >= 8500 && value < 8700) {
         skillLastCube.style.top = '-400px';
-        skillLastCube.style.top = -400 - ((value - 8500) * 2) / 3 + 'px';
+        skillLastCube.style.top = -400 - (value - 8500) + 'px';
     }
     if (value >= 8500) {
         skillTop.classList.add('visible');
     }
-    if (value >= 8500) {
+    if (value >= 8700) {
         skillLastCube.style.top = '-600px';
     }
     if (value >= 8700 && value < 9200) {
@@ -503,12 +506,12 @@ window.addEventListener('scroll', function () {
     }
     if (value >= 10500) {
         skillWrap.style.transform = 'rotate(0deg) translate(0%, -10%)';
-        skillIconEls[0].src = './images/thumb-photo.jpg';
-        skillIconEls[1].src = './images/thumb-over.jpg';
-        skillIconEls[2].src = './images/thumb-vivid.jpg';
-        skillIconEls[3].src = './images/thumb-rocky.jpg';
-        skillIconEls[4].src = './images/thumb-nemo.jpg';
-        skillIconEls[5].src = './images/thumb-medi.jpg';
+        skillIconEls[0].src = './images/thumb-medi.jpg';
+        skillIconEls[1].src = './images/thumb-rocky.jpg';
+        skillIconEls[2].src = './images/thumb-nemo.jpg';
+        skillIconEls[3].src = './images/thumb-vivid.jpg';
+        skillIconEls[4].src = './images/thumb-over.jpg';
+        skillIconEls[5].src = './images/thumb-photo.jpg';
         for (let i = 0; i < skillRecEls.length; i++) {
             skillIconEls[i].style.transform = 'scale(0.95) translateZ(0.05px)';
         }
@@ -537,11 +540,13 @@ window.addEventListener('scroll', function () {
             'rotateX(' +
             (55 + ((value - 10500) * 9) / 50) +
             'deg) rotateY(' +
-            (180 - ((value - 10500) * 9) / 50) +
+            180 +
             'deg) rotateZ(' +
+            // (180 - ((value - 10500) * 9) / 50) +
+            // 'deg) rotateZ(' +
             (45 + ((value - 10500) * 9) / 50) +
             'deg)';
-        skillWrap.style.transform = 'rotate(0deg) translate(0%, ' + (-10 + ((value - 10500) * 3.5) / 100) + '%)';
+        skillWrap.style.transform = 'rotate(0deg) translate(0%, ' + (-10 + (value - 10500) / 100) + '%)';
 
         // 각 면체 위치 이동 및 90도 꺾기
         skillFront.style.transform = 'translate(0%, 100%) rotateX(' + (90 - ((value - 10500) * 9) / 50) + 'deg)';
@@ -559,9 +564,10 @@ window.addEventListener('scroll', function () {
             skillRecEls[i].style.height = 50 + (value - 10500) / 10 + 'px';
         }
     }
+
     if (value >= 11500) {
-        skillLastCube.style.transform = 'scale(3) translate(-20%, -50%) rotateX(235deg) rotateY(0deg) rotateZ(225deg)';
-        skillWrap.style.transform = 'rotate(0deg) translate(0%, 25%)';
+        skillLastCube.style.transform = 'scale(3) translate(-20%, -50%) rotateX(235deg) rotateY(180deg) rotateZ(225deg)';
+        skillWrap.style.transform = 'rotate(0deg) translate(0%, 0%)';
         // 각 면체 위치 이동 및 90도 꺾기
         skillFront.style.transform = 'translate(0%, 100%) rotateX(-90deg)';
         skillBack.style.transform = 'translate(0%, -100%) rotateX(90deg)';
@@ -582,49 +588,83 @@ window.addEventListener('scroll', function () {
         worksSection.style.display = 'none';
     }
     if (value >= 11500 && value < 12000) {
+        skillLastCube.style.top = 50 - (value - 11500) / 50 + '%';
+        // skillWrap.style.transform = 'rotate(0deg) translate(0%, ' + (25 - (value - 11500) / 20) + '%)';
+
         skillLastCube.style.transform =
             'scale(3) translate(' +
-            (-20 - ((value - 11500) * 3) / 25) +
-            '%,' +
-            (-50 + (value - 11500) / 5) +
+            (-20 - ((value - 11500) * 60) / 500) +
+            '%, ' +
+            -50 +
             '%) rotateX(' +
-            (235 + ((value - 11500) * 3) / 50) +
-            'deg) rotateY(0deg) rotateZ(' +
-            (225 - ((value - 11500) * 4) / 50) +
+            (235 + ((value - 11500) * 30) / 500) +
+            'deg) rotateY(180deg) rotateZ(' +
+            (225 + ((value - 11500) * 40) / 500) +
             'deg)';
-        skillLastCube.style.top = 50 - (value - 11500) / 50 + '%';
-        skillWrap.style.transform = 'rotate(0deg) translate(0%, ' + (25 - (value - 11500) / 20) + '%)';
     }
     if (value >= 12000) {
         skillLastCube.style.top = 40 + '%';
-        skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(185deg)';
+        skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(265deg)';
+        // skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(175deg)';
+        // skillLastCube.style.transform = 'scale(3) translate(-84%, 4.5%) rotateX(175deg) rotateY(175deg) rotateZ(270deg)';
+        // skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(95deg)';
+        // skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(5deg)';
+        // skillLastCube.style.transform = 'scale(3) translate(-75.5%, -5%) rotateX(355deg) rotateY(185deg) rotateZ(270deg)';
         skillWrap.style.transform = 'rotate(0deg) translate(0%, 0%)';
         workList.classList.add('visible');
+        worksSection.style.pointerEvents = 'auto';
     } else {
         workList.classList.remove('visible');
         skillWrap.style.backgroundImage = 'none';
+        worksSection.style.pointerEvents = 'none';
     }
 
     // work-list 등장
     if (value >= 12050) {
         skillLastCube.style.transition = '.3s ease-in';
+
         for (let i = 0; i < workListEls.length; i++) {
             workListEls[i].addEventListener('mouseover', (e) => {
                 let target = e.currentTarget;
                 console.log(target);
-                target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(185deg)');
-                target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(95deg)');
-                target === workListEls[2] && (skillLastCube.style.transform = 'scale(3) translate(-84.5%, -4.5%) rotateX(175deg) rotateY(-5deg) rotateZ(90deg)');
-                target === workListEls[3] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(5deg)');
-                target === workListEls[4] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(275deg)');
-                target === workListEls[5] && (skillLastCube.style.transform = 'scale(3) translate(-75.5%, 5%) rotateX(355deg) rotateY(5deg) rotateZ(360deg)');
+                // target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(185deg)');
+                // target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(95deg)');
+                // target === workListEls[2] && (skillLastCube.style.transform = 'scale(3) translate(-84.5%, -4.5%) rotateX(175deg) rotateY(-5deg) rotateZ(90deg)');
+                // target === workListEls[3] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(5deg)');
+                // target === workListEls[4] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(275deg)');
+                // target === workListEls[5] && (skillLastCube.style.transform = 'scale(3) translate(-75.5%, 5%) rotateX(355deg) rotateY(5deg) rotateZ(360deg)');
+                target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(265deg)');
+                target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(175deg)');
+                target === workListEls[2] && (skillLastCube.style.transform = 'scale(3) translate(-76%, 4.5%) rotateX(175deg) rotateY(175deg) rotateZ(270deg)');
+                target === workListEls[3] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(85deg)');
+                target === workListEls[4] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(355deg)');
+                target === workListEls[5] && (skillLastCube.style.transform = 'scale(3) translate(-84.5%, -4.5%) rotateX(355deg) rotateY(185deg) rotateZ(270deg)');
                 target === workListEls[i] && (skillWrap.style.backgroundImage = `url("./images/back/background${i + 1}.png")`);
             });
             workListEls[i].addEventListener('mouseout', () => {
                 skillWrap.style.backgroundImage = 'none';
             });
+            // workListEls[i].style.pointerEvents = 'auto';
         }
     } else {
         skillLastCube.style.transition = '.1s';
+        // for (let i = 0; i < workListEls.length; i++) {
+        //     workListEls[i].style.pointerEvents = 'none';
+        // }
+    }
+
+    if (value < 12700) {
+        contactSection.style.display = 'none';
+        contactSection.style.width = 0 + 'vw';
+    }
+
+    if (value >= 12700 && value < 13700) {
+        contactSection.style.display = 'block';
+        contactSection.style.width = (value - 12700) / 10 + 'vw';
+    }
+
+    if (value >= 13700) {
+        contactSection.style.display = 'block';
+        contactSection.style.width = 100 + 'vw';
     }
 });

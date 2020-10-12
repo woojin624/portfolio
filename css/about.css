@@ -15,9 +15,9 @@ div.line-ment {
     left: 0%;
     top: 0%;
     /* transform: translate(-50%, -50%); */
-    font-size: 36px;
-    line-height: 1.5;
-    font-weight: 400;
+    font-size: 48px;
+    line-height: 1.3;
+    font-weight: 700;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,8 +31,8 @@ div.line-ment > .right {
 }
 div.line-ment > .left > .box {
     position: absolute;
-    top: 52px;
-    width: 347.19px;
+    top: 62px;
+    width: 463.41px;
     height: 150px;
     background-color: #fff;
     z-index: 9;
@@ -40,8 +40,8 @@ div.line-ment > .left > .box {
 }
 div.line-ment > .right > .box {
     position: absolute;
-    top: -98px;
-    width: 280.95px;
+    top: -88px;
+    width: 375.08px;
     height: 150px;
     background-color: #fff;
     z-index: 9;
@@ -50,12 +50,14 @@ div.line-ment > .right > .box {
 div.line-ment > .left > p {
     position: relative;
     text-align: right;
+    width: 463.41px;
     transform: translate(0, 50%);
     transition: 0.1s;
 }
 div.line-ment > .right > p {
     position: relative;
     text-align: left;
+    width: 375.08px;
     transform: translate(0, -50%);
     transition: 0.1s;
 }

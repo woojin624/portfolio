@@ -183,17 +183,17 @@ window.addEventListener('scroll', function () {
 
     // 라인 멘트 요소
     if (value >= 1250 && value <= 1650) {
-        lineMentLeft.style.top = (-(value - 1250) * 115) / 400 + 'px';
-        lineMentRight.style.bottom = (-(value - 1250) * 115) / 400 + 'px';
+        lineMentLeft.style.top = (-(value - 1250) * 129) / 400 + 'px';
+        lineMentRight.style.bottom = (-(value - 1250) * 125) / 400 + 'px';
     } else if (value < 1250 || value > 2300) {
         lineMentLeft.style.top = 0 + 'px';
         lineMentRight.style.bottom = 0 + 'px';
     } else if (value > 1650 && value <= 1900) {
-        lineMentLeft.style.top = -115 + 'px';
-        lineMentRight.style.bottom = -115 + 'px';
+        lineMentLeft.style.top = -129 + 'px';
+        lineMentRight.style.bottom = -125 + 'px';
     } else if (value > 1900 && value <= 2300) {
-        lineMentLeft.style.top = -115 + ((value - 1900) * 115) / 400 + 'px';
-        lineMentRight.style.bottom = -115 + ((value - 1900) * 115) / 400 + 'px';
+        lineMentLeft.style.top = -129 + ((value - 1900) * 129) / 400 + 'px';
+        lineMentRight.style.bottom = -125 + ((value - 1900) * 125) / 400 + 'px';
     }
     if (value > 2300) {
         lineMentBox.style.opacity = 0;

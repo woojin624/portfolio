@@ -28,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 body {
     line-height: 1;
     overflow-x: hidden;
+    position: relative;
 }
 ol,
 ul {

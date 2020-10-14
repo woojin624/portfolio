@@ -11,11 +11,11 @@ const toTop = document.querySelector('.to-top');
 const hello = document.querySelector('.hello');
 const cubeLogo = document.querySelector('header > div.cube-logo');
 const cubeLogoCube = document.querySelector('header > div.cube-logo > div.cube');
+const cubeLogoCubeDiv = document.querySelectorAll('header > div.cube-logo > div.cube > div');
 const aboutSpace = document.querySelector('.about-space');
 const scrollDown = document.querySelector('.scroll-down');
 const loadingCube = document.querySelector('.loading-cube');
 const loadingCubeCube = document.querySelector('section.loading-cube > div.cube');
-
 // about
 const lineMentLeft = document.querySelector('div.line-ment > .left > p ');
 const lineMentRight = document.querySelector('div.line-ment > .right > p ');
@@ -186,17 +186,17 @@ window.addEventListener('scroll', function () {
 
     // 라인 멘트 요소
     if (value >= 1250 && value <= 1650) {
-        lineMentLeft.style.top = (-(value - 1250) * 129) / 400 + 'px';
-        lineMentRight.style.bottom = (-(value - 1250) * 125) / 400 + 'px';
+        lineMentLeft.style.top = 150 - ((value - 1250) * 140) / 400 + 'px';
+        lineMentRight.style.bottom = 150 - ((value - 1250) * 160) / 400 + 'px';
     } else if (value < 1250 || value > 2300) {
-        lineMentLeft.style.top = 0 + 'px';
-        lineMentRight.style.bottom = 0 + 'px';
+        lineMentLeft.style.top = 150 + 'px';
+        lineMentRight.style.bottom = 150 + 'px';
     } else if (value > 1650 && value <= 1900) {
-        lineMentLeft.style.top = -129 + 'px';
-        lineMentRight.style.bottom = -125 + 'px';
+        lineMentLeft.style.top = 10 + 'px';
+        lineMentRight.style.bottom = -10 + 'px';
     } else if (value > 1900 && value <= 2300) {
-        lineMentLeft.style.top = -129 + ((value - 1900) * 129) / 400 + 'px';
-        lineMentRight.style.bottom = -125 + ((value - 1900) * 125) / 400 + 'px';
+        lineMentLeft.style.top = 10 + ((value - 1900) * 140) / 400 + 'px';
+        lineMentRight.style.bottom = -10 + ((value - 1900) * 160) / 400 + 'px';
     }
     if (value > 2300) {
         lineMentBox.style.opacity = 0;
@@ -653,18 +653,57 @@ window.addEventListener('scroll', function () {
         // }
     }
 
+    if (value >= 13900) {
+        header.style.color = '#000';
+        toTop.style.color = '#000';
+        toTop.style.border = '1px solid #000';
+    } else {
+        header.style.color = '#fff';
+        toTop.style.color = '#fff';
+        toTop.style.border = '1px solid #fff';
+    }
+
+    // 콘택트 페이지 등장
     if (value < 12700) {
         contactSection.style.display = 'none';
         contactSection.style.width = 0 + 'vw';
     }
 
-    if (value >= 12700 && value < 13700) {
+    if (value >= 12700 && value < 14000) {
         contactSection.style.display = 'block';
-        contactSection.style.width = (value - 12700) / 10 + 'vw';
+        contactSection.style.width = (value - 12700) / 13 + 'vw';
     }
 
-    if (value >= 13700) {
+    if (value >= 14000) {
         contactSection.style.display = 'block';
         contactSection.style.width = 100 + 'vw';
+    }
+    if (value > 13400) {
+        cubeLogoCube.classList.remove('logoRotate');
+        cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(0deg)';
+    } else {
+        cubeLogoCube.classList.add('logoRotate');
+        cubeLogo.style.top = '3%';
+        for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
+            cubeLogoCubeDiv[i].style.border = '2px solid rgb(0, 0, 0)';
+        }
+    }
+
+    if (value > 13400 && value < 13900) {
+        cubeLogo.style.transform = ' scale(' + (0.65 + ((value - 13400) * 7) / 500) + ')';
+        cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(' + ((value - 13400) * 135) / 500 + 'deg)';
+        cubeLogo.style.top = 3 + ((value - 13400) * 47) / 500 + '%';
+        for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
+            cubeLogoCubeDiv[i].style.border = 2 - (value - 13400) / 500 + 'px solid rgb(0, 0, 0)';
+        }
+    }
+
+    if (value >= 13900) {
+        cubeLogo.style.transform = 'scale(7.65)';
+        cubeLogoCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(135deg)';
+        cubeLogo.style.top = '50%';
+        for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
+            cubeLogoCubeDiv[i].style.border = '1px solid rgb(0, 0, 0)';
+        }
     }
 });

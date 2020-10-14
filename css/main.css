@@ -1,6 +1,10 @@
 body {
     position: relative;
-    height: 15000px;
+    height: 16000px;
+}
+div.parallax {
+    position: relative;
+    height: 13400px;
 }
 section.main {
     position: fixed;

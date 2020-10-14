@@ -24,42 +24,59 @@ div.line-ment {
     pointer-events: none;
     z-index: 80;
 }
-div.line-ment > .left,
+div.line-ment > .left {
+    position: relative;
+    left: -40px;
+    top: -75px;
+    width: 463.41px;
+    height: 150px;
+    z-index: 9;
+    pointer-events: none;
+    overflow: hidden;
+}
 div.line-ment > .right {
     position: relative;
     left: -40px;
+    top: 75px;
+    width: 375.08px;
+    height: 150px;
+    z-index: 9;
+    pointer-events: none;
+    overflow: hidden;
 }
 div.line-ment > .left > .box {
     position: absolute;
-    top: 62px;
+    /* top: 62px;
     width: 463.41px;
-    height: 150px;
+    height: 150px; */
     background-color: #fff;
-    z-index: 9;
-    pointer-events: none;
+    /* z-index: 9;
+    pointer-events: none; */
 }
 div.line-ment > .right > .box {
     position: absolute;
-    top: -88px;
+    /* top: -88px;
     width: 375.08px;
-    height: 150px;
+    height: 150px; */
     background-color: #fff;
-    z-index: 9;
-    pointer-events: none;
+    /* z-index: 9;
+    pointer-events: none; */
 }
 div.line-ment > .left > p {
     position: relative;
     text-align: right;
     width: 463.41px;
-    transform: translate(0, 50%);
+    /* transform: translate(0, 50%); */
     transition: 0.1s;
+    top: 150px;
 }
 div.line-ment > .right > p {
     position: relative;
     text-align: left;
     width: 375.08px;
-    transform: translate(0, -50%);
+    /* transform: translate(0, -50%); */
     transition: 0.1s;
+    bottom: 150px;
 }
 
 /* 프로필 박스  */

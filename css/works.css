@@ -1,64 +1,91 @@
 section.works {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 400;
-    display: none;
-    pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 400;
+  display: none;
+  pointer-events: none;
 }
 
 section.works > ul.work-list {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(20%, -55%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    opacity: 0;
-    transition: 1s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(20%, -55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 0;
+  transition: 1s;
 }
 
 section.works > ul.work-list.visible {
-    opacity: 1;
+  opacity: 1;
 }
 
 section.works > ul.work-list > li {
-    font-size: 56px;
-    color: white;
-    font-weight: 700;
-    padding: 2px;
-    margin: 8px;
-    cursor: pointer;
-    position: relative;
+  font-size: 56px;
+  color: white;
+  font-weight: 700;
+  padding: 10px 0;
+  margin: 0px;
+  cursor: pointer;
+  position: relative;
+  opacity: 0.5;
+}
+
+section.works > ul.work-list > li.active {
+  opacity: 1;
+  /* list-style: ; */
+  list-style: disc;
 }
 
 section.works > ul.work-list > li > .underLine {
-    position: absolute;
-    width: 0%;
-    margin-top: -8px;
-    height: 10px;
-    background: #fff;
-    transition: 0.3s ease-in;
+  position: absolute;
+  width: 0%;
+  margin-top: -8px;
+  height: 10px;
+  background: #fff;
+  transition: 0.3s ease-in;
 }
 section.works > ul.work-list > li:first-child:hover > .underLine {
-    width: 100%;
+  width: 100%;
 }
 section.works > ul.work-list > li:nth-child(2):hover > .underLine {
-    width: 100%;
+  width: 100%;
 }
 section.works > ul.work-list > li:nth-child(3):hover > .underLine {
-    width: 100%;
+  width: 100%;
 }
 section.works > ul.work-list > li:nth-child(4):hover > .underLine {
-    width: 100%;
+  width: 100%;
 }
 section.works > ul.work-list > li:nth-child(5):hover > .underLine {
-    width: 100%;
+  width: 100%;
 }
 section.works > ul.work-list > li:nth-child(6):hover > .underLine {
-    width: 100%;
+  width: 100%;
+}
+div.bottom-bar {
+  position: fixed;
+  width: 0vw;
+  height: 3px;
+  bottom: 0;
+  outline: 0;
+  z-index: 8000;
+  background-color: rgba(255, 234, 0, 0.625);
+}
+div.bottom-bar.active {
+  animation: bottomBar 3s linear infinite;
+}
+@keyframes bottomBar {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: 100vw;
+  }
 }

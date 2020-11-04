@@ -40,30 +40,39 @@ const skillRecEls = document.querySelectorAll('div.skill-wrap > div.lastCube div
 const skillIconEls = document.querySelectorAll('div.skill-wrap > div.lastCube img');
 
 // works
+let target;
+
 const worksSection = document.querySelector('section.works');
 const workList = document.querySelector('section.works > ul.work-list');
-const workListEls = document.querySelectorAll('section.works > ul.work-list > li');
+let workListEls = document.querySelectorAll('section.works > ul.work-list > li');
 const workListElsUnder = document.querySelectorAll('section.works > ul.work-list > li > .underLine');
+const bottomBar = document.querySelector('.bottom-bar');
+// 워크페이지에서 큐브가 자동으로 회전하게 하기 위한 두가지 id
+let timeId = null;
+let turnId;
+let cubeInterval = null;
+let cubeFunction = true;
+let bottomBarCheck = true;
 
 // contact
 const contactSection = document.querySelector('section.contact');
-
 let value;
+let workListid = 0;
 
-// 페이지 로딩되기 직전 스크롤 맨위로
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-};
-// 페이지가 로당되었을 때 스크롤 막기, 3초후 풀기
-window.onload = function () {
-    body.classList.add('scroll');
-    // loadingCubeCube.classList.add('cube3d');
-    setTimeout(function () {
-        body.classList.remove('scroll');
-        loadingCubeCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(45deg)';
-        loadingCubeCube.classList.remove('cube3d');
-    }, 3000);
-};
+// // 페이지 로딩되기 직전 스크롤 맨위로
+// window.onbeforeunload = function () {
+//     window.scrollTo(0, 0);
+// };
+// // 페이지가 로당되었을 때 스크롤 막기, 3초후 풀기
+// window.onload = function () {
+//     body.classList.add('scroll');
+//     // loadingCubeCube.classList.add('cube3d');
+//     setTimeout(function () {
+//         body.classList.remove('scroll');
+//         loadingCubeCube.style.transform = 'rotateX(55deg) rotateY(180deg) rotateZ(45deg)';
+//         loadingCubeCube.classList.remove('cube3d');
+//     }, 3000);
+// };
 
 // 우측 내비게이션 클릭 시 해당 value값 위치로 이동
 navList[0].addEventListener('click', function () {
@@ -407,16 +416,13 @@ window.addEventListener('scroll', function () {
         skillWrap.style.alignItems = 'center';
         skillCircle.style.opacity = 0;
         skillCircle.style.display = 'none';
-        // skillWrap.style.transform = 'scale(0.5) translate(0, -50%)';
 
         for (let i = 0; i < skillRecEls.length; i++) {
             skillRecEls[i].style.border = '0.1px solid white';
             skillRecEls[i].style.transition = '0.1s';
             skillRecEls[i].style.backgroundColor = '#000';
-            // skillRecBackEls[i].style.opacity = 1;
             skillIconEls[i].style.transform = 'scale(0.8) translateZ(1px)';
         }
-        // skillWrap.style.transformOrigin = 'center center';
         skillFront.style.transformOrigin = 'top center';
         skillBack.style.transformOrigin = 'bottom center';
         skillLeft.style.transformOrigin = 'center right';
@@ -428,7 +434,6 @@ window.addEventListener('scroll', function () {
         skillBack.style.bottom = -416 + 'px';
         skillLeft.style.bottom = -654 + 'px';
         skillRight.style.bottom = -864 + 'px';
-        // skillTop.style.bottom = -232 + 'px';
         skillTop.style.top = '232px';
 
         skillWrap.style.alignItems = 'stretch';
@@ -535,17 +540,7 @@ window.addEventListener('scroll', function () {
     // 큐브 뒤집기
     if (value >= 10500 && value < 11500) {
         skillLastCube.style.transform =
-            'scale(3)' +
-            'translate(-20%, -50%)' +
-            'rotateX(' +
-            (55 + ((value - 10500) * 9) / 50) +
-            'deg) rotateY(' +
-            180 +
-            'deg) rotateZ(' +
-            // (180 - ((value - 10500) * 9) / 50) +
-            // 'deg) rotateZ(' +
-            (45 + ((value - 10500) * 9) / 50) +
-            'deg)';
+            'scale(3)' + 'translate(-20%, -50%)' + 'rotateX(' + (55 + ((value - 10500) * 9) / 50) + 'deg) rotateY(' + 180 + 'deg) rotateZ(' + (45 + ((value - 10500) * 9) / 50) + 'deg)';
         skillWrap.style.transform = 'rotate(0deg) translate(0%, ' + (-10 + (value - 10500) / 100) + '%)';
 
         // 각 면체 위치 이동 및 90도 꺾기
@@ -589,8 +584,6 @@ window.addEventListener('scroll', function () {
     }
     if (value >= 11500 && value < 12000) {
         skillLastCube.style.top = 50 - (value - 11500) / 50 + '%';
-        // skillWrap.style.transform = 'rotate(0deg) translate(0%, ' + (25 - (value - 11500) / 20) + '%)';
-
         skillLastCube.style.transform =
             'scale(3) translate(' +
             (-20 - ((value - 11500) * 60) / 500) +
@@ -605,11 +598,6 @@ window.addEventListener('scroll', function () {
     if (value >= 12000) {
         skillLastCube.style.top = 40 + '%';
         skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(265deg)';
-        // skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(175deg)';
-        // skillLastCube.style.transform = 'scale(3) translate(-84%, 4.5%) rotateX(175deg) rotateY(175deg) rotateZ(270deg)';
-        // skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(95deg)';
-        // skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(5deg)';
-        // skillLastCube.style.transform = 'scale(3) translate(-75.5%, -5%) rotateX(355deg) rotateY(185deg) rotateZ(270deg)';
         skillWrap.style.transform = 'rotate(0deg) translate(0%, 0%)';
         workList.classList.add('visible');
         worksSection.style.pointerEvents = 'auto';
@@ -618,21 +606,36 @@ window.addEventListener('scroll', function () {
         skillWrap.style.backgroundImage = 'none';
         worksSection.style.pointerEvents = 'none';
     }
-
     // work-list 등장
-    if (value >= 12050) {
-        skillLastCube.style.transition = '.3s ease-in';
 
+    if (value >= 12000 && value < 12700) {
+        cubeInterval = 3000;
+        if (bottomBarCheck == true) {
+            bottomBar.classList.add('active');
+        }
+
+        if (cubeFunction == true) {
+            StartTime();
+        }
+        cubeFunction = false;
+        skillLastCube.style.transition = '.3s ease-in';
+        skillWrap.style.backgroundImage = `url("./images/back/background${1}.png")`;
+
+        // 워크리스트에 마우스를 올리고 내렸을 때
         for (let i = 0; i < workListEls.length; i++) {
-            workListEls[i].addEventListener('mouseover', (e) => {
-                let target = e.currentTarget;
-                console.log(target);
-                // target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(185deg)');
-                // target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(95deg)');
-                // target === workListEls[2] && (skillLastCube.style.transform = 'scale(3) translate(-84.5%, -4.5%) rotateX(175deg) rotateY(-5deg) rotateZ(90deg)');
-                // target === workListEls[3] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(5deg)');
-                // target === workListEls[4] && (skillLastCube.style.transform = 'scale(3) translate(-80%, 50%) rotateX(265deg) rotateY(0deg) rotateZ(275deg)');
-                // target === workListEls[5] && (skillLastCube.style.transform = 'scale(3) translate(-75.5%, 5%) rotateX(355deg) rotateY(5deg) rotateZ(360deg)');
+            workListEls[i].style.pointerEvents = 'auto';
+            workListEls[i].style.transition = '0.3s ease-in';
+            workListEls[i].addEventListener('mouseenter', (e) => {
+                bottomBarCheck = false;
+                bottomBar.classList.remove('active');
+                target = e.currentTarget;
+                workListid = i;
+
+                for (let j = 0; j < workListEls.length; j++) {
+                    workListEls[j].classList.remove('active');
+                }
+                workListEls[i].classList.add('active');
+
                 target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(265deg)');
                 target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(265deg) rotateY(180deg) rotateZ(175deg)');
                 target === workListEls[2] && (skillLastCube.style.transform = 'scale(3) translate(-76%, 4.5%) rotateX(175deg) rotateY(175deg) rotateZ(270deg)');
@@ -641,26 +644,23 @@ window.addEventListener('scroll', function () {
                 target === workListEls[5] && (skillLastCube.style.transform = 'scale(3) translate(-84.5%, -4.5%) rotateX(355deg) rotateY(185deg) rotateZ(270deg)');
                 target === workListEls[i] && (skillWrap.style.backgroundImage = `url("./images/back/background${i + 1}.png")`);
             });
-            workListEls[i].addEventListener('mouseout', () => {
-                skillWrap.style.backgroundImage = 'none';
+            workListEls[i].addEventListener('mouseleave', () => {
+                bottomBarCheck = true;
+                bottomBar.classList.add('active');
             });
-            // workListEls[i].style.pointerEvents = 'auto';
         }
     } else {
+        cubeInterval = null;
+        StopTime();
         skillLastCube.style.transition = '.1s';
-        // for (let i = 0; i < workListEls.length; i++) {
-        //     workListEls[i].style.pointerEvents = 'none';
-        // }
-    }
+        for (let i = 0; i < workListEls.length; i++) {
+            workListEls[i].style.pointerEvents = 'none';
+            workListEls[i].classList.remove('active');
+        }
+        bottomBar.classList.remove('active');
+        timeId = null;
 
-    if (value >= 13900) {
-        header.style.color = '#000';
-        toTop.style.color = '#000';
-        toTop.style.border = '1px solid #000';
-    } else {
-        header.style.color = '#fff';
-        toTop.style.color = '#fff';
-        toTop.style.border = '1px solid #fff';
+        cubeFunction = true;
     }
 
     // 콘택트 페이지 등장
@@ -706,4 +706,29 @@ window.addEventListener('scroll', function () {
             cubeLogoCubeDiv[i].style.border = '1px solid rgb(0, 0, 0)';
         }
     }
+
+    // 13900보다 커질시에 글자색 변경
+    if (value >= 13900) {
+        header.style.color = '#000';
+        toTop.style.color = '#000';
+        toTop.style.border = '1px solid #000';
+    }
 });
+
+// 스크롤 이벤트 밖에서 실행되는 값
+
+// value >= 12000 && value < 12700 에서 워크리스트 이벤트
+for (let i = 0; i < workListEls.length; i++) {
+    workListEls[i].addEventListener('mouseenter', () => {
+        StopTime();
+    });
+    workListEls[i].addEventListener('mouseleave', () => {
+        turnId = i;
+        turnId++;
+        if (turnId == 6) {
+            turnId = 0;
+        }
+        cubeFunction = true;
+        StartTime();
+    });
+}

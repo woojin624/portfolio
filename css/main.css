@@ -1,95 +1,95 @@
 body {
-    position: relative;
-    height: 16000px;
+  position: relative;
+  height: 15000px;
 }
 div.parallax {
-    position: relative;
-    height: 13400px;
+  position: relative;
+  height: 13400px;
 }
 section.main {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 499;
-    /* display: none; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 499;
+  /* display: none; */
 }
 
 p.hello {
-    font-size: 28px;
-    position: fixed;
-    left: 50%;
-    top: 30%;
-    text-align: center;
-    line-height: 2.5;
-    font-weight: 500;
-    transform: translate(-50%, -50%);
-    z-index: 101;
-    pointer-events: none;
+  font-size: 28px;
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  text-align: center;
+  line-height: 2.5;
+  font-weight: 500;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  pointer-events: none;
 }
 
 article.about-space {
-    position: fixed;
-    bottom: 50px;
-    left: 60px;
-    z-index: 101;
-    pointer-events: none;
+  position: fixed;
+  bottom: 50px;
+  left: 60px;
+  z-index: 101;
+  pointer-events: none;
 }
 article.about-space > h2 {
-    font-size: 56px;
-    font-weight: 500;
-    margin-bottom: 12px;
+  font-size: 56px;
+  font-weight: 500;
+  margin-bottom: 12px;
 }
 article.about-space > h2 > span {
-    font-size: 36px;
-    font-weight: 400;
+  font-size: 36px;
+  font-weight: 400;
 }
 article.about-space > p {
-    margin-left: 4px;
-    font-size: 16px;
-    line-height: 1.4;
-    font-weight: 400;
+  margin-left: 4px;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
 }
 
 div.scroll-down {
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, 0);
-    bottom: 70px;
-    animation: scroll-down 1.5s ease infinite;
-    z-index: 101;
-    pointer-events: none;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 70px;
+  animation: scroll-down 1.5s ease infinite;
+  z-index: 101;
+  pointer-events: none;
 }
 div.scroll-down > div.arrow {
-    transform: translate(0, 5px);
+  transform: translate(0, 5px);
 }
 div.scroll-down > div.arrow:nth-child(2) {
-    transform: translate(0, 20px);
+  transform: translate(0, 20px);
 }
 div.scroll-down > div.arrow > div.left {
-    width: 30px;
-    height: 2px;
-    background-color: #000;
-    transform: rotate(45deg) translate(8px, 13px);
+  width: 30px;
+  height: 2px;
+  background-color: #000;
+  transform: rotate(45deg) translate(8px, 13px);
 }
 div.scroll-down > div.arrow > div.right {
-    width: 30px;
-    height: 2px;
-    background-color: #000;
-    transform: rotate(-45deg) translate(3px, 21px);
+  width: 30px;
+  height: 2px;
+  background-color: #000;
+  transform: rotate(-45deg) translate(3px, 21px);
 }
 
 @keyframes scroll-down {
-    from {
-        transform: translate(-50%, -10px);
-        opacity: 1;
-    }
-    75% {
-        opacity: 0.5;
-    }
-    to {
-        transform: translate(-50%, 15px);
-        opacity: 0;
-    }
+  from {
+    transform: translate(-50%, -10px);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  to {
+    transform: translate(-50%, 15px);
+    opacity: 0;
+  }
 }

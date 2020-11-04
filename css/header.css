@@ -68,6 +68,10 @@ header > div.cube-logo > div.cube {
     width: 50px;
     height: 50px;
     transition: 0.1s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
     /* transform: rotateX(55deg) rotateY(180deg) rotateZ(45deg); */
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);

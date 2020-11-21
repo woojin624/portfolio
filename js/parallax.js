@@ -101,11 +101,11 @@ navList[0].addEventListener("click", function () {
   window.scrollTo({ top: value, behavior: "smooth" });
 });
 navList[1].addEventListener("click", function () {
-  value = 12010;
+  value = 13310;
   window.scrollTo({ top: value, behavior: "smooth" });
 });
 navList[2].addEventListener("click", function () {
-  value = 14000;
+  value = 16300;
   window.scrollTo({ top: value, behavior: "smooth" });
 });
 toTop.addEventListener("click", function () {

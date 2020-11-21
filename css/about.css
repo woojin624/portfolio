@@ -1,325 +1,338 @@
 section.about {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 200;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
 }
 
 /* 라인 멘트  */
 div.line-ment {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    left: 0%;
-    top: 0%;
-    /* transform: translate(-50%, -50%); */
-    font-size: 48px;
-    line-height: 1.3;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    z-index: 80;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0%;
+  top: 0%;
+  /* transform: translate(-50%, -50%); */
+  font-size: 48px;
+  line-height: 1.3;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 80;
 }
 div.line-ment > .left {
-    position: relative;
-    left: -40px;
-    top: -75px;
-    width: 463.41px;
-    height: 150px;
-    z-index: 9;
-    pointer-events: none;
-    overflow: hidden;
+  position: relative;
+  left: -40px;
+  top: -75px;
+  width: 463.41px;
+  height: 150px;
+  z-index: 9;
+  pointer-events: none;
+  overflow: hidden;
 }
 div.line-ment > .right {
-    position: relative;
-    left: -40px;
-    top: 75px;
-    width: 375.08px;
-    height: 150px;
-    z-index: 9;
-    pointer-events: none;
-    overflow: hidden;
+  position: relative;
+  left: -40px;
+  top: 75px;
+  width: 375.08px;
+  height: 150px;
+  z-index: 9;
+  pointer-events: none;
+  overflow: hidden;
 }
 div.line-ment > .left > .box {
-    position: absolute;
-    /* top: 62px;
+  position: absolute;
+  /* top: 62px;
     width: 463.41px;
     height: 150px; */
-    background-color: #fff;
-    /* z-index: 9;
+  background-color: #fff;
+  /* z-index: 9;
     pointer-events: none; */
 }
 div.line-ment > .right > .box {
-    position: absolute;
-    /* top: -88px;
+  position: absolute;
+  /* top: -88px;
     width: 375.08px;
     height: 150px; */
-    background-color: #fff;
-    /* z-index: 9;
+  background-color: #fff;
+  /* z-index: 9;
     pointer-events: none; */
 }
 div.line-ment > .left > p {
-    position: relative;
-    text-align: right;
-    width: 463.41px;
-    /* transform: translate(0, 50%); */
-    transition: 0.1s;
-    top: 150px;
+  position: relative;
+  text-align: right;
+  width: 463.41px;
+  /* transform: translate(0, 50%); */
+  transition: 0.1s;
+  top: 150px;
 }
 div.line-ment > .right > p {
-    position: relative;
-    text-align: left;
-    width: 375.08px;
-    /* transform: translate(0, -50%); */
-    transition: 0.1s;
-    bottom: 150px;
+  position: relative;
+  text-align: left;
+  width: 375.08px;
+  /* transform: translate(0, -50%); */
+  transition: 0.1s;
+  bottom: 150px;
 }
 
 /* 프로필 박스  */
 /* div.circle > div.profile-wrap {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: 0.1s;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.1s;
 } */
 div.profile-wrap {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transition: 0.1s;
-    width: 0px;
-    height: 0px;
-    border-radius: 50%;
-    background-color: #000;
-    background: no-repeat 50% 50% / cover;
-    transform: translate(-50%, -50%);
-    transform-origin: top;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transition: 0.1s;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background-color: #000;
+  background: no-repeat 50% 50% / cover;
+  transform: translate(-50%, -50%);
+  transform-origin: top;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 div.profile-wrap > img.profile-image {
-    width: 100%;
-    height: 100%;
-    transition: 0.1s;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    opacity: 0%;
-    /* opacity: ; */
-    transform: translate(-50%, -50%) scale(1);
+  width: 100%;
+  height: 100%;
+  transition: 0.1s;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  opacity: 0%;
+  /* opacity: ; */
+  transform: translate(-50%, -50%) scale(1);
 }
 
 /* 프로필 박스 멘트 */
 div.box-ment {
-    z-index: 70;
+  z-index: 70;
+  opacity: 0;
 }
 div.box-ment > div.box {
-    width: 500px;
-    height: 400px;
-    background-color: white;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-60%, -50%);
-    z-index: 4;
-    pointer-events: none;
+  width: 500px;
+  height: 400px;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  z-index: 4;
+  pointer-events: none;
 }
 div.box-ment > p {
-    display: flex;
-    align-items: center;
-    width: 500px;
-    height: 400px;
-    font-size: 18px;
-    line-height: 1.5;
-    font-weight: 400;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    transition: 0.1s;
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: 0.1s;
 }
 div.skill-intro {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 20000px;
-    font-size: 0px;
-    font-weight: 700;
-    z-index: 500;
-    transition: 0.01s;
-    display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20000px;
+  font-size: 0px;
+  font-weight: 700;
+  z-index: 500;
+  transition: 0.1s;
+  display: none;
 }
 
 div.skill-intro > p {
-    text-align: center;
-    mix-blend-mode: difference;
-    color: white;
-    line-height: 1.2;
+  text-align: center;
+  mix-blend-mode: difference;
+  color: white;
+  line-height: 1.2;
+}
+div.centerCircle {
+  background: -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
+  background: -moz-radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
+  background: -ms-radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
+  background: -o-radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
+  width: 40vw;
+  height: 40vw;
+  min-width: 760px;
+  min-height: 760px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  opacity: 30%;
+  transition: 0.1s;
+}
+
+div.circleVisible {
+  opacity: 0;
+  animation: circleshown 0.4s 2.2s ease-in forwards;
+}
+@keyframes circleshown {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 30%;
+  }
 }
 
 /* 스킬들 설명  */
 
-div.skill-wrap > div.centerCircle {
-    background: -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
-    background: -moz-radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
-    background: -ms-radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
-    background: -o-radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(85, 85, 85, 0.5) 35%, rgba(0, 0, 0, 0) 55%);
-    width: 65vw;
-    height: 65vw;
-    min-width: 760px;
-    min-height: 760px;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    opacity: 0;
-    transition: 1.8s;
-}
-div.skill-wrap > div.circleVisible {
-    opacity: 0.3;
-}
-
 div.skill-wrap {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    z-index: 400;
-    display: none;
-    transition: 0.1s;
-    background-color: black;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  z-index: 400;
+  display: none;
+  transition: 0.1s;
+  /* background-color: black; */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* -webkit-transform-style: preserve-3d; */
+  /* transform-style: preserve-3d; */
+  perspective: 1000px;
 }
 
 div.skill-wrap p {
-    transition: 1.5s;
+  transition: 1.5s;
 }
 div.skill-wrap > div.lastCube {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    left: 50%;
-    top: 600px;
-    transition: 0.1s;
-    -webkit-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    transform-style: preserve-3d;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: 600px;
+  transition: 0.1s;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 /* 공통 부분 */
 div.skill-wrap > div.lastCube div {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    opacity: 0;
-    transition: 1s;
-    -webkit-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    background-color: none;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  transition: 1s;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  background-color: none;
 }
 div.skill-wrap > div.lastCube article {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    opacity: 0;
-    transition: 0.1s;
-    background-color: black;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  transition: 0.1s;
+  background-color: black;
 }
 
 div.skill-wrap > div.lastCube > div img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: translateZ(1px);
-    /* z-index: 2; */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(1px);
+  /* z-index: 2; */
 }
 
 div.skill-wrap > div.lastCube > div p.title {
-    width: 150px;
-    position: absolute;
-    font-size: 24px;
-    font-weight: 600;
-    top: 50%;
-    left: 75px;
-    transform: translate(0, -50%);
+  width: 150px;
+  position: absolute;
+  font-size: 24px;
+  font-weight: 600;
+  top: 50%;
+  left: 75px;
+  transform: translate(0, -50%);
 }
 
 div.skill-wrap > div.lastCube > div p.description {
-    top: 65px;
-    position: absolute;
-    font-size: 16px;
-    font-weight: 300;
-    color: lightgray;
-    max-width: 500px;
-    width: 500px;
-    line-height: 1.5;
+  top: 65px;
+  position: absolute;
+  font-size: 16px;
+  font-weight: 300;
+  color: lightgray;
+  max-width: 500px;
+  width: 500px;
+  line-height: 1.5;
 }
 /* 여기까지 공통 부분 */
 
 div.skill-wrap > div.lastCube > div.bottom {
-    bottom: 0px;
+  bottom: 0px;
 }
 div.skill-wrap > div.lastCube > div.bottom > p.title {
-    color: #e44d26;
+  color: #e44d26;
 }
 
 div.skill-wrap > div.lastCube > div.front {
-    bottom: -200px;
+  bottom: -200px;
 }
 div.skill-wrap > div.lastCube > div.front > p.title {
-    color: #0170ba;
+  color: #0170ba;
 }
 
 div.skill-wrap > div.lastCube > div.back {
-    bottom: -416px;
+  bottom: -416px;
 }
 div.skill-wrap > div.lastCube > div.back > p.title {
-    color: #f7df1e;
+  color: #f7df1e;
 }
 
 div.skill-wrap > div.lastCube > div.left {
-    bottom: -654px;
+  bottom: -654px;
 }
 div.skill-wrap > div.lastCube > div.left > p.title {
-    color: #0868ac;
+  color: #0868ac;
 }
 div.skill-wrap > div.lastCube > div.right {
-    bottom: -864px;
+  bottom: -864px;
 }
 div.skill-wrap > div.lastCube > div.right > p.title {
-    color: #61d9fa;
+  color: #61d9fa;
 }
 div.skill-wrap > div.lastCube > div.right > div.top {
-    top: 232px;
+  top: 232px;
 }
 div.skill-wrap > div.lastCube > div.right > div.top > p.title {
-    color: #dd3a0a;
+  color: #dd3a0a;
 }
 div.visible {
-    opacity: 1 !important;
+  opacity: 1 !important;
 }

@@ -1,10 +1,10 @@
 body {
   position: relative;
-  height: 15000px;
+  height: calc(14700px + 200vh);
 }
 div.parallax {
   position: relative;
-  height: 13400px;
+  height: 14700px;
 }
 section.main {
   position: fixed;
@@ -15,21 +15,38 @@ section.main {
   z-index: 499;
   /* display: none; */
 }
+section.main.shown {
+  opacity: 0;
+  animation: mainshown 0.5s 2.8s ease-in forwards;
+}
+@keyframes mainshown {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
 
 p.hello {
-  font-size: 28px;
+  font-size: 84px;
   position: fixed;
-  left: 50%;
-  top: 30%;
-  text-align: center;
-  line-height: 2.5;
-  font-weight: 500;
-  transform: translate(-50%, -50%);
-  z-index: 101;
+  left: 60px;
+  top: 50px;
+  text-align: left;
+  line-height: 1.4;
+  font-weight: 700;
+  /* transform: translate(-50%, -50%); */
+  z-index: 9999;
   pointer-events: none;
+  color: #fff;
+}
+p.hello > span {
+  font-weight: 300;
 }
 
 article.about-space {
+  color: #fff;
   position: fixed;
   bottom: 50px;
   left: 60px;
@@ -37,13 +54,19 @@ article.about-space {
   pointer-events: none;
 }
 article.about-space > h2 {
-  font-size: 56px;
-  font-weight: 500;
-  margin-bottom: 12px;
+  font-size: 64px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #181818;
+  -webkit-text-stroke: 1px #fff;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 article.about-space > h2 > span {
   font-size: 36px;
-  font-weight: 400;
+  font-weight: 500;
+  color: #fff;
+  -webkit-text-stroke: 1px #181818;
+  text-shadow: -1px -1px 0 #181818, 1px -1px 0 #181818, -1px 1px 0 #181818, 1px 1px 0 #181818;
 }
 article.about-space > p {
   margin-left: 4px;
@@ -60,6 +83,7 @@ div.scroll-down {
   animation: scroll-down 1.5s ease infinite;
   z-index: 101;
   pointer-events: none;
+  color: #fff;
 }
 div.scroll-down > div.arrow {
   transform: translate(0, 5px);
@@ -70,13 +94,13 @@ div.scroll-down > div.arrow:nth-child(2) {
 div.scroll-down > div.arrow > div.left {
   width: 30px;
   height: 2px;
-  background-color: #000;
+  background-color: #fff;
   transform: rotate(45deg) translate(8px, 13px);
 }
 div.scroll-down > div.arrow > div.right {
   width: 30px;
   height: 2px;
-  background-color: #000;
+  background-color: #fff;
   transform: rotate(-45deg) translate(3px, 21px);
 }
 

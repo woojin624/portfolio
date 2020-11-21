@@ -1,71 +1,74 @@
 section.contact {
-    position: fixed;
-    width: 0vw;
-    height: 100vh;
-    top: 0px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    background-color: white;
-    z-index: 1500;
-    display: none;
-    transition: 0.1s;
+  position: fixed;
+  width: 0vw;
+  height: 100vh;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: white;
+  z-index: 1500;
+  display: none;
+  transition: 0.1s;
 }
 
 section.contact-content {
-    position: sticky;
-    top: 12700px;
-    /* position: relative; */
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: sticky;
+  top: 14000px;
+  /* position: relative; */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    /* background-color: wheat; */
-    z-index: 2000;
+  /* background-color: wheat; */
+  z-index: 2000;
 }
 
 section.contact-content > article.contents {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 60vw;
 }
 section.contact-content > article.contents > p.mail {
-    font-size: 56px;
-    font-weight: 300;
-    margin-bottom: 36px;
+  font-size: 56px;
+  font-weight: 300;
+  margin-bottom: 36px;
+}
+section.contact-content > article.contents > p.mail > a {
+  color: black;
 }
 section.contact-content > article.contents > p.ment {
-    font-size: 22px;
-    margin-bottom: 36px;
+  font-size: 22px;
+  margin-bottom: 36px;
 }
 section.contact-content > article.contents > div.resume {
-    width: 160px;
-    height: 36px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 160px;
+  height: 36px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 section.contact-content > article.contents > div.resume > p {
-    font-size: 18px;
-    margin-right: 16px;
+  font-size: 18px;
+  margin-right: 16px;
 }
 section.contact-content > article.contents > div.resume > .arrow {
-    width: 8px;
-    height: 8px;
-    border: 2px solid black;
+  width: 8px;
+  height: 8px;
+  border: 2px solid black;
 }
 section.contact-content > article.contents > ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
 section.contact-content > article.contents > ul > li {
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 30px;
 }

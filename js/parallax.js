@@ -270,13 +270,11 @@ window.addEventListener("scroll", function () {
   if (value < 2900) {
     skillIntro.style.fontSize = 0 + "px";
     skillIntro.style.opacity = 0;
-    skillIntro.style.display = "block";
   }
   if (value >= 5500) {
     skillIntro.style.fontSize = 10000 + "px";
     skillIntro.style.opacity = 0;
     skillIntroP.style.lineHeight = 2;
-    skillIntro.style.display = "block";
   }
   // 배경의 원
   if (value < 400) {
@@ -342,7 +340,7 @@ window.addEventListener("scroll", function () {
   if (value < 4000) {
     selfRec1.style.top = 50 + "%";
     selfRec1.style.left = 110 + "%";
-    selfRec1.style.transform = `translate(0}%, -50%) rotate(0deg)`;
+    selfRec1.style.transform = `translate(0%, -50%) rotate(0deg)`;
     selfRec1.style.border = `3px solid #bcbcbc`;
     //
     selfRec2.style.top = 110 + "%";
@@ -808,6 +806,8 @@ window.addEventListener("scroll", function () {
     skillLastCube.style.transition = ".3s ease-in";
     skillWrap.style.backgroundImage = `url("./images/back/background${1}.png")`;
 
+    popUp.style.display = "flex";
+
     for (let i = 0; i < workListEls.length; i++) {
       workListEls[i].style.pointerEvents = "auto";
       workListEls[i].style.transition = "0.3s ease-in";
@@ -840,15 +840,27 @@ window.addEventListener("scroll", function () {
       workListEls[i].addEventListener("click", () => {
         bottomBarCheck = false;
         bottomBar.classList.remove("active");
-        popUp.classList.add("pop-show");
-        popUpWin[i].classList.add("pop-show");
+
+        popUp.style.opacity = 1;
+        popUp.style.pointerEvents = "auto";
+        popUpWin[i].style.display = "flex";
+        setTimeout(function () {
+          popUpWin[i].style.transform = "scale(1)";
+          popUpWin[i].style.opacity = 1;
+        }, 50);
         body.classList.add("scroll");
       });
       popClose[i].addEventListener("click", () => {
         bottomBarCheck = true;
         bottomBar.classList.add("active");
-        popUp.classList.remove("pop-show");
-        popUpWin[i].classList.remove("pop-show");
+
+        popUp.style.opacity = 0;
+        popUp.style.pointerEvents = "none";
+        popUpWin[i].style.transform = "scale(0)";
+        popUpWin[i].style.opacity = 0;
+        setTimeout(function () {
+          popUpWin[i].style.display = "none";
+        }, 200);
         body.classList.remove("scroll");
       });
       popUp.addEventListener("click", (e) => {
@@ -856,8 +868,14 @@ window.addEventListener("scroll", function () {
         if (e.target !== e.currentTarget) return;
         bottomBarCheck = true;
         bottomBar.classList.add("active");
-        popUp.classList.remove("pop-show");
-        popUpWin[i].classList.remove("pop-show");
+
+        popUp.style.opacity = 0;
+        popUp.style.pointerEvents = "none";
+        popUpWin[i].style.transform = "scale(0)";
+        popUpWin[i].style.opacity = 0;
+        setTimeout(function () {
+          popUpWin[i].style.display = "none";
+        }, 300);
         body.classList.remove("scroll");
       });
     }

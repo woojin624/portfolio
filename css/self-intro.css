@@ -302,6 +302,7 @@ article.float-text {
   height: 100vh;
   font-size: 56px;
   font-weight: 600;
+  z-index: 100;
 }
 article.float-text > h2.p1 {
   position: absolute;

@@ -514,6 +514,9 @@ window.addEventListener("scroll", function () {
     //
     selfIntro.style.opacity = 0 + "%";
   }
+  if (value >= 4000 && value < 8200) {
+    selfIntro.style.opacity = 100 + "%";
+  }
 
   //-------------------------------------------------------
 

@@ -67,8 +67,24 @@ section.contact-content > article.contents > ul {
   justify-content: center;
   align-items: flex-end;
 }
-section.contact-content > article.contents > ul > li {
+section.contact-content > article.contents > ul > a {
+  padding: 8px 12px;
   font-size: 20px;
   font-weight: 500;
-  margin-top: 30px;
+  margin-top: 20px;
+  transition: 0.3s ease-out;
+  text-decoration: none;
+}
+section.contact-content > article.contents > ul > a > li {
+  color: #181818;
+
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.3s ease-out;
+}
+section.contact-content > article.contents > ul > a:hover {
+  background: #181818;
+}
+section.contact-content > article.contents > ul > a:hover > li {
+  color: #fff;
 }

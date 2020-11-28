@@ -15,6 +15,9 @@ header.shown {
     opacity: 1;
   }
 }
+header > div.hamburger {
+  display: none;
+}
 
 header > nav {
   width: 80px;
@@ -59,6 +62,9 @@ header > nav > ul > li {
 header > nav > ul > li:hover {
   transform: scale(1.3) translate(0, 0);
 }
+header > nav > ul > li.home {
+  display: none;
+}
 header > nav > div.to-top {
   position: absolute;
   cursor: pointer;
@@ -78,6 +84,12 @@ header > nav > div.to-top {
 }
 header > nav > div.to-top:hover {
   transform: scale(1.2);
+}
+header > nav > p.copyright {
+  display: none;
+}
+header > nav > h2.nav-hello {
+  display: none;
 }
 header > div.cube-logo {
   position: fixed;
@@ -144,8 +156,29 @@ header > div.cube-logo > div.cube.logoRotate {
 }
 
 @media screen and (max-width: 768px) {
+  header > nav {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 100%;
+    background: #00000095;
+    transition: 0.3s ease-in;
+  }
   header > nav > a {
-    display: none;
+    color: #181818;
+  }
+  header > nav > a > span.mail {
+    position: absolute;
+    bottom: 55px;
+    top: auto;
+    left: 54%;
+    transform: translate(-50%, 0) rotate(0deg);
+    /* top: 80px;
+      right: -10px;
+      transform: rotate(90deg); */
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 1;
   }
   header > nav > div.to-top {
     display: none;
@@ -155,21 +188,167 @@ header > div.cube-logo > div.cube.logoRotate {
   }
 
   header > nav > ul {
-    width: 100vw;
+    width: 90vw;
     height: 100vh;
-    opacity: 90%;
+    opacity: 100%;
     background: #fff;
     color: #181818;
     top: 0;
-    left: 100%;
+    right: 0;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transform: rotate(0deg) translate(0, 0);
   }
-
+  header > nav > ul > li.home {
+    display: block;
+  }
   header > nav > ul > li {
     font-size: 52px;
+  }
+
+  header > nav > h2.nav-hello {
+    display: block;
+    position: absolute;
+    margin-left: 10vw;
+    left: 25px;
+    top: 60px;
+    color: #181818;
+    line-height: 1.4;
+    font-weight: 500;
+    font-size: 19px;
+  }
+  header > nav > h2.nav-hello > span {
+    font-weight: 700;
+  }
+
+  header > div.hamburger {
+    display: block;
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    width: 30px;
+    height: 24px;
+    padding: 2px;
+    z-index: 9999;
+  }
+  header > div.hamburger > div {
+    width: 30px;
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    transition: 0.3s;
+  }
+  header > div.hamburger > div.line1 {
+    transform: translate(-50%, -400%);
+  }
+  header > div.hamburger.active > div.line1 {
+    animation: line1active 0.5s ease-in-out forwards;
+  }
+  header > div.hamburger.deactive > div.line1 {
+    animation: line1deactive 0.5s ease-in-out forwards;
+  }
+
+  @keyframes line1active {
+    0% {
+      transform: translate(-50%, -400%) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+  @keyframes line1deactive {
+    0% {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -400%) rotate(0deg);
+    }
+  }
+
+  header > div.hamburger > div.line2 {
+    transform: translate(-50%, -50%);
+  }
+  header > div.hamburger.active > div.line2 {
+    animation: line2active 0.5s ease-in-out forwards;
+  }
+  header > div.hamburger.deactive > div.line2 {
+    animation: line2deactive 0.5s ease-in-out forwards;
+  }
+
+  @keyframes line2active {
+    0% {
+      width: 30px;
+    }
+    50% {
+      width: 0px;
+    }
+    100% {
+      width: 0px;
+    }
+  }
+  @keyframes line2deactive {
+    0% {
+      width: 0px;
+    }
+    50% {
+      width: 0px;
+    }
+    100% {
+      width: 30px;
+    }
+  }
+
+  header > div.hamburger > div.line3 {
+    transform: translate(-50%, 300%);
+  }
+  header > div.hamburger.active > div.line3 {
+    animation: line3active 0.5s ease-in-out forwards;
+  }
+  header > div.hamburger.deactive > div.line3 {
+    animation: line3deactive 0.5s ease-in-out forwards;
+  }
+
+  @keyframes line3active {
+    0% {
+      transform: translate(-50%, 300%) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+  @keyframes line3deactive {
+    0% {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, 300%) rotate(0deg);
+    }
+  }
+  header > nav > p.copyright {
+    display: block;
+    color: #181818;
+    position: absolute;
+    left: 55%;
+    bottom: 20px;
+    transform: translate(-50%, 0);
+    white-space: nowrap;
+    font-size: 14px;
   }
 }

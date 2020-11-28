@@ -330,3 +330,66 @@ article.float-text > h2.p2 {
   -webkit-text-stroke: 1px #6d6d6d;
   text-shadow: -1px -1px 0 #6d6d6d, 1px -1px 0 #6d6d6d, -1px 1px 0 #6d6d6d, 1px 1px 0 #6d6d6d;
 }
+
+@media screen and (max-width: 768px) {
+  div.self-intro {
+    transform: translate(-50%, -50%);
+  }
+  div.self-intro > .rec1 > p {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    top: 150%;
+    left: 55%;
+    opacity: 0%;
+    font-size: 15px;
+    line-height: 1.5;
+    transform: translate(-50%, -50%);
+  }
+  div.self-intro > .rec1 > p > span {
+    font-weight: 700;
+  }
+  div.self-intro > .rec1 {
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    width: 300px;
+    height: 300px;
+    border: 3px solid #bcbcbc;
+    transition: 50ms;
+    transform: translate(0%, -100%) rotate(0deg) scale(1);
+  }
+  div.self-intro > .rec2 {
+    position: absolute;
+    top: 110%;
+    left: 20%;
+    width: 300px;
+    height: 300px;
+    border: 3px solid #bcbcbc;
+    transition: 50ms;
+    transform: translate(-50%, 0%) rotate(0deg) scale(1);
+  }
+  div.self-intro > .rec3 {
+    position: absolute;
+    top: -10%;
+    left: 80%;
+    width: 300px;
+    height: 300px;
+    border: 3px solid #bcbcbc;
+    transition: 50ms;
+    transform: translate(-50%, -100%) rotate(0deg) scale(1);
+  }
+
+  article.float-text {
+    z-index: 1000;
+  }
+  article.float-text > h2.p1 {
+    -webkit-text-stroke: 1px #d8d8d8;
+    text-shadow: -1px -1px 0 #d8d8d8, 1px -1px 0 #d8d8d8, -1px 1px 0 #d8d8d8, 1px 1px 0 #d8d8d8;
+  }
+  article.float-text > h2.p2 {
+    left: 20%;
+    -webkit-text-stroke: 1px #d8d8d8;
+    text-shadow: -1px -1px 0 #d8d8d8, 1px -1px 0 #d8d8d8, -1px 1px 0 #d8d8d8, 1px 1px 0 #d8d8d8;
+  }
+}

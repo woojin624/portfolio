@@ -2,12 +2,22 @@
 
 // 모바일 페이지에서 작동할 js
 
+const hamburgerBtn = document.querySelector('div.hamburger');
+const hamburgerBtnBar = document.querySelectorAll('div.hamburger > div');
+const navHome = document.querySelector('header > nav > ul > li.home');
+
 mql.addListener(function (e) {
   if (e.matches) {
     console.log('모바일 화면 입니다.');
   } else {
     console.log('데스크탑 화면 입니다.');
   }
+});
+
+navHome.addEventListener('click', function () {
+  value = 0;
+  window.scrollTo({ top: value, behavior: 'smooth' });
+  hamburgerMenu();
 });
 
 // 패럴랙스 스크롤 이벤트 시작 부분
@@ -30,9 +40,9 @@ window.addEventListener('scroll', function () {
       loadingCubeCube.style.transform = 'rotateX(' + (61 - (value * 61) / 400) + 'deg) rotateY(' + (153 - (value * 153) / 400) + 'deg) rotateZ(' + (53 - (value * 53) / 400) + 'deg) scale3d(2, 2, 2)';
       body.style.backgroundColor = '#181818';
       // 메일, 탑버튼 요소
-      mail.style.top = 60 + value / 8 + 'px';
-      mail.style.right = 50 - value / 8 + 'px';
-      mail.style.transform = 'rotate(' + (value * 90) / 400 + 'deg)'; // rotate(90deg)
+      // mail.style.top = 60 + value / 8 + 'px';
+      // mail.style.right = 50 - value / 8 + 'px';
+      // mail.style.transform = 'rotate(' + (value * 90) / 400 + 'deg)'; // rotate(90deg)
 
       // 써클 초기화
       circle.style.width = 0 + 'px'; //
@@ -50,9 +60,9 @@ window.addEventListener('scroll', function () {
       loadingCube.style.opacity = 0;
 
       // 메일, 탑버튼 요소
-      mail.style.top = 110 + 'px';
-      mail.style.right = 0 + 'px';
-      mail.style.transform = 'rotate(90deg)';
+      // mail.style.top = 110 + 'px';
+      // mail.style.right = 0 + 'px';
+      // mail.style.transform = 'rotate(90deg)';
     }
 
     // 큐브 로고
@@ -147,8 +157,8 @@ window.addEventListener('scroll', function () {
     }
     // 가운데 빅 타이포 폰트사이즈 키우기
     if (value >= 2900 && value < 5500) {
-      skillIntro.style.opacity = (value - 2900) / 3 + '%';
-      skillIntro.style.fontSize = (value - 2900) / 2.2 + 'px';
+      skillIntro.style.opacity = (value - 2900) / 2 + '%';
+      skillIntro.style.fontSize = (value - 2900) / 3.5 + 'px';
       skillIntro.style.display = 'block';
       if (value >= 3200 && value < 5500) {
         skillIntroP.style.lineHeight = 1.2 + (value - 3200) / 2500;
@@ -163,7 +173,7 @@ window.addEventListener('scroll', function () {
       skillIntro.style.opacity = 0;
     }
     if (value >= 5500) {
-      skillIntro.style.fontSize = 10000 + 'px';
+      skillIntro.style.fontSize = 3000 + 'px';
       skillIntro.style.opacity = 0;
       skillIntroP.style.lineHeight = 2;
     }
@@ -231,7 +241,7 @@ window.addEventListener('scroll', function () {
     if (value < 4000) {
       selfRec1.style.top = 50 + '%';
       selfRec1.style.left = 110 + '%';
-      selfRec1.style.transform = `translate(0%, -50%) rotate(0deg)`;
+      selfRec1.style.transform = `translate(0%, -100%) rotate(0deg)`;
       selfRec1.style.border = `3px solid #bcbcbc`;
       //
       selfRec2.style.top = 110 + '%';
@@ -248,7 +258,7 @@ window.addEventListener('scroll', function () {
     // s1
     if (value >= 4000 && value < 5000) {
       selfRec1.style.left = 110 - ((value - 4000) * 6) / 100 + '%'; // 110 - 60 = 50
-      selfRec1.style.transform = `translate(${-(value - 4000) / 10}%, -50%) rotate(${(-(value - 4000) * 360) / 1000}deg)`; // tl -100%, -50% .. r -360deg
+      selfRec1.style.transform = `translate(${-(value - 4000) / 20}%, -100%) rotate(${(-(value - 4000) * 360) / 1000}deg)`; // tl -100%, -50% .. r -360deg
       //
       selfRec2.style.top = 110 - ((value - 4000) * 6) / 100 + '%'; // 110 - 60 = 50
       selfRec2.style.left = 20 + ((value - 4000) * 3) / 100 + '%'; // 20 + 30 = 50
@@ -264,7 +274,7 @@ window.addEventListener('scroll', function () {
     // s2
     if (value >= 5000 && value < 5200) {
       selfRec1.style.left = 50 + '%'; //  50
-      selfRec1.style.transform = 'translate(-100%, -50%) rotate(-360deg)'; // tl -100%, -50% .. r -360deg
+      selfRec1.style.transform = 'translate(-50%, -100%) rotate(-360deg)'; // tl -100%, -50% .. r -360deg
       //
       selfRec2.style.top = 50 + '%'; // 110 - 60 = 50
       selfRec2.style.left = 50 + '%'; // 20 + 30 = 50
@@ -289,7 +299,7 @@ window.addEventListener('scroll', function () {
       selfRec3.style.left = 50 + '%'; // 80 - 30 = 50
     }
     if (value >= 5200 && value < 5500) {
-      selfRec1.style.transform = 'translate(-100%, -50%) rotate(-360deg)'; // tl -100%, -50% .. r -360deg
+      selfRec1.style.transform = 'translate(-50%, -100%) rotate(-360deg)'; // tl -100%, -50% .. r -360deg
       //
       selfRec2.style.transform = `translate(-175%, -125%) rotate(${-432 - ((value - 5200) * 360) / 1000}deg) scale(0.2)`; // tl -175%, -125% r -720deg s 0.2
       selfRec2.style.border = `10px solid #bcbcbc`;
@@ -309,7 +319,7 @@ window.addEventListener('scroll', function () {
       profileImage.style.opacity = 0;
     }
     if (value >= 5500 && value < 6000) {
-      selfRec1.style.transform = `translate(${-100 - ((value - 5500) * 75) / 500}%, -50%) rotate(-360deg) scale(${1 - ((value - 5500) / 500) * 0.8})`;
+      selfRec1.style.transform = `translate(${-50 - ((value - 5500) * 125) / 500}%, -100%) rotate(-360deg) scale(${1 - ((value - 5500) / 500) * 0.8})`;
       selfRec1.style.border = `${3 + ((value - 5500) * 7) / 500}px solid #bcbcbc`;
       //
       selfRec2.style.transform = `translate(${-175 + ((value - 5500) * 125) / 500}%, -125%) rotate(-540deg) scale(${0.2 + ((value - 5500) / 500) * 0.8})`;
@@ -320,7 +330,7 @@ window.addEventListener('scroll', function () {
     }
     // s4
     if (value >= 6000 && value < 6500) {
-      selfRec1.style.transform = `translate(-175%, ${-50 - ((value - 6000) * 75) / 500}%) rotate(${-360 - ((value - 6000) * 360) / 1000}deg) scale(0.2)`;
+      selfRec1.style.transform = `translate(-175%, ${-100 - ((value - 6000) * 25) / 500}%) rotate(${-360 - ((value - 6000) * 360) / 1000}deg) scale(0.2)`;
       selfRec1.style.border = `10px solid #bcbcbc`;
       //
       selfRec2.style.transform = `translate(-50%, ${-125 + ((value - 6000) * 75) / 500}%) rotate(-540deg) scale(1)`;
@@ -414,26 +424,41 @@ window.addEventListener('scroll', function () {
     // 컬러 조정
     if (value >= 3300) {
       body.style.background = '#181818';
+      for (let i = 0; i < hamburgerBtnBar.length; i++) {
+        hamburgerBtnBar[i].style.background = '#fff';
+      }
     } else if (value < 3300 && value >= 400) {
       body.style.background = '#fff';
+      for (let i = 0; i < hamburgerBtnBar.length; i++) {
+        hamburgerBtnBar[i].style.background = '#181818';
+      }
     } else if (value < 400) {
       body.style.background = '#181818';
+      for (let i = 0; i < hamburgerBtnBar.length; i++) {
+        hamburgerBtnBar[i].style.background = '#fff';
+      }
     }
+    if (value > 15000) {
+      for (let i = 0; i < hamburgerBtnBar.length; i++) {
+        hamburgerBtnBar[i].style.background = '#181818';
+      }
+    }
+
     if (value < 3100 && value >= 400) {
       // skillIntro.style.fontSize = 0 + "px";
       header.style.color = '#000';
-      mailColor.style.color = '#000';
+      // mailColor.style.color = '#000';
       toTop.style.color = '#000';
       toTop.style.border = '1px solid #000';
     } else if (value < 400) {
       header.style.color = '#fff';
       toTop.style.color = '#fff';
-      mailColor.style.color = '#fff';
+      // mailColor.style.color = '#fff';
       toTop.style.border = '1px solid #fff';
     } else {
       header.style.color = '#fff';
       toTop.style.color = '#fff';
-      mailColor.style.color = '#fff';
+      // mailColor.style.color = '#fff';
       toTop.style.border = '1px solid #fff';
     }
 
@@ -505,12 +530,14 @@ window.addEventListener('scroll', function () {
     if (value >= 10000) {
       for (let i = 0; i < skillTitleDesEls.length; i++) {
         skillTitleDesEls[i].style.opacity = 0;
+        aboutSection.style.zIndex = 2000;
       }
     } else {
       for (let i = 0; i < skillTitleDesEls.length; i++) {
         skillTitleDesEls[i].style.opacity = 1;
       }
       skillWrap.style.transform = 'rotate(0deg)';
+      aboutSection.style.zIndex = 2500;
     }
 
     // 스킬의 면들을 큐브로 조합시키기
@@ -532,6 +559,7 @@ window.addEventListener('scroll', function () {
       skillTop.style.transformOrigin = 'center left';
     } else {
       skillLastCube.style.transform = 'scale(1) translate(0%, 0%) rotateX(0deg) rotateY(0deg) rotateZ(0deg)';
+      skillLastCube.style.left = 25 + '%';
       // 각 면체 위치 이동 및 원위치
       skillFront.style.bottom = -200 + 'px'; // 200
       skillFront.style.transform = 'translate(0%, 0%) rotateX(0deg)';
@@ -560,7 +588,7 @@ window.addEventListener('scroll', function () {
       skillWrap.style.transform = 'rotate(' + (70 - ((value - 10500) * 7) / 100) + 'deg)';
       skillLastCube.style.top = (value - 10500) / 20 + '%';
       skillLastCube.style.transform = 'scale(' + (1 + (value - 10500) / 500) + ')' + 'translate(-' + ((value - 10500) * 2) / 100 + '%, -' + (value - 10500) / 20 + '%) rotateX(' + ((value - 10500) * 55) / 1000 + 'deg) rotateY(' + ((value - 10500) * 180) / 1000 + 'deg) rotateZ(' + ((value - 10500) * 45) / 1000 + 'deg)';
-
+      skillLastCube.style.left = 25 + (value - 10500) / 40 + '%';
       // 각 면체 위치 이동 및 90도 꺾기
       skillFront.style.bottom = -200 + (value - 10500) / 5 + 'px'; // 200
       skillFront.style.transform = 'translate(0%, ' + (value - 10500) / 10 + '%) rotateX(' + ((value - 10500) * 9) / 100 + 'deg)';
@@ -646,11 +674,11 @@ window.addEventListener('scroll', function () {
       skillTop.style.transform = 'translate(100%, 0%) rotateY(' + (-90 + ((value - 11800) * 9) / 50) + 'deg)';
 
       // 각 면체 높이 넓이 조정
-      skillLastCube.style.width = 50 + (value - 11800) / 10 + 'px';
-      skillLastCube.style.height = 50 + (value - 11800) / 10 + 'px';
+      skillLastCube.style.width = 50 + ((value - 11800) * 4) / 100 + 'px';
+      skillLastCube.style.height = 50 + ((value - 11800) * 4) / 100 + 'px';
       for (let i = 0; i < skillRecEls.length; i++) {
-        skillRecEls[i].style.width = 50 + (value - 11800) / 10 + 'px';
-        skillRecEls[i].style.height = 50 + (value - 11800) / 10 + 'px';
+        skillRecEls[i].style.width = 50 + ((value - 11800) * 4) / 100 + 'px';
+        skillRecEls[i].style.height = 50 + ((value - 11800) * 4) / 100 + 'px';
       }
     }
 
@@ -665,11 +693,11 @@ window.addEventListener('scroll', function () {
       skillTop.style.transform = 'translate(100%, 0%) rotateY(90deg)';
 
       // 각 면체 높이 넓이 조정
-      skillLastCube.style.width = 150 + 'px';
-      skillLastCube.style.height = 150 + 'px';
+      skillLastCube.style.width = 90 + 'px';
+      skillLastCube.style.height = 90 + 'px';
       for (let i = 0; i < skillRecEls.length; i++) {
-        skillRecEls[i].style.width = 150 + 'px';
-        skillRecEls[i].style.height = 150 + 'px';
+        skillRecEls[i].style.width = 90 + 'px';
+        skillRecEls[i].style.height = 90 + 'px';
       }
 
       worksSection.style.display = 'block';
@@ -677,12 +705,13 @@ window.addEventListener('scroll', function () {
       worksSection.style.display = 'none';
     }
     if (value >= 12800 && value < 13300) {
-      skillLastCube.style.top = 50 - (value - 12800) / 50 + '%';
-      skillLastCube.style.transform = 'scale(3) translate(' + (-20 - ((value - 12800) * 60) / 500) + '%, ' + -50 + '%) rotateX(' + (235 + ((value - 12800) * 35) / 500) + 'deg) rotateY(180deg) rotateZ(' + (225 + ((value - 12800) * 40) / 500) + 'deg)';
+      skillLastCube.style.top = 50 + '%';
+      skillLastCube.style.transform = 'scale(3) translate(' + (-20 + ((value - 12800) * 3) / 500) + '%, ' + (-50 - ((value - 12800) * 75) / 500) + '%) rotateX(' + (235 + ((value - 12800) * 30) / 500) + 'deg) rotateY(180deg) rotateZ(' + (225 + ((value - 12800) * 45) / 500) + 'deg)';
     }
     if (value >= 13300) {
-      skillLastCube.style.top = 40 + '%';
+      skillLastCube.style.top = 50 + '%';
       skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(270deg) rotateY(180deg) rotateZ(265deg)';
+      skillLastCube.style.transform = 'scale(3) translate(-17%, -125%) rotateX(265deg) rotateY(180deg) rotateZ(270deg)';
       skillWrap.style.transform = 'rotate(0deg) translate(0%, 0%)';
       workList.classList.add('visible');
       worksSection.style.pointerEvents = 'auto';
@@ -724,12 +753,12 @@ window.addEventListener('scroll', function () {
           }
           workListEls[i].classList.add('active');
 
-          target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(270deg) rotateY(180deg) rotateZ(265deg)');
-          target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(270deg) rotateY(180deg) rotateZ(175deg)');
-          target === workListEls[2] && (skillLastCube.style.transform = 'scale(3.24) translate(-74.5%, 0.5%) rotateX(180deg) rotateY(175deg) rotateZ(270deg)');
-          target === workListEls[3] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(270deg) rotateY(180deg) rotateZ(85deg)');
-          target === workListEls[4] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(270deg) rotateY(180deg) rotateZ(355deg)');
-          target === workListEls[5] && (skillLastCube.style.transform = 'scale(2.74) translate(-86.5%, 0%) rotateX(360deg) rotateY(185deg) rotateZ(270deg)');
+          target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-17%, -125%) rotateX(265deg) rotateY(180deg) rotateZ(270deg)');
+          target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-17%, -125%) rotateX(265deg) rotateY(180deg) rotateZ(180deg)');
+          target === workListEls[2] && (skillLastCube.style.transform = 'scale(3.2) translate(-16.5%, -70.5%) rotateX(175deg) rotateY(180deg) rotateZ(270deg)');
+          target === workListEls[3] && (skillLastCube.style.transform = 'scale(3) translate(-17%, -125%) rotateX(265deg) rotateY(180deg) rotateZ(90deg)');
+          target === workListEls[4] && (skillLastCube.style.transform = 'scale(3) translate(-17%, -125%) rotateX(265deg) rotateY(180deg) rotateZ(360deg)');
+          target === workListEls[5] && (skillLastCube.style.transform = 'scale(2.84) translate(-18.5%, -80%) rotateX(355deg) rotateY(180deg) rotateZ(270deg)');
           target === workListEls[i] && (skillWrap.style.backgroundImage = `url("./images/back/background${i + 1}.png")`);
         });
         workListEls[i].addEventListener('mouseleave', () => {
@@ -817,11 +846,6 @@ window.addEventListener('scroll', function () {
         loadingCubeRec[i].style.opacity = 0.5;
       }
     } else {
-      // cubeLogoCube.classList.add("logoRotate");
-      // cubeLogo.style.top = "3%";
-      // for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
-      //   cubeLogoCubeDiv[i].style.border = "2px solid rgb(0, 0, 0)";
-      // }
       for (let i = 0; i < loadingCubeRec.length; i++) {
         loadingCubeRec[i].style.backgroundColor = 'rgba(18, 18, 18, 0.85)';
         loadingCubeRec[i].style.border = '1px solid rgb(60, 60, 60)';
@@ -830,27 +854,15 @@ window.addEventListener('scroll', function () {
     }
 
     if (value > 14200 && value < 15200) {
-      // cubeLogo.style.transform = " scale(" + (0.65 + ((value - 14700) * 7) / 500) + ")";
-      // cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(" + ((value - 14700) * 135) / 500 + "deg)";
-      // cubeLogo.style.top = 3 + ((value - 14700) * 47) / 500 + "%";
-      // for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
-      //   cubeLogoCubeDiv[i].style.border = 2 - (value - 14700) / 500 + "px solid rgb(0, 0, 0)";
-      // }
       loadingCube.style.opacity = 0 + (value - 14200) / 5 + '%';
       loadingCube.style.transform = 'scale(' + (0 + (value - 14200) / 1000) + ')';
-      loadingCubeCube.style.transform = 'rotateX(' + (0 + ((value - 14200) * 61) / 1000) + 'deg) rotateY(' + (0 + ((value - 14200) * 153) / 1000) + 'deg) rotateZ(' + (0 + ((value - 14200) * 53) / 1000) + 'deg) scale3d(5, 5, 5)';
+      loadingCubeCube.style.transform = 'rotateX(' + (0 + ((value - 14200) * 61) / 1000) + 'deg) rotateY(' + (0 + ((value - 14200) * 153) / 1000) + 'deg) rotateZ(' + (0 + ((value - 14200) * 53) / 1000) + 'deg) scale3d(2, 2, 2)';
       // loadingCube.style.opacity = 0;
     }
 
     if (value >= 15200) {
-      // cubeLogo.style.transform = "scale(7.65)";
-      // cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(135deg)";
-      // cubeLogo.style.top = "50%";
-      // for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
-      //   cubeLogoCubeDiv[i].style.border = "1px solid rgb(0, 0, 0)";
-      // }
       loadingCube.style.opacity = 1;
-      loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(5, 5, 5)';
+      loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(2, 2, 2)';
       loadingCube.style.transform = 'scale(1)';
     } else {
     }
@@ -861,7 +873,7 @@ window.addEventListener('scroll', function () {
     if (value >= 15200) {
       header.style.color = '#000';
       toTop.style.color = '#000';
-      mailColor.style.color = '#000';
+      // mailColor.style.color = '#000';
       toTop.style.border = '1px solid #000';
     }
   }
@@ -883,4 +895,46 @@ for (let i = 0; i < workListEls.length; i++) {
     cubeFunction = true;
     StartTime();
   });
+}
+
+hamburgerBtn.addEventListener('click', hamburgerMenu);
+
+function hamburgerMenu() {
+  if (hamburgerBtn.classList.contains('active')) {
+    body.classList.remove('scroll');
+    hamburgerBtn.classList.remove('active');
+    hamburgerBtn.classList.add('deactive');
+    headerNav.style.left = '100%';
+    if (value >= 3300 && value < 15000) {
+      hamBtnToWhite();
+    } else if (value < 3300 && value >= 400) {
+      hamBtnToBlack();
+    } else if (value < 400) {
+      hamBtnToWhite();
+    } else {
+      hamBtnToBlack();
+    }
+  } else if (hamburgerBtn.classList.contains('deactive')) {
+    body.classList.add('scroll');
+    hamburgerBtn.classList.remove('deactive');
+    hamburgerBtn.classList.add('active');
+    headerNav.style.left = '0%';
+    hamBtnToBlack();
+  } else {
+    body.classList.remove('scroll');
+    hamburgerBtn.classList.add('active');
+    headerNav.style.left = '0%';
+    hamBtnToBlack();
+  }
+}
+
+function hamBtnToWhite() {
+  for (let i = 0; i < hamburgerBtnBar.length; i++) {
+    hamburgerBtnBar[i].style.background = '#fff';
+  }
+}
+function hamBtnToBlack() {
+  for (let i = 0; i < hamburgerBtnBar.length; i++) {
+    hamburgerBtnBar[i].style.background = '#181818';
+  }
 }

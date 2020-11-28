@@ -292,3 +292,36 @@ section.popup > article.pop-win > .pop-close:hover > div:nth-child(2) {
   position: absolute;
   transform: rotate(45deg);
 }
+
+@media screen and (max-width: 768px) {
+  article.pop-win > div.project-thumb {
+    display: none;
+  }
+  article.pop-win > div.project-disc {
+    height: 100%;
+    justify-content: space-between;
+    padding-top: 70px;
+    padding-bottom: 30px;
+  }
+  article.pop-win > div.project-disc > h1 {
+    margin-bottom: 1rem;
+  }
+  article.pop-win > div.project-disc > p.disc {
+    margin-bottom: 1rem;
+  }
+  article.pop-win > div.project-disc > div.tools {
+    align-self: center;
+  }
+  article.pop-win > div.project-disc > p.period {
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  article.pop-win > div.project-disc > div.btn-wrap {
+    display: flex;
+    align-self: center;
+  }
+  article.pop-win > div.project-disc > div.btn-wrap > a:first-child {
+    margin-left: 0;
+  }
+}

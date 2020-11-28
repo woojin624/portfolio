@@ -6,7 +6,7 @@ section.contact {
   left: 50%;
   transform: translate(-50%, 0);
   background-color: white;
-  z-index: 1500;
+  z-index: 2420;
   display: none;
   /* transition: 0.1s; */
 }
@@ -22,7 +22,7 @@ section.contact-content {
   align-items: center;
 
   /* background-color: wheat; */
-  z-index: 2000;
+  z-index: 3100;
   transform: translateZ(2000px);
 }
 
@@ -32,6 +32,7 @@ section.contact-content > article.contents {
   justify-content: center;
   align-items: center;
   width: 80vw;
+  position: relative;
 }
 section.contact-content > article.contents > p.mail {
   font-size: 86px;
@@ -93,4 +94,29 @@ section.contact-content > article.contents > ul > a:hover {
 }
 section.contact-content > article.contents > ul > a:hover > li {
   color: #fff;
+}
+section.contact-content > p.copyright {
+  position: absolute;
+  bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  section.contact-content > article.contents > p.mail {
+    font-size: 36px;
+    margin-bottom: 2.5rem;
+  }
+  section.contact-content > article.contents > p.ment {
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+  section.contact-content > article.contents > a.resume {
+    width: 180px;
+    height: 54px;
+    margin-bottom: 1.5rem;
+  }
+  section.contact-content > article.contents > a.resume > p {
+    font-size: 24px;
+  }
 }

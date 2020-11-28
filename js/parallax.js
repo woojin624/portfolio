@@ -7,6 +7,7 @@ const mainSection = document.querySelector('section.main');
 const mail = document.querySelector('.mail');
 const mailColor = document.querySelector('header > nav > a');
 const header = document.querySelector('.header');
+const headerNav = document.querySelector('header > nav');
 const navList = document.querySelectorAll('.nav-list');
 const toTop = document.querySelector('.to-top');
 const hello = document.querySelector('.hello');
@@ -19,6 +20,7 @@ const loadingCube = document.querySelector('.loading-cube');
 const loadingCubeCube = document.querySelector('section.loading-cube > div.cube');
 const loadingCubeRec = document.querySelectorAll('section.loading-cube > div.cube div');
 // about
+const aboutSection = document.querySelector('section.about');
 const lineMentLeft = document.querySelector('div.line-ment > .left > p ');
 const lineMentRight = document.querySelector('div.line-ment > .right > p ');
 const lineMentBox = document.querySelector('.line-ment');
@@ -104,14 +106,17 @@ window.onload = function () {
 navList[0].addEventListener('click', function () {
   value = 1750;
   window.scrollTo({ top: value, behavior: 'smooth' });
+  hamburgerMenu();
 });
 navList[1].addEventListener('click', function () {
   value = 13310;
   window.scrollTo({ top: value, behavior: 'smooth' });
+  hamburgerMenu();
 });
 navList[2].addEventListener('click', function () {
   value = 16300;
   window.scrollTo({ top: value, behavior: 'smooth' });
+  hamburgerMenu();
 });
 toTop.addEventListener('click', function () {
   value = 0;
@@ -622,11 +627,13 @@ window.addEventListener('scroll', function () {
       for (let i = 0; i < skillTitleDesEls.length; i++) {
         skillTitleDesEls[i].style.opacity = 0;
       }
+      aboutSection.style.zIndex = 2000;
     } else {
       for (let i = 0; i < skillTitleDesEls.length; i++) {
         skillTitleDesEls[i].style.opacity = 1;
       }
       skillWrap.style.transform = 'rotate(0deg)';
+      aboutSection.style.zIndex = 2500;
     }
 
     // 스킬의 면들을 큐브로 조합시키기

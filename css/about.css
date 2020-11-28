@@ -4,7 +4,7 @@ section.about {
   top: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 200;
+  z-index: 2500;
 }
 
 /* 라인 멘트  */
@@ -46,50 +46,25 @@ div.line-ment > .right {
 }
 div.line-ment > .left > .box {
   position: absolute;
-  /* top: 62px;
-    width: 463.41px;
-    height: 150px; */
   background-color: #fff;
-  /* z-index: 9;
-    pointer-events: none; */
 }
 div.line-ment > .right > .box {
   position: absolute;
-  /* top: -88px;
-    width: 375.08px;
-    height: 150px; */
   background-color: #fff;
-  /* z-index: 9;
-    pointer-events: none; */
 }
 div.line-ment > .left > p {
   position: relative;
   text-align: right;
   width: 463.41px;
-  /* transform: translate(0, 50%); */
-  /* transition: 0.1s; */
   top: 150px;
 }
 div.line-ment > .right > p {
   position: relative;
   text-align: left;
   width: 375.08px;
-  /* transform: translate(0, -50%); */
-  /* transition: 0.1s; */
   bottom: 150px;
 }
 
-/* 프로필 박스  */
-/* div.circle > div.profile-wrap {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: 0.1s;
-} */
 div.profile-wrap {
   display: none;
   position: fixed;
@@ -109,49 +84,6 @@ div.profile-wrap {
   align-items: center;
 }
 
-div.profile-wrap > img.profile-image {
-  width: 100%;
-  height: 100%;
-  transition: 0.1s;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  opacity: 0%;
-  /* opacity: ; */
-  transform: translate(-50%, -50%) scale(1);
-}
-
-/* 프로필 박스 멘트 */
-div.box-ment {
-  z-index: 70;
-  opacity: 0;
-}
-div.box-ment > div.box {
-  width: 500px;
-  height: 400px;
-  background-color: white;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-60%, -50%);
-  z-index: 4;
-  pointer-events: none;
-}
-div.box-ment > p {
-  display: flex;
-  align-items: center;
-  width: 500px;
-  height: 400px;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  transition: 0.1s;
-}
 div.skill-intro {
   position: fixed;
   left: 50%;
@@ -185,7 +117,7 @@ div.centerCircle {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) translateZ(1900px);
   z-index: 100;
   opacity: 30%;
   transition: 0.1s;
@@ -335,4 +267,49 @@ div.skill-wrap > div.lastCube > div.right > div.top > p.title {
 }
 div.visible {
   opacity: 1 !important;
+}
+
+@media screen and (max-width: 768px) {
+  div.centerCircle {
+    min-width: 260px;
+    min-height: 260px;
+    opacity: 20%;
+  }
+
+  div.line-ment {
+    font-size: 34px;
+    flex-direction: column;
+  }
+  div.line-ment > .left {
+    left: 0px;
+    top: 0px;
+    width: 463.41px;
+    height: 100px;
+  }
+  div.line-ment > .right {
+    left: 0px;
+    top: 0px;
+    width: 375.08px;
+    height: 100px;
+  }
+  div.line-ment > .left > p {
+    position: relative;
+    text-align: center;
+    width: 463.41px;
+    top: 150px;
+    margin-top: -7px;
+  }
+  div.line-ment > .right > p {
+    position: relative;
+    text-align: center;
+    width: 375.08px;
+    bottom: 150px;
+  }
+  div.skill-wrap > div.lastCube {
+    left: 25%;
+  }
+  div.skill-wrap > div.lastCube > div p.description {
+    font-size: 13px;
+    width: 70vw;
+  }
 }

@@ -4,7 +4,7 @@ section.works {
   top: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 400;
+  z-index: 2400;
   display: none;
   pointer-events: none;
 }
@@ -87,5 +87,16 @@ div.bottom-bar.active {
   }
   100% {
     width: 100vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section.works > ul.work-list {
+    transform: translate(-50%, 0%);
+  }
+  section.works > ul.work-list > li {
+    font-size: 30px;
+    padding: 9px 0;
+    white-space: nowrap;
   }
 }

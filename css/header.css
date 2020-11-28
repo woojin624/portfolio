@@ -23,6 +23,9 @@ header > nav {
   top: 0;
   right: 0;
 }
+header > nav > a {
+  color: #fff;
+}
 header > nav > a > span.mail {
   position: fixed;
   top: 60px;
@@ -33,9 +36,6 @@ header > nav > a > span.mail {
     transform: rotate(90deg); */
   font-size: 14px;
   cursor: pointer;
-}
-header > nav > a {
-  color: #fff;
 }
 header > nav > ul {
   position: fixed;
@@ -143,4 +143,33 @@ header > div.cube-logo > div.cube.logoRotate {
   }
 }
 
-/* 여가까지 헤더 */
+@media screen and (max-width: 768px) {
+  header > nav > a {
+    display: none;
+  }
+  header > nav > div.to-top {
+    display: none;
+  }
+  header > div.cube-logo {
+    display: none;
+  }
+
+  header > nav > ul {
+    width: 100vw;
+    height: 100vh;
+    opacity: 90%;
+    background: #fff;
+    color: #181818;
+    top: 0;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(0deg) translate(0, 0);
+  }
+
+  header > nav > ul > li {
+    font-size: 52px;
+  }
+}

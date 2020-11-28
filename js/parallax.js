@@ -86,7 +86,11 @@ window.onload = function () {
 
   setTimeout(function () {
     // body.classList.remove("scroll");
-    loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(5, 5, 5)';
+    if (mql.matches) {
+      loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(2, 2, 2)';
+    } else {
+      loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(5, 5, 5)';
+    }
     loadingCubeCube.classList.remove('cube3d');
     skillCircle.classList.remove('circleVisible');
   }, 2600);

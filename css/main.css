@@ -118,3 +118,26 @@ div.scroll-down > div.arrow > div.right {
     opacity: 0;
   }
 }
+
+@media screen and (max-width: 768px) {
+  p.hello {
+    font-size: 34px;
+    left: 20px;
+    top: 60px;
+  }
+  article.about-space {
+    bottom: 90px;
+    left: 20px;
+  }
+  article.about-space > h2 {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  article.about-space > h2 > span {
+    font-size: 30px;
+  }
+  article.about-space > p {
+    font-size: 14px;
+  }
+}

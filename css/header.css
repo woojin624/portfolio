@@ -85,14 +85,14 @@ header > div.cube-logo {
   left: 55px;
   top: 3%;
   transform: scale(0.35) translate(-50%, -50%);
-  transition: 0.1s;
+  /* transition: 0.1s; */
   cursor: pointer;
   padding: 10px;
 }
 header > div.cube-logo > div.cube {
   width: 50px;
   height: 50px;
-  transition: 0.1s;
+  /* transition: 0.1s; */
   -webkit-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;

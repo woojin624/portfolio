@@ -67,7 +67,7 @@ div.line-ment > .left > p {
   text-align: right;
   width: 463.41px;
   /* transform: translate(0, 50%); */
-  transition: 0.1s;
+  /* transition: 0.1s; */
   top: 150px;
 }
 div.line-ment > .right > p {
@@ -75,7 +75,7 @@ div.line-ment > .right > p {
   text-align: left;
   width: 375.08px;
   /* transform: translate(0, -50%); */
-  transition: 0.1s;
+  /* transition: 0.1s; */
   bottom: 150px;
 }
 
@@ -214,7 +214,7 @@ div.skill-wrap {
   justify-content: center;
   z-index: 400;
   display: none;
-  transition: 0.1s;
+  /* transition: 0.1s; */
   /* background-color: black; */
   background-position: center;
   background-size: cover;
@@ -233,7 +233,7 @@ div.skill-wrap > div.lastCube {
   height: 50px;
   left: 50%;
   top: 600px;
-  transition: 0.1s;
+  /* transition: 0.1s; */
   -webkit-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -260,7 +260,7 @@ div.skill-wrap > div.lastCube article {
   width: 50px;
   height: 50px;
   opacity: 0;
-  transition: 0.1s;
+  /* transition: 0.1s; */
   background-color: black;
 }
 

@@ -14,6 +14,7 @@ section.main {
   height: 100vh;
   z-index: 2499;
   /* display: none; */
+  transform: translateZ(1500px);
 }
 section.main.shown {
   opacity: 0;

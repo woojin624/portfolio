@@ -1,131 +1,19 @@
 'use strict';
 
-// main
-const body = document.querySelector('body');
-const circle = document.querySelector('.circle');
-const mainSection = document.querySelector('section.main');
-const mail = document.querySelector('.mail');
-const mailColor = document.querySelector('header > nav > a');
-const header = document.querySelector('.header');
-const navList = document.querySelectorAll('.nav-list');
-const toTop = document.querySelector('.to-top');
-const hello = document.querySelector('.hello');
-const cubeLogo = document.querySelector('header > div.cube-logo');
-const cubeLogoCube = document.querySelector('header > div.cube-logo > div.cube');
-const cubeLogoCubeDiv = document.querySelectorAll('header > div.cube-logo > div.cube > div');
-const aboutSpace = document.querySelector('.about-space');
-const scrollDown = document.querySelector('.scroll-down');
-const loadingCube = document.querySelector('.loading-cube');
-const loadingCubeCube = document.querySelector('section.loading-cube > div.cube');
-const loadingCubeRec = document.querySelectorAll('section.loading-cube > div.cube div');
-// about
-const lineMentLeft = document.querySelector('div.line-ment > .left > p ');
-const lineMentRight = document.querySelector('div.line-ment > .right > p ');
-const lineMentBox = document.querySelector('.line-ment');
+// 모바일 페이지에서 작동할 js
 
-const floatText1 = document.querySelector('article.float-text > h2.p1');
-const floatText2 = document.querySelector('article.float-text > h2.p2');
-
-const selfIntro = document.querySelector('div.self-intro');
-const selfRec1 = document.querySelector('div.self-intro > .rec1');
-const selfRec2 = document.querySelector('div.self-intro > .rec2');
-const selfRec3 = document.querySelector('div.self-intro > .rec3');
-const selfP = document.querySelector('div.self-intro > .rec1 > p');
-const profileImage = document.querySelector('div.self-intro > .rec1 > img.profile-image');
-
-const skillIntro = document.querySelector('div.skill-intro');
-const skillIntroP = document.querySelector('div.skill-intro > p ');
-const skillCircle = document.querySelector('div.centerCircle');
-const skillWrap = document.querySelector('div.skill-wrap');
-const skillLastCube = document.querySelector('div.skill-wrap > div.lastCube');
-const skillBottom = document.querySelector('div.skill-wrap > div.lastCube > div.bottom');
-const skillFront = document.querySelector('div.skill-wrap > div.lastCube > div.front');
-const skillBack = document.querySelector('div.skill-wrap > div.lastCube > div.back');
-const skillLeft = document.querySelector('div.skill-wrap > div.lastCube > div.left');
-const skillRight = document.querySelector('div.skill-wrap > div.lastCube > div.right');
-const skillTop = document.querySelector('div.skill-wrap > div.lastCube > div.right > div.top');
-const skillTitleDesEls = document.querySelectorAll('div.skill-wrap p');
-const skillRecEls = document.querySelectorAll('div.skill-wrap > div.lastCube div');
-const skillIconEls = document.querySelectorAll('div.skill-wrap > div.lastCube img');
-
-// works
-let target;
-
-const worksSection = document.querySelector('section.works');
-const workList = document.querySelector('section.works > ul.work-list');
-let workListEls = document.querySelectorAll('section.works > ul.work-list > li');
-const workListElsUnder = document.querySelectorAll('section.works > ul.work-list > li > .underLine');
-const bottomBar = document.querySelector('.bottom-bar');
-// 워크페이지에서 큐브가 자동으로 회전하게 하기 위한 두가지 id
-let timeId = null;
-let turnId;
-let cubeInterval = null;
-let cubeFunction = true;
-let bottomBarCheck = true;
-
-// pop-up
-const popUp = document.querySelector('section.popup');
-const popUpWin = document.querySelectorAll('.pop-win');
-const popClose = document.querySelectorAll('.pop-close');
-
-// contact
-const contactSection = document.querySelector('section.contact');
-let value;
-let workListid = 0;
-
-// // 페이지 로딩되기 직전 스크롤 맨위로
-window.onbeforeunload = function () {
-  // window.scrollTo(0, 0);
-};
-// // 페이지가 로당되었을 때 스크롤 막기, 3초후 풀기
-window.onload = function () {
-  // body.classList.add("scroll");
-  loadingCubeCube.classList.add('cube3d');
-  mainSection.classList.add('shown');
-  header.classList.add('shown');
-
-  setTimeout(function () {
-    // body.classList.remove("scroll");
-    loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(5, 5, 5)';
-    loadingCubeCube.classList.remove('cube3d');
-    skillCircle.classList.remove('circleVisible');
-  }, 2600);
-  setTimeout(function () {
-    mainSection.classList.remove('shown');
-    header.classList.remove('shown');
-  }, 3300);
-};
-
-// 우측 내비게이션 클릭 시 해당 value값 위치로 이동
-navList[0].addEventListener('click', function () {
-  value = 1750;
-  window.scrollTo({ top: value, behavior: 'smooth' });
+mql.addListener(function (e) {
+  if (e.matches) {
+    console.log('모바일 화면 입니다.');
+  } else {
+    console.log('데스크탑 화면 입니다.');
+  }
 });
-navList[1].addEventListener('click', function () {
-  value = 13310;
-  window.scrollTo({ top: value, behavior: 'smooth' });
-});
-navList[2].addEventListener('click', function () {
-  value = 16300;
-  window.scrollTo({ top: value, behavior: 'smooth' });
-});
-toTop.addEventListener('click', function () {
-  value = 0;
-  window.scrollTo({ top: value, behavior: 'smooth' });
-});
-cubeLogo.addEventListener('click', function () {
-  value = 0;
-  window.scrollTo({ top: value, behavior: 'smooth' });
-});
-cubeLogo;
-
-const mql = window.matchMedia('screen and (max-width: 768px)');
 
 // 패럴랙스 스크롤 이벤트 시작 부분
 window.addEventListener('scroll', function () {
   value = window.scrollY;
-  console.log(value);
-  if (!mql.matches) {
+  if (mql.matches) {
     // 로딩화면 요소 처리
     if (value == 0) {
       loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(5, 5, 5)';
@@ -628,12 +516,12 @@ window.addEventListener('scroll', function () {
     // 스킬의 면들을 큐브로 조합시키기
 
     if (value >= 10500) {
-      skillWrap.style.transition = '0s';
+      skillWrap.style.transition = '0.1s';
       skillWrap.style.alignItems = 'center';
 
       for (let i = 0; i < skillRecEls.length; i++) {
         skillRecEls[i].style.border = '0.1px solid rgb(180, 180, 180)';
-        skillRecEls[i].style.transition = '0s';
+        skillRecEls[i].style.transition = '0.1s';
         skillRecEls[i].style.backgroundColor = '#181818';
         skillIconEls[i].style.transform = 'scale(0.8) translateZ(1px)';
       }
@@ -657,11 +545,11 @@ window.addEventListener('scroll', function () {
       skillTop.style.transform = 'translate(0%, 0%) rotateY(0deg)';
 
       skillWrap.style.alignItems = 'stretch';
-      // skillWrap.style.transition = '0.1s';
+      skillWrap.style.transition = '0.1s';
 
       for (let i = 0; i < skillRecEls.length; i++) {
         skillRecEls[i].style.border = 'none';
-        // skillRecEls[i].style.transition = '1s';
+        skillRecEls[i].style.transition = '1s';
         skillRecEls[i].style.backgroundColor = 'transparent';
         skillIconEls[i].style.transform = 'scale(1)';
       }
@@ -718,6 +606,12 @@ window.addEventListener('scroll', function () {
       for (let i = 0; i < workListEls.length; i++) {
         skillIconEls[i].setAttribute('src', `./images/cube-thumb${i}.png`);
       }
+      // skillIconEls[0].src = "./images/thumb-medi.jpg";
+      // skillIconEls[1].src = "./images/thumb-rocky.jpg";
+      // skillIconEls[2].src = "./images/thumb-nemo.jpg";
+      // skillIconEls[3].src = "./images/thumb-vivid.jpg";
+      // skillIconEls[4].src = "./images/thumb-over.jpg";
+      // skillIconEls[5].src = "./images/thumb-photo.jpg";
       for (let i = 0; i < skillRecEls.length; i++) {
         skillIconEls[i].style.transform = 'scale(0.95) translateZ(0.05px)';
       }
@@ -888,7 +782,7 @@ window.addEventListener('scroll', function () {
     } else {
       cubeInterval = null;
       StopTime();
-      skillLastCube.style.transition = '0s';
+      skillLastCube.style.transition = '.1s';
       for (let i = 0; i < workListEls.length; i++) {
         workListEls[i].style.pointerEvents = 'none';
         workListEls[i].classList.remove('active');
@@ -915,12 +809,19 @@ window.addEventListener('scroll', function () {
       contactSection.style.width = 100 + 'vw';
     }
     if (value > 14200) {
+      // cubeLogoCube.classList.remove("logoRotate");
+      // cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(0deg)";
       for (let i = 0; i < loadingCubeRec.length; i++) {
         loadingCubeRec[i].style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
         loadingCubeRec[i].style.border = '1px solid rgb(70, 70, 70, 0.3)';
         loadingCubeRec[i].style.opacity = 0.5;
       }
     } else {
+      // cubeLogoCube.classList.add("logoRotate");
+      // cubeLogo.style.top = "3%";
+      // for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
+      //   cubeLogoCubeDiv[i].style.border = "2px solid rgb(0, 0, 0)";
+      // }
       for (let i = 0; i < loadingCubeRec.length; i++) {
         loadingCubeRec[i].style.backgroundColor = 'rgba(18, 18, 18, 0.85)';
         loadingCubeRec[i].style.border = '1px solid rgb(60, 60, 60)';
@@ -929,14 +830,27 @@ window.addEventListener('scroll', function () {
     }
 
     if (value > 14200 && value < 15200) {
+      // cubeLogo.style.transform = " scale(" + (0.65 + ((value - 14700) * 7) / 500) + ")";
+      // cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(" + ((value - 14700) * 135) / 500 + "deg)";
+      // cubeLogo.style.top = 3 + ((value - 14700) * 47) / 500 + "%";
+      // for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
+      //   cubeLogoCubeDiv[i].style.border = 2 - (value - 14700) / 500 + "px solid rgb(0, 0, 0)";
+      // }
       loadingCube.style.opacity = 0 + (value - 14200) / 5 + '%';
       loadingCube.style.transform = 'scale(' + (0 + (value - 14200) / 1000) + ')';
-      loadingCubeCube.style.transform = 'rotateX(' + (0 + ((value - 14200) * 61) / 1000) + 'deg) rotateY(' + (0 + ((value - 14200) * 153) / 1000) + 'deg) rotateZ(' + (0 + ((value - 14200) * 53) / 1000) + 'deg) scale3d(3, 3, 3) translate3D(70px, 90px, -50px)';
+      loadingCubeCube.style.transform = 'rotateX(' + (0 + ((value - 14200) * 61) / 1000) + 'deg) rotateY(' + (0 + ((value - 14200) * 153) / 1000) + 'deg) rotateZ(' + (0 + ((value - 14200) * 53) / 1000) + 'deg) scale3d(5, 5, 5)';
+      // loadingCube.style.opacity = 0;
     }
 
     if (value >= 15200) {
+      // cubeLogo.style.transform = "scale(7.65)";
+      // cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(135deg)";
+      // cubeLogo.style.top = "50%";
+      // for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
+      //   cubeLogoCubeDiv[i].style.border = "1px solid rgb(0, 0, 0)";
+      // }
       loadingCube.style.opacity = 1;
-      loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(3, 3, 3) translate3D(70px, 90px, -50px)';
+      loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(5, 5, 5)';
       loadingCube.style.transform = 'scale(1)';
     } else {
     }
@@ -952,3 +866,21 @@ window.addEventListener('scroll', function () {
     }
   }
 });
+
+// 스크롤 이벤트 밖에서 실행되는 값
+
+// value >= 12000 && value < 12700 에서 워크리스트 이벤트
+for (let i = 0; i < workListEls.length; i++) {
+  workListEls[i].addEventListener('mouseenter', () => {
+    StopTime();
+  });
+  workListEls[i].addEventListener('mouseleave', () => {
+    turnId = i;
+    turnId++;
+    if (turnId == 6) {
+      turnId = 0;
+    }
+    cubeFunction = true;
+    StartTime();
+  });
+}

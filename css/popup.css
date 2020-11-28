@@ -95,6 +95,7 @@ article.pop-win > div.project-disc > div.tools > .tool-icons {
 article.pop-win > div.project-disc > div.tools > .tool-icons > img {
   margin-left: 0.5rem;
   width: 40px;
+  height: 40px;
   opacity: 0.9;
 }
 article.pop-win > div.project-disc > div.tools > .tool-icons > img:first-child {

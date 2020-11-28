@@ -22,7 +22,7 @@ section.loading-cube > div.cube {
   position: relative;
   width: 100px;
   height: 100px;
-  transition: 0.5s;
+  /* transition: 0.5s; */
   left: -7px;
   /* top: -7px; */
   -webkit-transform-style: preserve-3d;

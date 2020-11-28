@@ -29,34 +29,39 @@ section.contact-content > article.contents {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
-  width: 60vw;
+  align-items: center;
+  width: 80vw;
 }
 section.contact-content > article.contents > p.mail {
-  font-size: 56px;
-  font-weight: 300;
-  margin-bottom: 36px;
+  font-size: 86px;
+  font-weight: 400;
+  margin-bottom: 50px;
 }
 section.contact-content > article.contents > p.mail > a {
   color: black;
 }
 section.contact-content > article.contents > p.ment {
-  font-size: 22px;
-  margin-bottom: 36px;
+  font-size: 32px;
+  margin-bottom: 44px;
+  font-weight: 500;
 }
-section.contact-content > article.contents > div.resume {
-  width: 160px;
-  height: 36px;
-  border: 1px solid black;
+section.contact-content > article.contents > a.resume {
+  width: 220px;
+  height: 64px;
+  border: 2px solid #181818;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #181818;
+  background: #fff;
+  margin-bottom: 32px;
 }
-section.contact-content > article.contents > div.resume > p {
-  font-size: 18px;
+section.contact-content > article.contents > a.resume > p {
+  font-size: 32px;
   margin-right: 16px;
+  font-weight: 500;
 }
-section.contact-content > article.contents > div.resume > .arrow {
+section.contact-content > article.contents > a.resume > .arrow {
   width: 8px;
   height: 8px;
   border: 2px solid black;
@@ -65,20 +70,20 @@ section.contact-content > article.contents > ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 section.contact-content > article.contents > ul > a {
-  padding: 8px 12px;
-  font-size: 20px;
+  padding: 8px 12px 8px 12px;
+  font-size: 24px;
   font-weight: 500;
-  margin-top: 20px;
+  margin-top: 16px;
   transition: 0.3s ease-out;
   text-decoration: none;
 }
 section.contact-content > article.contents > ul > a > li {
   color: #181818;
 
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
   transition: 0.3s ease-out;
 }

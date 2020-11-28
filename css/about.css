@@ -225,7 +225,7 @@ div.skill-wrap {
 }
 
 div.skill-wrap p {
-  transition: 1.5s;
+  transition: 0.8s;
 }
 div.skill-wrap > div.lastCube {
   position: absolute;

@@ -11,7 +11,7 @@ section.loading-cube {
   justify-content: center;
   align-items: center;
   /* background-color: #181818; */
-  z-index: 1;
+  z-index: 1550;
   transform-style: preserve-3d;
   perspective: 1000px;
   /* animation: loading-back 0.5s 2.6s ease-in forwards; */

@@ -17,6 +17,7 @@ const aboutSpace = document.querySelector(".about-space");
 const scrollDown = document.querySelector(".scroll-down");
 const loadingCube = document.querySelector(".loading-cube");
 const loadingCubeCube = document.querySelector("section.loading-cube > div.cube");
+const loadingCubeRec = document.querySelectorAll("section.loading-cube > div.cube div");
 // about
 const lineMentLeft = document.querySelector("div.line-ment > .left > p ");
 const lineMentRight = document.querySelector("div.line-ment > .right > p ");
@@ -641,11 +642,17 @@ window.addEventListener("scroll", function () {
     skillTop.style.transformOrigin = "center left";
   } else {
     skillLastCube.style.transform = "scale(1) translate(0%, 0%) rotateX(0deg) rotateY(0deg) rotateZ(0deg)";
-    skillFront.style.bottom = -200 + "px";
-    skillBack.style.bottom = -416 + "px";
-    skillLeft.style.bottom = -654 + "px";
-    skillRight.style.bottom = -864 + "px";
-    skillTop.style.top = "232px";
+    // 각 면체 위치 이동 및 원위치
+    skillFront.style.bottom = -200 + "px"; // 200
+    skillFront.style.transform = "translate(0%, 0%) rotateX(0deg)";
+    skillBack.style.bottom = -416 + "px"; // 416
+    skillBack.style.transform = "translate(0%, 0%) rotateX(0deg)";
+    skillLeft.style.bottom = -654 + "px"; // 654
+    skillLeft.style.transform = "translate(0%, 0%) rotateY(0deg)";
+    skillRight.style.bottom = -864 + "px"; // 864
+    skillRight.style.transform = "translate(0%, 0%) rotateY(0deg)";
+    skillTop.style.top = 232 + "px"; // 232
+    skillTop.style.transform = "translate(0%, 0%) rotateY(0deg)";
 
     skillWrap.style.alignItems = "stretch";
     skillWrap.style.transition = "0.1s";
@@ -911,35 +918,55 @@ window.addEventListener("scroll", function () {
     contactSection.style.display = "block";
     contactSection.style.width = 100 + "vw";
   }
-  if (value > 14700) {
-    cubeLogoCube.classList.remove("logoRotate");
-    cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(0deg)";
+  if (value > 14200) {
+    // cubeLogoCube.classList.remove("logoRotate");
+    // cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(0deg)";
+    for (let i = 0; i < loadingCubeRec.length; i++) {
+      loadingCubeRec[i].style.backgroundColor = "rgba(255, 255, 255, 0.85)";
+      loadingCubeRec[i].style.border = "1px solid rgb(70, 70, 70, 0.3)";
+      loadingCubeRec[i].style.opacity = 0.5;
+    }
   } else {
-    cubeLogoCube.classList.add("logoRotate");
-    cubeLogo.style.top = "3%";
-    for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
-      cubeLogoCubeDiv[i].style.border = "2px solid rgb(0, 0, 0)";
+    // cubeLogoCube.classList.add("logoRotate");
+    // cubeLogo.style.top = "3%";
+    // for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
+    //   cubeLogoCubeDiv[i].style.border = "2px solid rgb(0, 0, 0)";
+    // }
+    for (let i = 0; i < loadingCubeRec.length; i++) {
+      loadingCubeRec[i].style.backgroundColor = "rgba(18, 18, 18, 0.85)";
+      loadingCubeRec[i].style.border = "1px solid rgb(60, 60, 60)";
+      loadingCubeRec[i].style.opacity = 1;
     }
   }
 
-  if (value > 14700 && value < 15200) {
-    cubeLogo.style.transform = " scale(" + (0.65 + ((value - 14700) * 7) / 500) + ")";
-    cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(" + ((value - 14700) * 135) / 500 + "deg)";
-    cubeLogo.style.top = 3 + ((value - 14700) * 47) / 500 + "%";
-    for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
-      cubeLogoCubeDiv[i].style.border = 2 - (value - 14700) / 500 + "px solid rgb(0, 0, 0)";
-    }
+  if (value > 14200 && value < 15200) {
+    // cubeLogo.style.transform = " scale(" + (0.65 + ((value - 14700) * 7) / 500) + ")";
+    // cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(" + ((value - 14700) * 135) / 500 + "deg)";
+    // cubeLogo.style.top = 3 + ((value - 14700) * 47) / 500 + "%";
+    // for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
+    //   cubeLogoCubeDiv[i].style.border = 2 - (value - 14700) / 500 + "px solid rgb(0, 0, 0)";
+    // }
+    loadingCube.style.opacity = 0 + (value - 14200) / 5 + "%";
+    loadingCube.style.transform = "scale(" + (0 + (value - 14200) / 1000) + ")";
+    loadingCubeCube.style.transform = "rotateX(" + (0 + ((value - 14200) * 61) / 1000) + "deg) rotateY(" + (0 + ((value - 14200) * 153) / 1000) + "deg) rotateZ(" + (0 + ((value - 14200) * 53) / 1000) + "deg) scale3d(5, 5, 5)";
+    // loadingCube.style.opacity = 0;
   }
 
   if (value >= 15200) {
-    cubeLogo.style.transform = "scale(7.65)";
-    cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(135deg)";
-    cubeLogo.style.top = "50%";
-    for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
-      cubeLogoCubeDiv[i].style.border = "1px solid rgb(0, 0, 0)";
-    }
+    // cubeLogo.style.transform = "scale(7.65)";
+    // cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(135deg)";
+    // cubeLogo.style.top = "50%";
+    // for (let i = 0; i < cubeLogoCubeDiv.length; i++) {
+    //   cubeLogoCubeDiv[i].style.border = "1px solid rgb(0, 0, 0)";
+    // }
+    loadingCube.style.opacity = 1;
+    loadingCubeCube.style.transform = "rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(5, 5, 5)";
+    loadingCube.style.transform = "scale(1)";
+  } else {
   }
-
+  if (value >= 400 && value < 14200) {
+    loadingCube.style.opacity = 0;
+  }
   // 13900보다 커질시에 글자색 변경
   if (value >= 15200) {
     header.style.color = "#000";

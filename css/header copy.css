@@ -1,13 +1,8 @@
 header {
-  position: fixed;
-  /* position: relative; */
-  z-index: 9999;
-  width: 100vw;
-  height: 100vh;
+  /* position: fixed; */
+  z-index: 9990;
   color: #fff;
   transform: translateZ(2500px);
-  pointer-events: none;
-  /* pointer-events: auto; */
 }
 header.shown {
   opacity: 0;
@@ -23,7 +18,6 @@ header.shown {
 }
 header > div.hamburger {
   display: none;
-  pointer-events: auto;
 }
 
 header > nav {
@@ -32,8 +26,6 @@ header > nav {
   position: fixed;
   top: 0;
   right: 0;
-  pointer-events: auto;
-  /* transform: translateZ(2500px); */
 }
 header > nav > a {
   color: #fff;
@@ -109,7 +101,6 @@ header > div.cube-logo {
   /* transition: 0.1s; */
   cursor: pointer;
   padding: 10px;
-  pointer-events: auto;
 }
 header > div.cube-logo > div.cube {
   width: 50px;
@@ -244,7 +235,6 @@ header > div.cube-logo > div.cube.logoRotate {
     height: 24px;
     padding: 2px;
     z-index: 9999;
-    cursor: pointer;
   }
   header > div.hamburger > div {
     width: 30px;

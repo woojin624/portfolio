@@ -75,6 +75,8 @@ const contactSection = document.querySelector('section.contact');
 let value;
 let workListid = 0;
 
+const mql = window.matchMedia('screen and (max-width: 768px)');
+
 // // 페이지 로딩되기 직전 스크롤 맨위로
 window.onbeforeunload = function () {
   // window.scrollTo(0, 0);
@@ -106,17 +108,23 @@ window.onload = function () {
 navList[0].addEventListener('click', function () {
   value = 1750;
   window.scrollTo({ top: value, behavior: 'smooth' });
-  hamburgerMenu();
+  if (mql.matches) {
+    hamburgerMenu();
+  }
 });
 navList[1].addEventListener('click', function () {
   value = 13310;
   window.scrollTo({ top: value, behavior: 'smooth' });
-  hamburgerMenu();
+  if (mql.matches) {
+    hamburgerMenu();
+  }
 });
 navList[2].addEventListener('click', function () {
   value = 16300;
   window.scrollTo({ top: value, behavior: 'smooth' });
-  hamburgerMenu();
+  if (mql.matches) {
+    hamburgerMenu();
+  }
 });
 toTop.addEventListener('click', function () {
   value = 0;
@@ -127,8 +135,6 @@ cubeLogo.addEventListener('click', function () {
   window.scrollTo({ top: value, behavior: 'smooth' });
 });
 cubeLogo;
-
-const mql = window.matchMedia('screen and (max-width: 768px)');
 
 // 패럴랙스 스크롤 이벤트 시작 부분
 window.addEventListener('scroll', function () {
@@ -529,8 +535,6 @@ window.addEventListener('scroll', function () {
     if (value >= 4000 && value < 8200) {
       selfIntro.style.opacity = 100 + '%';
     }
-
-    //-------------------------------------------------------
 
     // 컬러 조정
     if (value >= 3300) {

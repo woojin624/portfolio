@@ -14,11 +14,13 @@ mql.addListener(function (e) {
   }
 });
 
-navHome.addEventListener('click', function () {
-  value = 0;
-  window.scrollTo({ top: value, behavior: 'smooth' });
-  hamburgerMenu();
-});
+if (mql.matches) {
+  navHome.addEventListener('click', function () {
+    value = 0;
+    window.scrollTo({ top: value, behavior: 'smooth' });
+    hamburgerMenu();
+  });
+}
 
 // 패럴랙스 스크롤 이벤트 시작 부분
 window.addEventListener('scroll', function () {
@@ -419,8 +421,6 @@ window.addEventListener('scroll', function () {
       selfIntro.style.opacity = 100 + '%';
     }
 
-    //-------------------------------------------------------
-
     // 컬러 조정
     if (value >= 3300) {
       body.style.background = '#181818';
@@ -543,12 +543,12 @@ window.addEventListener('scroll', function () {
     // 스킬의 면들을 큐브로 조합시키기
 
     if (value >= 10500) {
-      skillWrap.style.transition = '0.1s';
+      skillWrap.style.transition = '0s';
       skillWrap.style.alignItems = 'center';
 
       for (let i = 0; i < skillRecEls.length; i++) {
         skillRecEls[i].style.border = '0.1px solid rgb(180, 180, 180)';
-        skillRecEls[i].style.transition = '0.1s';
+        skillRecEls[i].style.transition = '0s';
         skillRecEls[i].style.backgroundColor = '#181818';
         skillIconEls[i].style.transform = 'scale(0.8) translateZ(1px)';
       }
@@ -573,11 +573,11 @@ window.addEventListener('scroll', function () {
       skillTop.style.transform = 'translate(0%, 0%) rotateY(0deg)';
 
       skillWrap.style.alignItems = 'stretch';
-      skillWrap.style.transition = '0.1s';
+      // skillWrap.style.transition = '0.1s';
 
       for (let i = 0; i < skillRecEls.length; i++) {
         skillRecEls[i].style.border = 'none';
-        skillRecEls[i].style.transition = '1s';
+        // skillRecEls[i].style.transition = '1s';
         skillRecEls[i].style.backgroundColor = 'transparent';
         skillIconEls[i].style.transform = 'scale(1)';
       }
@@ -634,12 +634,6 @@ window.addEventListener('scroll', function () {
       for (let i = 0; i < workListEls.length; i++) {
         skillIconEls[i].setAttribute('src', `./images/cube-thumb${i}.png`);
       }
-      // skillIconEls[0].src = "./images/thumb-medi.jpg";
-      // skillIconEls[1].src = "./images/thumb-rocky.jpg";
-      // skillIconEls[2].src = "./images/thumb-nemo.jpg";
-      // skillIconEls[3].src = "./images/thumb-vivid.jpg";
-      // skillIconEls[4].src = "./images/thumb-over.jpg";
-      // skillIconEls[5].src = "./images/thumb-photo.jpg";
       for (let i = 0; i < skillRecEls.length; i++) {
         skillIconEls[i].style.transform = 'scale(0.95) translateZ(0.05px)';
       }
@@ -710,7 +704,6 @@ window.addEventListener('scroll', function () {
     }
     if (value >= 13300) {
       skillLastCube.style.top = 50 + '%';
-      skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(270deg) rotateY(180deg) rotateZ(265deg)';
       skillLastCube.style.transform = 'scale(3) translate(-17%, -125%) rotateX(265deg) rotateY(180deg) rotateZ(270deg)';
       skillWrap.style.transform = 'rotate(0deg) translate(0%, 0%)';
       workList.classList.add('visible');
@@ -811,7 +804,7 @@ window.addEventListener('scroll', function () {
     } else {
       cubeInterval = null;
       StopTime();
-      skillLastCube.style.transition = '.1s';
+      skillLastCube.style.transition = '0s';
       for (let i = 0; i < workListEls.length; i++) {
         workListEls[i].style.pointerEvents = 'none';
         workListEls[i].classList.remove('active');
@@ -838,8 +831,6 @@ window.addEventListener('scroll', function () {
       contactSection.style.width = 100 + 'vw';
     }
     if (value > 14200) {
-      // cubeLogoCube.classList.remove("logoRotate");
-      // cubeLogoCube.style.transform = "rotateX(55deg) rotateY(180deg) rotateZ(0deg)";
       for (let i = 0; i < loadingCubeRec.length; i++) {
         loadingCubeRec[i].style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
         loadingCubeRec[i].style.border = '1px solid rgb(70, 70, 70, 0.3)';
@@ -856,13 +847,13 @@ window.addEventListener('scroll', function () {
     if (value > 14200 && value < 15200) {
       loadingCube.style.opacity = 0 + (value - 14200) / 5 + '%';
       loadingCube.style.transform = 'scale(' + (0 + (value - 14200) / 1000) + ')';
-      loadingCubeCube.style.transform = 'rotateX(' + (0 + ((value - 14200) * 61) / 1000) + 'deg) rotateY(' + (0 + ((value - 14200) * 153) / 1000) + 'deg) rotateZ(' + (0 + ((value - 14200) * 53) / 1000) + 'deg) scale3d(2, 2, 2)';
+      loadingCubeCube.style.transform = 'rotateX(' + (0 + ((value - 14200) * 61) / 1000) + 'deg) rotateY(' + (0 + ((value - 14200) * 153) / 1000) + 'deg) rotateZ(' + (0 + ((value - 14200) * 53) / 1000) + 'deg) scale3d(2, 2, 2) translate3D(70px, 90px, -50px)';
       // loadingCube.style.opacity = 0;
     }
 
     if (value >= 15200) {
       loadingCube.style.opacity = 1;
-      loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(2, 2, 2)';
+      loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(2, 2, 2) translate3D(70px, 90px, -50px)';
       loadingCube.style.transform = 'scale(1)';
     } else {
     }

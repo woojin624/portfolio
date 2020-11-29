@@ -1,7 +1,7 @@
 header {
   position: fixed;
   /* position: relative; */
-  z-index: 9999;
+  z-index: 9998;
   width: 100vw;
   height: 100vh;
   color: #fff;

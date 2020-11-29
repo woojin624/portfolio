@@ -9,7 +9,7 @@ section.popup {
   justify-content: center;
   align-items: center;
   background: #181818de;
-  z-index: 99999;
+  z-index: 9999;
   overflow: hidden;
   cursor: pointer;
   opacity: 0;

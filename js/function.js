@@ -40,7 +40,6 @@ function StartTime() {
     timeId = setInterval(DisplayWork, cubeInterval);
     cubeFunction = false;
   }
-  // console.log("실행", cubeFunction);
 }
 
 // // 큐브가 회전하는 타이머를 멈추는 함수
@@ -48,5 +47,4 @@ function StopTime() {
   if (timeId != null) {
     clearInterval(timeId);
   }
-  // console.log("정지", cubeFunction);
 }

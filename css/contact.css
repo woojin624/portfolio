@@ -8,20 +8,16 @@ section.contact {
   background-color: white;
   z-index: 2420;
   display: none;
-  /* transition: 0.1s; */
 }
 
 section.contact-content {
   position: sticky;
   top: 14000px;
-  /* position: relative; */
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* background-color: wheat; */
   z-index: 3100;
   transform: translateZ(2000px);
 }
@@ -47,6 +43,11 @@ section.contact-content > article.contents > p.ment {
   margin-bottom: 44px;
   font-weight: 500;
 }
+section.contact-content > article.contents > p.phone {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
 section.contact-content > article.contents > a.resume {
   width: 220px;
   height: 64px;
@@ -56,21 +57,70 @@ section.contact-content > article.contents > a.resume {
   align-items: center;
   color: #181818;
   background: #fff;
-  margin-bottom: 32px;
+  margin-bottom: 34px;
+  transition: 0.3s ease-out;
+}
+section.contact-content > article.contents > a.resume:hover {
+  color: #fff;
+  background: #181818;
+  text-decoration: none;
 }
 section.contact-content > article.contents > a.resume > p {
-  font-size: 32px;
-  margin-right: 16px;
+  font-size: 30px;
+  margin-right: 10px;
   font-weight: 500;
+  margin-top: -4px;
 }
 section.contact-content > article.contents > a.resume > .arrow {
-  width: 8px;
-  height: 8px;
-  border: 2px solid black;
+  width: 32px;
+  height: 32px;
+  /* border: 2px solid black; */
+  position: relative;
+  transform: scale(0.75);
+  margin-top: -6px;
+}
+section.contact-content > article.contents > a.resume > .arrow > .line1,
+section.contact-content > article.contents > a.resume > .arrow > .line2 {
+  position: absolute;
+  width: 16px;
+  height: 4px;
+  background: #181818;
+  top: 70%;
+  left: 50%;
+  transition: 0.3s ease-out;
+}
+section.contact-content > article.contents > a.resume > .arrow > .line1 {
+  transform: translate(-77%, 0) rotate(45deg);
+}
+section.contact-content > article.contents > a.resume > .arrow > .line2 {
+  transform: translate(-22%, 0) rotate(-45deg);
+}
+section.contact-content > article.contents > a.resume > .arrow > .line3 {
+  position: absolute;
+  width: 4px;
+  height: 26px;
+  transform: translate(-50%, -50%);
+  background: #181818;
+  top: 50%;
+  left: 50%;
+  transition: 0.3s ease-out;
+}
+section.contact-content > article.contents > a.resume > .arrow > .line4 {
+  position: absolute;
+  width: 24px;
+  height: 4px;
+  transform: translate(-50%, -50%);
+  background: #181818;
+  top: 110%;
+  left: 50%;
+  transition: 0.3s ease-out;
+}
+section.contact-content > article.contents > a.resume:hover > .arrow > div {
+  background: #fff;
 }
 section.contact-content > article.contents > ul {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -79,6 +129,7 @@ section.contact-content > article.contents > ul > a {
   font-size: 24px;
   font-weight: 500;
   margin-top: 16px;
+  margin-right: 48px;
   transition: 0.3s ease-out;
   text-decoration: none;
 }
@@ -118,5 +169,16 @@ section.contact-content > p.copyright {
   }
   section.contact-content > article.contents > a.resume > p {
     font-size: 24px;
+  }
+  section.contact-content > article.contents > p.phone {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+  section.contact-content > article.contents > ul {
+    flex-direction: column;
+  }
+  section.contact-content > article.contents > ul > a {
+    margin-right: 0px;
   }
 }

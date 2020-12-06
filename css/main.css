@@ -80,15 +80,37 @@ article.about-space > p {
 div.scroll-down {
   position: fixed;
   left: 50%;
-  transform: translate(-50%, 0);
-  bottom: 70px;
+  transform: translate(-50%, 0) scale(0.7);
+  bottom: 40px;
   animation: scroll-down 1.5s ease infinite;
   z-index: 101;
   pointer-events: none;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.scroll-down > .mouse {
+  width: 40px;
+  height: 65px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.scroll-down > .mouse > .point {
+  width: 4px;
+  height: 12px;
+  border-radius: 2px;
+  background-color: #fff;
+  transform: translate(0, -12px);
+  animation: point-down 1.5s ease infinite;
 }
 div.scroll-down > div.arrow {
   transform: translate(0, 5px);
+  display: flex;
+  justify-content: center;
 }
 div.scroll-down > div.arrow:nth-child(2) {
   transform: translate(0, 20px);
@@ -97,26 +119,35 @@ div.scroll-down > div.arrow > div.left {
   width: 30px;
   height: 2px;
   background-color: #fff;
-  transform: rotate(45deg) translate(8px, 13px);
+  transform: rotate(45deg) translate(7px, 0);
 }
 div.scroll-down > div.arrow > div.right {
   width: 30px;
   height: 2px;
   background-color: #fff;
-  transform: rotate(-45deg) translate(3px, 21px);
+  transform: rotate(-45deg) translate(-7px, 0);
 }
 
 @keyframes scroll-down {
   from {
-    transform: translate(-50%, -10px);
+    transform: translate(-50%, -10px) scale(0.7);
     opacity: 1;
   }
   75% {
     opacity: 0.5;
   }
   to {
-    transform: translate(-50%, 15px);
+    transform: translate(-50%, 15px) scale(0.7);
     opacity: 0;
+  }
+}
+
+@keyframes point-down {
+  from {
+    transform: translate(0, -12px);
+  }
+  to {
+    transform: translate(0%, -2px);
   }
 }
 

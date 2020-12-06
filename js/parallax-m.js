@@ -6,14 +6,6 @@ const hamburgerBtn = document.querySelector('div.hamburger');
 const hamburgerBtnBar = document.querySelectorAll('div.hamburger > div');
 const navHome = document.querySelector('header > nav > ul > li.home');
 
-mql.addListener(function (e) {
-  if (e.matches) {
-    console.log('모바일 화면 입니다.');
-  } else {
-    console.log('데스크탑 화면 입니다.');
-  }
-});
-
 if (mql.matches) {
   navHome.addEventListener('click', function () {
     value = 0;
@@ -337,10 +329,16 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(-50%, ${-125 + ((value - 6000) * 75) / 500}%) rotate(-540deg) scale(1)`;
       selfRec2.style.border = `3px solid #bcbcbc`;
-      selfRec2.style.width = `${350 + ((value - 6000) * 350) / 500}px`;
+      // selfRec2.style.width = `${350 + ((value - 6000) * 50) / 500}px`;
+      selfRec2.style.height = `${350 + ((value - 6000) * 250) / 500}px`;
+      selfP2.style.opacity = 0 + (value - 6000) / 5 + '%';
       //
       selfRec3.style.transform = `translate(75%, 25%) rotate(${-720 - ((value - 6000) * 360) / 1000}deg) scale(0.2)`;
       selfRec3.style.border = `10px solid #bcbcbc`;
+    } else if (value < 6000) {
+      selfP2.style.opacity = 0 + '%';
+      selfRec2.style.width = `350px`;
+      selfRec2.style.height = `350px`;
     }
     // s5 정지
     if (value >= 6500 && value < 7000) {
@@ -349,7 +347,9 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(-50%, -50%) rotate(-540deg) scale(1)`;
       selfRec2.style.border = `3px solid #bcbcbc`;
-      selfRec2.style.width = `700px`;
+      selfRec2.style.width = `350px`;
+      selfRec2.style.height = `600px`;
+      selfP2.style.opacity = 100 + '%';
       //
       selfRec3.style.transform = `translate(75%, 25%) rotate(${-900 - ((value - 6500) * 360) / 1000}deg) scale(0.2)`;
       selfRec3.style.border = `10px solid #bcbcbc`;
@@ -361,10 +361,16 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(-50%, ${-50 + ((value - 7000) * 75) / 500}%) rotate(-540deg) scale(1)`;
       selfRec2.style.border = `3px solid #bcbcbc`;
-      selfRec2.style.width = `${700 - ((value - 7000) * 350) / 500}px`;
+      // selfRec2.style.width = `${400 - ((value - 7000) * 50) / 500}px`;
+      selfRec2.style.height = `${600 - ((value - 7000) * 250) / 500}px`;
+      selfP2.style.opacity = 100 - (value - 7000) / 5 + '%';
       //
       selfRec3.style.transform = `translate(75%, ${25 - ((value - 7000) * 75) / 500}%) rotate(${-1080 - ((value - 7000) * 360) / 1000}deg) scale(0.2)`;
       selfRec3.style.border = `10px solid #bcbcbc`;
+    } else if (value >= 7500) {
+      selfP2.style.opacity = 0 + '%';
+      selfRec2.style.width = `350px`;
+      selfRec2.style.height = `350px`;
     }
     // s6
     if (value >= 7500 && value < 8000) {

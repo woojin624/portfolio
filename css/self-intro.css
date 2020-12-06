@@ -9,6 +9,7 @@ div.self-intro {
   z-index: 600;
   display: block;
   color: #ffffff;
+  pointer-events: none;
 }
 
 div.self-intro > .rec1 > img.profile-image {
@@ -26,6 +27,7 @@ div.self-intro > .rec1 > p {
   font-size: 18px;
   line-height: 1.5;
   transform: translate(0%, -50%);
+  white-space: nowrap;
 }
 div.self-intro > .rec1 > p > span {
   font-weight: 700;
@@ -49,6 +51,43 @@ div.self-intro > .rec2 {
   border: 3px solid #bcbcbc;
   transition: 50ms;
   transform: translate(-50%, 0%) rotate(0deg) scale(1);
+  overflow: hidden;
+}
+
+div.self-intro > .rec2 > .rec2-wrap {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  top: 50%;
+  left: 50%;
+  opacity: 0%;
+  font-size: 16px;
+  line-height: 1.5;
+  transform: translate(-50%, -50%) rotate(180deg);
+  white-space: nowrap;
+  font-weight: 300;
+  /* text-align: center; */
+}
+div.self-intro > .rec2 > .rec2-wrap > h2 {
+  font-size: 28px;
+  margin-bottom: 48px;
+}
+div.self-intro > .rec2 > .rec2-wrap > .desc-wrap {
+  display: flex;
+}
+div.self-intro > .rec2 > .rec2-wrap > .desc-wrap > div {
+  flex: 1;
+}
+div.self-intro > .rec2 > .rec2-wrap > .desc-wrap > div.desc-base {
+  margin-right: 48px;
+}
+div.self-intro > .rec2 > .rec2-wrap > .desc-wrap > div > h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+div.self-intro > .rec2 span {
+  font-weight: 700;
 }
 div.self-intro > .rec3 {
   position: absolute;
@@ -61,241 +100,6 @@ div.self-intro > .rec3 {
   transform: translate(-50%, -100%) rotate(0deg) scale(1);
 }
 
-/* --------s2- */
-/* 
-div.self-intro > .rec1 > img.profile-image {
-  width: 100%;
-  height: 100%;
-  opacity: 100%;
-}
-div.self-intro > .rec1 > p {
-  position: absolute;
-  width: fit-content;
-  height: fit-content;
-  top: 50%;
-  left: 115%;
-  opacity: 100%;
-  font-size: 18px;
-  line-height: 1.5;
-  transform: translate(0%, -50%);
-}
-div.self-intro > .rec1 > p > span {
-  font-weight: 700;
-}
-div.self-intro > .rec1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 3px solid #bcbcbc;
-  transform: translate(-100%, -50%) rotate(0deg) scale(1);
-}
-div.self-intro > .rec2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(-175%, -125%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(75%, 25%) rotate(0deg) scale(0.2);
-} */
-
-/* --------s3- */
-/* 
-div.self-intro > .rec1 > img.profile-image {
-  opacity: 0%;
-}
-div.self-intro > .rec1 > p {
-  opacity: 0%;
-}
-div.self-intro > .rec1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(-175%, -50%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 3px solid #bcbcbc;
-  transform: translate(-50%, -125%) rotate(0deg) scale(1);
-}
-div.self-intro > .rec3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(75%, 25%) rotate(0deg) scale(0.2);
-} */
-
-/* --------s4- */
-/* 
-div.self-intro > .rec1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(-175%, -125%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 700px;
-  height: 350px;
-  border: 3px solid #bcbcbc;
-  transform: translate(-50%, -50%) rotate(0deg) scale(1);
-}
-div.self-intro > .rec3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(75%, 25%) rotate(0deg) scale(0.2);
-} */
-
-/* --------s5- */
-/* 
-div.self-intro > .rec1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(-175%, -125%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 3px solid #bcbcbc;
-  transform: translate(-50%, 25%) rotate(0deg) scale(1);
-}
-div.self-intro > .rec3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(75%, -50%) rotate(0deg) scale(0.2);
-} */
-
-/* --------s6- */
-/* 
-div.self-intro > .rec1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(-175%, -125%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(75%, 25%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 3px solid #bcbcbc;
-  transform: translate(-50%, -50%) rotate(0deg) scale(1);
-} */
-
-/* --------s7- */
-/* 
-div.self-intro > .rec1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(-110%, -110%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(10%, 10%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 3px solid #bcbcbc;
-  transform: translate(-50%, -50%) rotate(0deg) scale(1);
-} */
-
-/* --------s8- */
-/* 
-div.self-intro > .rec1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(-160%, -160%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 10px solid #bcbcbc;
-  transform: translate(60%, 60%) rotate(0deg) scale(0.2);
-}
-div.self-intro > .rec3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 350px;
-  height: 350px;
-  border: 2px solid #bcbcbc;
-  transform: translate(-50%, -50%) rotate(0deg) scale(2);
-} */
-
 article.float-text {
   position: fixed;
   width: 100vw;
@@ -303,6 +107,7 @@ article.float-text {
   font-size: 56px;
   font-weight: 600;
   z-index: 100;
+  pointer-events: none;
 }
 article.float-text > h2.p1 {
   position: absolute;
@@ -314,8 +119,8 @@ article.float-text > h2.p1 {
   transform: rotate(90deg);
   white-space: nowrap;
   transition: 0.1s;
-  -webkit-text-stroke: 1px #6d6d6d;
-  text-shadow: -1px -1px 0 #6d6d6d, 1px -1px 0 #6d6d6d, -1px 1px 0 #6d6d6d, 1px 1px 0 #6d6d6d;
+  -webkit-text-stroke: 1px #a7a7a7;
+  text-shadow: -1px -1px 0 #a7a7a7, 1px -1px 0 #a7a7a7, -1px 1px 0 #a7a7a7, 1px 1px 0 #a7a7a7;
 }
 article.float-text > h2.p2 {
   position: absolute;
@@ -327,8 +132,8 @@ article.float-text > h2.p2 {
   transform: rotate(90deg);
   white-space: nowrap;
   transition: 0.1s;
-  -webkit-text-stroke: 1px #6d6d6d;
-  text-shadow: -1px -1px 0 #6d6d6d, 1px -1px 0 #6d6d6d, -1px 1px 0 #6d6d6d, 1px 1px 0 #6d6d6d;
+  -webkit-text-stroke: 1px #a7a7a7;
+  text-shadow: -1px -1px 0 #a7a7a7, 1px -1px 0 #a7a7a7, -1px 1px 0 #a7a7a7, 1px 1px 0 #a7a7a7;
 }
 
 @media screen and (max-width: 768px) {
@@ -340,11 +145,12 @@ article.float-text > h2.p2 {
     width: fit-content;
     height: fit-content;
     top: 150%;
-    left: 55%;
+    left: 50%;
     opacity: 0%;
     font-size: 15px;
     line-height: 1.5;
     transform: translate(-50%, -50%);
+    white-space: normal;
   }
   div.self-intro > .rec1 > p > span {
     font-weight: 700;
@@ -369,6 +175,30 @@ article.float-text > h2.p2 {
     transition: 50ms;
     transform: translate(-50%, 0%) rotate(0deg) scale(1);
   }
+
+  div.self-intro > .rec2 > .rec2-wrap {
+    font-size: 15px;
+    text-align: center;
+  }
+  div.self-intro > .rec2 > .rec2-wrap > h2 {
+    font-size: 18px;
+    margin-bottom: 48px;
+  }
+  div.self-intro > .rec2 > .rec2-wrap > .desc-wrap {
+    flex-direction: column;
+  }
+  div.self-intro > .rec2 > .rec2-wrap > .desc-wrap > div {
+    flex: 1;
+  }
+  div.self-intro > .rec2 > .rec2-wrap > .desc-wrap > div.desc-base {
+    margin-right: 0px;
+    margin-bottom: 32px;
+  }
+  div.self-intro > .rec2 > .rec2-wrap > .desc-wrap > div > h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
   div.self-intro > .rec3 {
     position: absolute;
     top: -10%;

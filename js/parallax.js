@@ -33,6 +33,7 @@ const selfRec1 = document.querySelector('div.self-intro > .rec1');
 const selfRec2 = document.querySelector('div.self-intro > .rec2');
 const selfRec3 = document.querySelector('div.self-intro > .rec3');
 const selfP = document.querySelector('div.self-intro > .rec1 > p');
+const selfP2 = document.querySelector('div.self-intro > .rec2 > .rec2-wrap');
 const profileImage = document.querySelector('div.self-intro > .rec1 > img.profile-image');
 
 const skillIntro = document.querySelector('div.skill-intro');
@@ -79,17 +80,17 @@ const mql = window.matchMedia('screen and (max-width: 768px)');
 
 // // 페이지 로딩되기 직전 스크롤 맨위로
 window.onbeforeunload = function () {
-  // window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
 };
 // // 페이지가 로당되었을 때 스크롤 막기, 3초후 풀기
 window.onload = function () {
-  // body.classList.add("scroll");
+  body.classList.add('scroll');
   loadingCubeCube.classList.add('cube3d');
+  header.classList.add('showing');
   mainSection.classList.add('shown');
-  header.classList.add('shown');
 
   setTimeout(function () {
-    // body.classList.remove("scroll");
+    body.classList.remove('scroll');
     if (mql.matches) {
       loadingCubeCube.style.transform = 'rotateX(61deg) rotateY(153deg) rotateZ(53deg) scale3d(2, 2, 2)';
     } else {
@@ -100,13 +101,14 @@ window.onload = function () {
   }, 2600);
   setTimeout(function () {
     mainSection.classList.remove('shown');
-    header.classList.remove('shown');
+    header.classList.remove('showing');
+    header.classList.add('shown');
   }, 3300);
 };
 
 // 우측 내비게이션 클릭 시 해당 value값 위치로 이동
 navList[0].addEventListener('click', function () {
-  value = 1750;
+  value = 5300;
   window.scrollTo({ top: value, behavior: 'smooth' });
   if (mql.matches) {
     hamburgerMenu();
@@ -151,7 +153,7 @@ window.addEventListener('scroll', function () {
       aboutSpace.style.opacity = 100 - value / 4 + '%';
       aboutSpace.style.display = 'block';
       scrollDown.style.opacity = 100 - value / 4 + '%';
-      scrollDown.style.display = 'block';
+      scrollDown.style.display = 'flex';
       loadingCube.style.opacity = 100 - value / 4 + '%';
       loadingCube.style.transform = 'scale(' + (1 - value / 500) + ')';
       loadingCubeCube.style.transform = 'rotateX(' + (61 - (value * 61) / 400) + 'deg) rotateY(' + (153 - (value * 153) / 400) + 'deg) rotateZ(' + (53 - (value * 53) / 400) + 'deg) scale3d(5, 5, 5)';
@@ -337,7 +339,7 @@ window.addEventListener('scroll', function () {
       floatText1.style.opacity = 0;
     }
     if (value >= 4800 && value < 5800) {
-      floatText1.style.top = 120 - (value - 4800) / 4 + 'px';
+      floatText1.style.top = 120 - (value - 4800) / 8 + 'px';
     }
 
     if (value >= 8100 && value < 8400) {
@@ -350,7 +352,7 @@ window.addEventListener('scroll', function () {
       floatText2.style.opacity = 0;
     }
     if (value >= 8100 && value < 9900) {
-      floatText2.style.top = 200 - (value - 8100) / 4 + 'px';
+      floatText2.style.top = 200 - (value - 8100) / 8 + 'px';
     }
 
     // 자기소개 사각형
@@ -452,10 +454,16 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(-50%, ${-125 + ((value - 6000) * 75) / 500}%) rotate(-540deg) scale(1)`;
       selfRec2.style.border = `3px solid #bcbcbc`;
-      selfRec2.style.width = `${350 + ((value - 6000) * 350) / 500}px`;
+      selfRec2.style.width = `${350 + ((value - 6000) * 460) / 500}px`;
+      selfRec2.style.height = `${350 + ((value - 6000) * 110) / 500}px`;
+      selfP2.style.opacity = 0 + (value - 6000) / 5 + '%';
       //
       selfRec3.style.transform = `translate(75%, 25%) rotate(${-720 - ((value - 6000) * 360) / 1000}deg) scale(0.2)`;
       selfRec3.style.border = `10px solid #bcbcbc`;
+    } else if (value < 6000) {
+      selfP2.style.opacity = 0 + '%';
+      selfRec2.style.width = `350px`;
+      selfRec2.style.height = `350px`;
     }
     // s5 정지
     if (value >= 6500 && value < 7000) {
@@ -464,7 +472,9 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(-50%, -50%) rotate(-540deg) scale(1)`;
       selfRec2.style.border = `3px solid #bcbcbc`;
-      selfRec2.style.width = `700px`;
+      selfRec2.style.width = `810px`;
+      selfRec2.style.height = `460px`;
+      selfP2.style.opacity = 100 + '%';
       //
       selfRec3.style.transform = `translate(75%, 25%) rotate(${-900 - ((value - 6500) * 360) / 1000}deg) scale(0.2)`;
       selfRec3.style.border = `10px solid #bcbcbc`;
@@ -476,10 +486,16 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(-50%, ${-50 + ((value - 7000) * 75) / 500}%) rotate(-540deg) scale(1)`;
       selfRec2.style.border = `3px solid #bcbcbc`;
-      selfRec2.style.width = `${700 - ((value - 7000) * 350) / 500}px`;
+      selfRec2.style.width = `${810 - ((value - 7000) * 460) / 500}px`;
+      selfRec2.style.height = `${460 - ((value - 7000) * 110) / 500}px`;
+      selfP2.style.opacity = 100 - (value - 7000) / 5 + '%';
       //
       selfRec3.style.transform = `translate(75%, ${25 - ((value - 7000) * 75) / 500}%) rotate(${-1080 - ((value - 7000) * 360) / 1000}deg) scale(0.2)`;
       selfRec3.style.border = `10px solid #bcbcbc`;
+    } else if (value >= 7500) {
+      selfP2.style.opacity = 0 + '%';
+      selfRec2.style.width = `350px`;
+      selfRec2.style.height = `350px`;
     }
     // s6
     if (value >= 7500 && value < 8000) {
@@ -488,7 +504,6 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(${-50 + ((value - 7500) * 125) / 500}%, 25%) rotate(-540deg) scale(${1 - ((value - 7500) / 500) * 0.8})`;
       selfRec2.style.border = `${3 + ((value - 7500) * 7) / 500}px solid #bcbcbc`;
-      selfRec2.style.width = `350px`;
       //
       selfRec3.style.transform = `translate(${75 - ((value - 7500) * 125) / 500}%, -50%) rotate(-1260deg) scale(${0.2 + ((value - 7500) / 500) * 0.8})`;
       selfRec3.style.border = `${10 - ((value - 7500) * 7) / 500}px solid #bcbcbc`;
@@ -500,7 +515,6 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(${75 - ((value - 8000) * 65) / 200}%, ${25 - ((value - 8000) * 15) / 200}%) rotate(-540deg) scale(0.2)`;
       selfRec2.style.border = `10px solid #bcbcbc`;
-      selfRec2.style.width = `350px`;
       //
       selfRec3.style.transform = `translate(-50%, -50%) rotate(-1260deg) scale(1)`;
       selfRec3.style.border = `3px solid #bcbcbc`;
@@ -512,7 +526,6 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(${10 + (value - 8200) / 1.2}%, ${10 + (value - 8200) / 2}%) rotate(-540deg) scale(0.2)`;
       selfRec2.style.border = `10px solid #bcbcbc`;
-      selfRec2.style.width = `350px`;
       //
       selfRec3.style.transform = `translate(${-50 + (value - 8200) / 3}%, -50%) rotate(-1260deg) scale(${1 + ((value - 8200) / 300) * 3})`;
       selfRec3.style.border = `${3 - ((value - 8200) * 2) / 300}px solid #bcbcbc`;
@@ -525,7 +538,6 @@ window.addEventListener('scroll', function () {
       //
       selfRec2.style.transform = `translate(70%, 160%) rotate(-540deg) scale(0.2)`;
       selfRec2.style.border = `10px solid #bcbcbc`;
-      selfRec2.style.width = `350px`;
       //
       selfRec3.style.transform = `translate(50%, -50%) rotate(-1260deg) scale(4)`;
       selfRec3.style.border = `1px solid #bcbcbc`;
@@ -676,7 +688,7 @@ window.addEventListener('scroll', function () {
 
       for (let i = 0; i < skillRecEls.length; i++) {
         skillRecEls[i].style.border = 'none';
-        // skillRecEls[i].style.transition = '1s';
+        skillRecEls[i].style.transition = '1s';
         skillRecEls[i].style.backgroundColor = 'transparent';
         skillIconEls[i].style.transform = 'scale(1)';
       }
@@ -919,7 +931,16 @@ window.addEventListener('scroll', function () {
       contactSection.style.display = 'none';
       contactSection.style.width = 0 + 'vw';
     }
-
+    if (value >= 14000 && value < 14200) {
+      aboutSection.style.opacity = 100 - (value - 14000) / 2 + '%';
+      worksSection.style.opacity = 100 - (value - 14000) / 2 + '%';
+    } else if (value >= 14200) {
+      aboutSection.style.opacity = 0;
+      worksSection.style.opacity = 0;
+    } else if (value < 14000) {
+      aboutSection.style.opacity = 100 + '%';
+      worksSection.style.opacity = 100 + '%';
+    }
     if (value >= 14000 && value < 15300) {
       contactSection.style.display = 'block';
       contactSection.style.width = (value - 14000) / 13 + 'vw';

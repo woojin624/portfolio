@@ -92,9 +92,10 @@ div.skill-intro {
   width: 20000px;
   font-size: 0px;
   font-weight: 700;
-  z-index: 500;
+  z-index: 700;
   transition: 0.1s;
   display: none;
+  pointer-events: none;
 }
 
 div.skill-intro > p {

@@ -28,7 +28,7 @@ window.addEventListener('scroll', function () {
       aboutSpace.style.opacity = 100 - value / 4 + '%';
       aboutSpace.style.display = 'block';
       scrollDown.style.opacity = 100 - value / 4 + '%';
-      scrollDown.style.display = 'block';
+      scrollDown.style.display = 'flex';
       loadingCube.style.opacity = 100 - value / 4 + '%';
       loadingCube.style.transform = 'scale(' + (1 - value / 500) + ')';
       loadingCubeCube.style.transform = 'rotateX(' + (61 - (value * 61) / 400) + 'deg) rotateY(' + (153 - (value * 153) / 400) + 'deg) rotateZ(' + (53 - (value * 53) / 400) + 'deg) scale3d(2, 2, 2)';

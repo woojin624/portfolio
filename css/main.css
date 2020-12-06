@@ -172,4 +172,10 @@ div.scroll-down > div.arrow > div.right {
   article.about-space > p {
     font-size: 14px;
   }
+  div.scroll-down {
+    bottom: 50px;
+  }
+  div.scroll-down > .mouse {
+    display: none;
+  }
 }

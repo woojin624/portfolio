@@ -94,26 +94,36 @@ div.bottom-bar.active {
   position: fixed;
   z-index: 9999;
   pointer-events: none;
-  background: rgba(18, 18, 18, 0.9);
   /* width: 400px; */
   height: 80px;
-  overflow: hidden;
   display: none;
-  width: 0;
-  transition: 0.3s ease-in;
+  /* width: 400px; */
 }
 .work-cursor.active {
-  width: 400px;
+  display: block;
 }
 .work-cursor > article {
   position: absolute;
   top: 50%;
-  left: 16px;
+  left: 0;
   transform: translate(0%, -50%);
+  width: fit-content;
+  height: 80px;
+  overflow: hidden;
+  background: rgba(18, 18, 18, 0.9);
+  display: none;
+  /* display: flex; */
+  justify-content: center;
+  flex-direction: column;
+}
+.work-cursor.active > article.active {
+  /* width: 400px; */
+  display: flex;
 }
 .work-cursor > article > p:first-child {
   color: #fff;
   white-space: nowrap;
+  margin: 16px;
   margin-bottom: 8px;
   font-size: 18px;
   font-weight: 500;
@@ -122,6 +132,8 @@ div.bottom-bar.active {
   color: #dadada;
   white-space: nowrap;
   font-size: 16px;
+  margin: 16px;
+  margin-top: 0;
 }
 
 @media screen and (max-width: 768px) {

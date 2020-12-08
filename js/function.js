@@ -35,11 +35,11 @@ function DisplayWork() {
 
 // // 큐브가 회전하는 타이머를 작동하는 함수
 function StartTime() {
-  // if (cubeFunction == true) {
-  // DisplayWork();
-  timeId = setInterval(DisplayWork, cubeInterval);
-  // cubeFunction = false;
-  // }
+  if (cubeFunction == true) {
+    DisplayWork();
+    timeId = setInterval(DisplayWork, cubeInterval);
+    cubeFunction = false;
+  }
 }
 
 // // 큐브가 회전하는 타이머를 멈추는 함수
@@ -59,4 +59,38 @@ if (document.addEventListener) {
   document.addEventListener('mousemove', resultFun);
 } else if (document.attachEvent) {
   document.attachEvent('onmousemove', resultFun);
+}
+
+// 팝업창 여닫 함수
+function popWinOpen(i) {
+  setTimeout(() => {
+    bottomBarCheck = false;
+    bottomBar.classList.remove('active');
+    StopTime();
+    cubeFunction = true;
+  }, 100);
+
+  popUp.style.opacity = 1;
+  popUp.style.pointerEvents = 'auto';
+  popUpWin[i].style.display = 'flex';
+  setTimeout(function () {
+    popUpWin[i].style.transform = 'scale(1)';
+    popUpWin[i].style.opacity = 1;
+  }, 50);
+  body.classList.add('scroll');
+}
+
+function popWinClose(i) {
+  bottomBarCheck = true;
+  bottomBar.classList.add('active');
+  StartTime();
+
+  popUp.style.opacity = 0;
+  popUp.style.pointerEvents = 'none';
+  popUpWin[i].style.transform = 'scale(0)';
+  popUpWin[i].style.opacity = 0;
+  setTimeout(function () {
+    popUpWin[i].style.display = 'none';
+  }, 200);
+  body.classList.remove('scroll');
 }

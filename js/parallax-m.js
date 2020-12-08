@@ -766,45 +766,15 @@ window.addEventListener('scroll', function () {
         });
         // 팝업 창
         workListEls[i].addEventListener('click', () => {
-          bottomBarCheck = false;
-          bottomBar.classList.remove('active');
-
-          popUp.style.opacity = 1;
-          popUp.style.pointerEvents = 'auto';
-          popUpWin[i].style.display = 'flex';
-          setTimeout(function () {
-            popUpWin[i].style.transform = 'scale(1)';
-            popUpWin[i].style.opacity = 1;
-          }, 50);
-          body.classList.add('scroll');
+          popWinOpen(i);
         });
         popClose[i].addEventListener('click', () => {
-          bottomBarCheck = true;
-          bottomBar.classList.add('active');
-
-          popUp.style.opacity = 0;
-          popUp.style.pointerEvents = 'none';
-          popUpWin[i].style.transform = 'scale(0)';
-          popUpWin[i].style.opacity = 0;
-          setTimeout(function () {
-            popUpWin[i].style.display = 'none';
-          }, 200);
-          body.classList.remove('scroll');
+          popWinClose(i);
         });
         popUp.addEventListener('click', (e) => {
           e.stopPropagation();
           if (e.target !== e.currentTarget) return;
-          bottomBarCheck = true;
-          bottomBar.classList.add('active');
-
-          popUp.style.opacity = 0;
-          popUp.style.pointerEvents = 'none';
-          popUpWin[i].style.transform = 'scale(0)';
-          popUpWin[i].style.opacity = 0;
-          setTimeout(function () {
-            popUpWin[i].style.display = 'none';
-          }, 300);
-          body.classList.remove('scroll');
+          popWinClose(i);
         });
       }
     } else {

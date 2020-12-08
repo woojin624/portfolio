@@ -66,6 +66,9 @@ let cubeInterval = null;
 let cubeFunction = true;
 let bottomBarCheck = true;
 
+const workCursor = document.querySelector('div.work-cursor');
+const workCursorArt = document.querySelectorAll('div.work-cursor > article');
+
 // pop-up
 const popUp = document.querySelector('section.popup');
 const popUpWin = document.querySelectorAll('.pop-win');
@@ -827,15 +830,15 @@ window.addEventListener('scroll', function () {
     // work-list 등장
 
     if (value >= 13300 && value < 14000) {
-      cubeInterval = 3000;
       if (bottomBarCheck == true) {
         bottomBar.classList.add('active');
+        bottomBarCheck = false;
       }
-
       if (cubeFunction == true) {
+        cubeInterval = 3000;
         StartTime();
+        cubeFunction = false;
       }
-      cubeFunction = false;
       skillLastCube.style.transition = '.3s ease-in';
       skillWrap.style.backgroundImage = `url("./images/back/background${1}.png")`;
 
@@ -847,15 +850,17 @@ window.addEventListener('scroll', function () {
 
         // 워크리스트에 마우스를 올리고 내렸을 때
         workListEls[i].addEventListener('mouseenter', (e) => {
-          bottomBarCheck = false;
           bottomBar.classList.remove('active');
           target = e.currentTarget;
           workListid = i;
 
+          workCursor.classList.add('active');
           for (let j = 0; j < workListEls.length; j++) {
             workListEls[j].classList.remove('active');
+            workCursorArt[j].classList.remove('active');
           }
           workListEls[i].classList.add('active');
+          workCursorArt[i].classList.add('active');
 
           target === workListEls[0] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(270deg) rotateY(180deg) rotateZ(265deg)');
           target === workListEls[1] && (skillLastCube.style.transform = 'scale(3) translate(-80%, -50%) rotateX(270deg) rotateY(180deg) rotateZ(175deg)');
@@ -866,50 +871,22 @@ window.addEventListener('scroll', function () {
           target === workListEls[i] && (skillWrap.style.backgroundImage = `url("./images/back/background${i + 1}.png")`);
         });
         workListEls[i].addEventListener('mouseleave', () => {
-          bottomBarCheck = true;
           bottomBar.classList.add('active');
+
+          workCursorArt[i].classList.remove('active');
+          workCursor.classList.remove('active');
         });
         // 팝업 창
         workListEls[i].addEventListener('click', () => {
-          bottomBarCheck = false;
-          bottomBar.classList.remove('active');
-
-          popUp.style.opacity = 1;
-          popUp.style.pointerEvents = 'auto';
-          popUpWin[i].style.display = 'flex';
-          setTimeout(function () {
-            popUpWin[i].style.transform = 'scale(1)';
-            popUpWin[i].style.opacity = 1;
-          }, 50);
-          body.classList.add('scroll');
+          popWinOpen(i);
         });
         popClose[i].addEventListener('click', () => {
-          bottomBarCheck = true;
-          bottomBar.classList.add('active');
-
-          popUp.style.opacity = 0;
-          popUp.style.pointerEvents = 'none';
-          popUpWin[i].style.transform = 'scale(0)';
-          popUpWin[i].style.opacity = 0;
-          setTimeout(function () {
-            popUpWin[i].style.display = 'none';
-          }, 200);
-          body.classList.remove('scroll');
+          popWinClose(i);
         });
         popUp.addEventListener('click', (e) => {
           e.stopPropagation();
           if (e.target !== e.currentTarget) return;
-          bottomBarCheck = true;
-          bottomBar.classList.add('active');
-
-          popUp.style.opacity = 0;
-          popUp.style.pointerEvents = 'none';
-          popUpWin[i].style.transform = 'scale(0)';
-          popUpWin[i].style.opacity = 0;
-          setTimeout(function () {
-            popUpWin[i].style.display = 'none';
-          }, 300);
-          body.classList.remove('scroll');
+          popWinClose(i);
         });
       }
     } else {
@@ -922,10 +899,12 @@ window.addEventListener('scroll', function () {
       }
       bottomBar.classList.remove('active');
       timeId = null;
-
+      bottomBarCheck = true;
       cubeFunction = true;
     }
-
+    if (value > 13950) {
+      skillWrap.style.backgroundImage = `none`;
+    }
     // 콘택트 페이지 등장
     if (value < 14000) {
       contactSection.style.display = 'none';

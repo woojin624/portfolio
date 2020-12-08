@@ -1,9 +1,10 @@
 section.contact {
   position: fixed;
-  width: 0vw;
+  width: 100vw;
   height: 100vh;
   top: 0px;
   left: 50%;
+  /* opacity: 0; */
   transform: translate(-50%, 0);
   background-color: white;
   z-index: 2420;

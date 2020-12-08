@@ -4,7 +4,7 @@ function DisplayWork() {
     turnId = 0;
     timeId = turnId;
   }
-  console.log(turnId);
+  // console.log(turnId);
   if (mql.matches) {
     turnId === 0 && (skillLastCube.style.transform = 'scale(3) translate(-17%, -125%) rotateX(265deg) rotateY(180deg) rotateZ(270deg)');
     turnId === 1 && (skillLastCube.style.transform = 'scale(3) translate(-17%, -125%) rotateX(265deg) rotateY(180deg) rotateZ(180deg)');
@@ -35,11 +35,11 @@ function DisplayWork() {
 
 // // 큐브가 회전하는 타이머를 작동하는 함수
 function StartTime() {
-  if (cubeFunction == true) {
-    DisplayWork();
-    timeId = setInterval(DisplayWork, cubeInterval);
-    cubeFunction = false;
-  }
+  // if (cubeFunction == true) {
+  // DisplayWork();
+  timeId = setInterval(DisplayWork, cubeInterval);
+  // cubeFunction = false;
+  // }
 }
 
 // // 큐브가 회전하는 타이머를 멈추는 함수
@@ -47,4 +47,16 @@ function StopTime() {
   if (timeId != null) {
     clearInterval(timeId);
   }
+}
+
+function resultFun(x) {
+  var positionLeft = x.clientX;
+  var positionTop = x.clientY;
+  document.querySelector('.work-cursor').style.left = positionLeft + 'px';
+  document.querySelector('.work-cursor').style.top = positionTop + 'px';
+}
+if (document.addEventListener) {
+  document.addEventListener('mousemove', resultFun);
+} else if (document.attachEvent) {
+  document.attachEvent('onmousemove', resultFun);
 }

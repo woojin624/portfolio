@@ -826,7 +826,16 @@ window.addEventListener('scroll', function () {
       contactSection.style.display = 'none';
       contactSection.style.width = 0 + 'vw';
     }
-
+    if (value >= 14000 && value < 14200) {
+      aboutSection.style.opacity = 100 - (value - 14000) / 2 + '%';
+      worksSection.style.opacity = 100 - (value - 14000) / 2 + '%';
+    } else if (value >= 14200) {
+      aboutSection.style.opacity = 0;
+      worksSection.style.opacity = 0;
+    } else if (value < 14000) {
+      aboutSection.style.opacity = 100 + '%';
+      worksSection.style.opacity = 100 + '%';
+    }
     if (value >= 14000 && value < 15300) {
       contactSection.style.display = 'block';
       contactSection.style.width = (value - 14000) / 13 + 'vw';

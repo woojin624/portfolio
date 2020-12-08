@@ -146,6 +146,12 @@ article.pop-win.pop1 > div.project-disc > h1 > img {
 article.pop-win.pop1 > div.project-disc > div.btn-wrap > a {
   color: #fff;
   border: 2px solid #fff;
+  transition: 0.3s ease-in;
+}
+article.pop-win.pop1 > div.project-disc > div.btn-wrap > a:hover {
+  color: #282828;
+  border: 2px solid transparent;
+  background: #fff;
 }
 
 /* pop2 */
@@ -166,6 +172,12 @@ article.pop-win.pop2 > div.project-disc > h1 > img {
 article.pop-win.pop2 > div.project-disc > div.btn-wrap > a {
   color: #fff;
   border: 2px solid #fff;
+  transition: 0.3s ease-in;
+}
+article.pop-win.pop2 > div.project-disc > div.btn-wrap > a:hover {
+  color: #8a11ff;
+  border: 2px solid transparent;
+  background: #fff;
 }
 
 /* pop3 */
@@ -186,6 +198,12 @@ article.pop-win.pop3 > div.project-disc > h1 > img {
 article.pop-win.pop3 > div.project-disc > div.btn-wrap > a {
   color: #181818;
   border: 2px solid #181818;
+  transition: 0.3s ease-in;
+}
+article.pop-win.pop3 > div.project-disc > div.btn-wrap > a:hover {
+  color: #fff;
+  border: 2px solid transparent;
+  background: #181818;
 }
 
 /* pop4 */
@@ -206,6 +224,12 @@ article.pop-win.pop4 > div.project-disc > h1 > img {
 article.pop-win.pop4 > div.project-disc > div.btn-wrap > a {
   color: #fff;
   border: 2px solid #fff;
+  transition: 0.3s ease-in;
+}
+article.pop-win.pop4 > div.project-disc > div.btn-wrap > a:hover {
+  color: #3695f8;
+  border: 2px solid transparent;
+  background: #fff;
 }
 
 /* pop5 */
@@ -226,6 +250,12 @@ article.pop-win.pop5 > div.project-disc > h1 > img {
 article.pop-win.pop5 > div.project-disc > div.btn-wrap > a {
   color: #fff;
   border: 2px solid #fff;
+  transition: 0.3s ease-in;
+}
+article.pop-win.pop5 > div.project-disc > div.btn-wrap > a:hover {
+  color: #101010;
+  border: 2px solid transparent;
+  background: #fff;
 }
 
 /* pop6 */
@@ -242,6 +272,12 @@ article.pop-win.pop6 > div.project-disc > h1 > img {
 article.pop-win.pop6 > div.project-disc > div.btn-wrap > a {
   color: #fff;
   border: 2px solid #fff;
+  transition: 0.3s ease-in;
+}
+article.pop-win.pop6 > div.project-disc > div.btn-wrap > a:hover {
+  color: #f79c15;
+  border: 2px solid transparent;
+  background: #fff;
 }
 
 /* 클로즈버튼 */

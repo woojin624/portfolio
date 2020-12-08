@@ -141,7 +141,7 @@ cubeLogo;
 // 패럴랙스 스크롤 이벤트 시작 부분
 window.addEventListener('scroll', function () {
   value = window.scrollY;
-  console.log(value);
+  // console.log(value);
   if (!mql.matches) {
     // 로딩화면 요소 처리
     if (value == 0) {
@@ -929,7 +929,8 @@ window.addEventListener('scroll', function () {
     // 콘택트 페이지 등장
     if (value < 14000) {
       contactSection.style.display = 'none';
-      contactSection.style.width = 0 + 'vw';
+      // contactSection.style.width = 0 + 'vw';
+      contactSection.style.transform = `translate(-50%, 0) scale(0, 1)`;
     }
     if (value >= 14000 && value < 14200) {
       aboutSection.style.opacity = 100 - (value - 14000) / 2 + '%';
@@ -943,12 +944,14 @@ window.addEventListener('scroll', function () {
     }
     if (value >= 14000 && value < 15300) {
       contactSection.style.display = 'block';
-      contactSection.style.width = (value - 14000) / 13 + 'vw';
+      // contactSection.style.width = (value - 14000) / 13 + 'vw';
+      contactSection.style.transform = `translate(-50%, 0) scale(${(value - 14000) / 1300}, 1)`;
     }
 
     if (value >= 15300) {
       contactSection.style.display = 'block';
-      contactSection.style.width = 100 + 'vw';
+      // contactSection.style.width = 100 + 'vw';
+      contactSection.style.transform = `translate(-50%, 0) scale(1, 1)`;
     }
     if (value > 14200) {
       for (let i = 0; i < loadingCubeRec.length; i++) {

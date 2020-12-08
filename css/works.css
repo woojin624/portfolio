@@ -90,6 +90,40 @@ div.bottom-bar.active {
   }
 }
 
+.work-cursor {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  background: rgba(18, 18, 18, 0.9);
+  /* width: 400px; */
+  height: 80px;
+  overflow: hidden;
+  display: none;
+  width: 0;
+  transition: 0.3s ease-in;
+}
+.work-cursor.active {
+  width: 400px;
+}
+.work-cursor > article {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translate(0%, -50%);
+}
+.work-cursor > article > p:first-child {
+  color: #fff;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.work-cursor > article > p:nth-child(2) {
+  color: #dadada;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
 @media screen and (max-width: 768px) {
   section.works > ul.work-list {
     transform: translate(-50%, 0%);

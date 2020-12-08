@@ -86,8 +86,8 @@ window.onbeforeunload = function () {
 window.onload = function () {
   body.classList.add('scroll');
   loadingCubeCube.classList.add('cube3d');
-  header.classList.add('showing');
-  mainSection.classList.add('shown');
+  // header.classList.add('showing');
+  // mainSection.classList.add('shown');
 
   setTimeout(function () {
     body.classList.remove('scroll');

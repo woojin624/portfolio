@@ -10,7 +10,7 @@ header {
 }
 header.showing {
   opacity: 0;
-  animation: navshown 0.5s 2.6s ease-in forwards;
+  animation: navshown 0.5s 2.8s ease-in forwards;
 }
 header.shown {
   opacity: 1;

@@ -108,7 +108,7 @@ div.scroll-down > .mouse > .point {
   animation: point-down 1.5s ease infinite;
 }
 div.scroll-down > div.arrow {
-  transform: translate(0, 5px);
+  transform: translate(0, 8px);
   display: flex;
   justify-content: center;
 }
@@ -116,16 +116,16 @@ div.scroll-down > div.arrow:nth-child(2) {
   transform: translate(0, 20px);
 }
 div.scroll-down > div.arrow > div.left {
-  width: 20px;
+  width: 16px;
   height: 2px;
   background-color: #fff;
-  transform: rotate(45deg) translate(5px, 0);
+  transform: rotate(45deg) translate(4px, 0);
 }
 div.scroll-down > div.arrow > div.right {
-  width: 20px;
+  width: 16px;
   height: 2px;
   background-color: #fff;
-  transform: rotate(-45deg) translate(-5px, 0);
+  transform: rotate(-45deg) translate(-4px, 0);
 }
 
 @keyframes scroll-down {
